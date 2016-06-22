@@ -27,7 +27,8 @@ class MainController: UIViewController, UIWebViewDelegate {
 		}
 
 		var urlStr = addressStr
-		if !urlStr.containsString("https://") {
+		if !urlStr.containsString("https://") &&
+		!urlStr.containsString("http://") {
 			urlStr = "https://\(urlStr)"
 		}
 
