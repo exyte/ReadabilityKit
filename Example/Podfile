@@ -4,7 +4,6 @@ target 'ReadabilityKit_Example' do
   pod 'ReadabilityKit', :path => '../'
 
   target 'ReadabilityKit_Tests' do
-    inherit! :search_paths
 
     
   end

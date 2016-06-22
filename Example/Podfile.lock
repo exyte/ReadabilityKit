@@ -1,0 +1,17 @@
+PODS:
+  - Fuzi (0.3.1)
+  - ReadabilityKit (0.1.0):
+    - Fuzi (~> 0.3.0)
+
+DEPENDENCIES:
+  - ReadabilityKit (from `../`)
+
+EXTERNAL SOURCES:
+  ReadabilityKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Fuzi: 25118b725a1637f1676f63ae1acbba1f30a5dd6c
+  ReadabilityKit: 621580cec6931600d933035540886f48879a9112
+
+COCOAPODS: 0.38.2
