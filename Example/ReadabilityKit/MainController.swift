@@ -59,7 +59,7 @@ class MainController: UIViewController, UIWebViewDelegate {
 	}
 
 	// MARK: UIWebView delegate
-	func webViewDidStartLoad(webView: UIWebView) {
+	func webViewDidFinishLoad(webView: UIWebView) {
 		url = webView.request?.URL
 		guard let urlStr = url?.absoluteString else {
 			return
