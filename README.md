@@ -16,6 +16,9 @@ Extracting:
 - [x] Title image url
 - [x] Keywords
 
+## Requirements
+
+- iOS 8.0+ / Mac OS X 10.9+ 
 
 ## Usage
 
