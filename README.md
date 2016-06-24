@@ -19,12 +19,14 @@ Extracting:
 
 ## Usage
 
+```swift
 let parser = Readability(data: htmlData)
 
 let title = parser.title()
 let description = parser.description()
 let keywords = parser.keywords()
 let imageUrl = parser.imageUrl()
+```
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
