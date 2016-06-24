@@ -40,5 +40,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
 
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency 'Fuzi', '~> 0.3.0'
+  s.dependency 'Ji', '~> 1.2.0'
 end

@@ -1,4 +1,4 @@
-import Fuzi
+import Ji
 
 public class Readability {
 
@@ -47,14 +47,14 @@ public class Readability {
 	var negativeRegExp: NSRegularExpression?
 	var nodesRegExp: NSRegularExpression?
 
-	private var document: XMLDocument?
+	private var document: Ji?
 	private var maxWeight = 0
-	private var maxWeightNode: XMLElement?
+	private var maxWeightNode: JiNode?
 
 	var maxWeightImgUrl: String?
 	var maxWeightText: String?
 
-	private func weightNode(node: XMLElement) -> Int {
+	private func weightNode(node: JiNode) -> Int {
 		var weight = 0
 
 		if let className = node.attributes["class"] {
@@ -110,18 +110,20 @@ public class Readability {
 		return weight
 	}
 
-	private func calcWeightForChild(node: XMLElement, ownText: String) -> Int {
+	private func calcWeightForChild(node: JiNode, ownText: String) -> Int {
 		return 0
 	}
 
-	private func weightChildNodes(node: XMLElement) -> Int {
+	private func weightChildNodes(node: JiNode) -> Int {
 		var weight = 0
-		var pEls = [XMLElement]()
-		var caption: XMLElement?
+		var pEls = [JiNode]()
+		var caption: JiNode?
 
 		node.children.forEach { child in
 
-			let text = child.stringValue
+			guard let text = child.content else {
+				return
+			}
 
 			let length = text.characters.count
 			if length < 20 {
@@ -158,11 +160,11 @@ public class Readability {
 		return weight
 	}
 
-	private func importantNodes() -> [XMLElement]? {
+	private func importantNodes() -> [JiNode]? {
 
-		if let bodyNodes = document?.xpath("//body") { // try(document?.nodesForXPath("//body") as? [GDataXMLElement]) {
+		if let bodyNodes = document?.xPath("//body") {
 			if bodyNodes.count > 0 {
-				if let innerNodes = bodyNodes.first?.xpath("//*") {
+				if let innerNodes = bodyNodes.first?.xPath("//*") {
 					return Array(innerNodes)
 				}
 			}
@@ -187,7 +189,9 @@ public class Readability {
 		if let importantNodes = importantNodes() {
 			importantNodes.forEach { node in
 				var weight = weightNode(node)
-				let stringValue = node.stringValue
+				guard let stringValue = node.content else {
+					return
+				}
 				weight += stringValue.characters.count / 10
 
 				weight += weightChildNodes(node)
@@ -207,7 +211,7 @@ public class Readability {
 		 */
 	}
 
-	private func sizeWeight(imgNode: XMLElement) -> Int {
+	private func sizeWeight(imgNode: JiNode) -> Int {
 		var weight = 0
 		if let widthStr = imgNode.attributes["width"] {
 			let width = Int(widthStr)
@@ -232,7 +236,7 @@ public class Readability {
 		return weight
 	}
 
-	private func altWeight(imgNode: XMLElement) -> Int {
+	private func altWeight(imgNode: JiNode) -> Int {
 		var weight = 0
 		if let altStr = imgNode.attributes["alt"] {
 			if (altStr.characters.count > 35) {
@@ -243,7 +247,7 @@ public class Readability {
 		return weight
 	}
 
-	private func titleWeight(imgNode: XMLElement) -> Int {
+	private func titleWeight(imgNode: JiNode) -> Int {
 		var weight = 0
 		if let titleStr = imgNode.attributes["title"] {
 			if (titleStr.characters.count > 35) {
@@ -254,12 +258,12 @@ public class Readability {
 		return weight
 	}
 
-	private func determineImageSource(node: XMLElement) -> XMLElement? {
+	private func determineImageSource(node: JiNode) -> JiNode? {
 
 		var maxImgWeight = 20
-		var maxImgNode: XMLElement?
+		var maxImgNode: JiNode?
 
-		let imageNodes = node.xpath("//img")
+		let imageNodes = node.xPath("//img")
 		imageNodes.forEach { imageNode in
 			let weight = sizeWeight(imageNode) +
 				altWeight(imageNode) +
@@ -274,9 +278,11 @@ public class Readability {
 		return maxImgNode
 	}
 
-	private func extractText(node: XMLElement) -> String?
+	private func extractText(node: JiNode) -> String?
 	{
-		let strValue = node.stringValue
+		guard let strValue = node.content else {
+			return .None
+		}
 
 		let texts = strValue.stringByReplacingOccurrencesOfString("\t", withString: "").componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
 		var importantTexts = [String]()
@@ -292,7 +298,7 @@ public class Readability {
 	public init(data htmlData: NSData)
 	{
 		do {
-			try document = XMLDocument(data: htmlData)
+			try document = Ji(htmlData: htmlData)
 		}
 		catch {
 			NSLog("Error parsing html data")
@@ -312,9 +318,12 @@ public class Readability {
 		}
 	}
 
-	private func extractValueUsing(document: XMLDocument, path: String, attribute: String?) -> String? {
+	private func extractValueUsing(document: Ji, path: String, attribute: String?) -> String? {
 
-		let nodes = document.xpath(path)
+		guard let nodes = document.xPath(path) else {
+			return .None
+		}
+
 		if nodes.count == 0 {
 			return .None
 		}
@@ -329,19 +338,19 @@ public class Readability {
 			}
 			// Not using attribute
 			else {
-				return node.stringValue
+				return node.content
 			}
 		}
 
 		return .None
 	}
 
-	private func extractValuesUsing(document: XMLDocument, path: String, attribute: String?) -> [String]? {
+	private func extractValuesUsing(document: Ji, path: String, attribute: String?) -> [String]? {
 		var values: [String]?
 
-		let nodes = document.xpath(path)
+		let nodes = document.xPath(path)
 		values = [String]()
-		nodes.forEach { node in
+		nodes?.forEach { node in
 
 			if let attribute = attribute {
 				if let value = node.attributes[attribute] {
@@ -349,14 +358,16 @@ public class Readability {
 				}
 			}
 			else {
-				values?.append(node.stringValue)
+				if let content = node.content {
+					values?.append(content)
+				}
 			}
 		}
 
 		return values
 	}
 
-	private func extractValueUsing(document: XMLDocument, queries: [(String, String?)]) -> String? {
+	private func extractValueUsing(document: Ji, queries: [(String, String?)]) -> String? {
 		for query in queries {
 			if let value = extractValueUsing(document, path: query.0, attribute: query.1) {
 				return value
@@ -366,7 +377,7 @@ public class Readability {
 		return nil
 	}
 
-	private func extractValuesUsing(document: XMLDocument, queries: [(String, String?)]) -> [String]? {
+	private func extractValuesUsing(document: Ji, queries: [(String, String?)]) -> [String]? {
 		for query in queries {
 			if let values = extractValuesUsing(document, path: query.0, attribute: query.1) {
 				return values
