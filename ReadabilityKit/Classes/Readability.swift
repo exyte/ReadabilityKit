@@ -278,9 +278,29 @@ public class Readability {
 		return maxImgNode
 	}
 
+	private func clearNodeContent(node: JiNode) -> String? {
+		guard var strValue = node.content else {
+			return .None
+		}
+
+		let nodesToRemove = [
+			node.xPath("//script"),
+			node.xPath("//noscript"),
+			node.xPath("//style")].flatMap { $0 }
+		nodesToRemove.forEach { nodeToRemove in
+			guard let contentToRemove = nodeToRemove.content else {
+				return
+			}
+
+			strValue = strValue.stringByReplacingOccurrencesOfString(contentToRemove, withString: "")
+		}
+
+		return strValue
+	}
+
 	private func extractText(node: JiNode) -> String?
 	{
-		guard let strValue = node.content else {
+		guard let strValue = clearNodeContent(node) else {
 			return .None
 		}
 
