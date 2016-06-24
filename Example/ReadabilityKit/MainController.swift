@@ -25,7 +25,7 @@
 
 import UIKit
 
-class MainController: UIViewController, UIWebViewDelegate {
+class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 	@IBOutlet weak var addressField: UITextField?
 	@IBOutlet weak var webView: UIWebView?
@@ -39,6 +39,8 @@ class MainController: UIViewController, UIWebViewDelegate {
 	}
 
 	@IBAction func onGo() {
+		addressField?.resignFirstResponder()
+
 		guard let addressStr = addressField?.text else {
 			return
 		}
@@ -83,5 +85,13 @@ class MainController: UIViewController, UIWebViewDelegate {
 		}
 
 		addressField?.text = urlStr
+	}
+
+	// MARKL UITextFieldDelegate
+
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		onGo()
+
+		return true
 	}
 }
