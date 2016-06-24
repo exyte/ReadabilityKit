@@ -22,7 +22,7 @@ pod "ReadabilityKit"
 
 ## Author
 
-Victor Sukochev, sukochevvv@gmail.com
+Exyte, exyte.com
 
 ## License
 
