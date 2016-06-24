@@ -32,9 +32,9 @@ class DetailsController: UIViewController {
 		self.dismissViewControllerAnimated(true, completion: .None)
 	}
 
-	@IBOutlet weak var titleLabel: UILabel?
+	@IBOutlet weak var titleView: UITextView?
 	@IBOutlet weak var imageView: UIImageView?
-	@IBOutlet weak var keywordsLabel: UILabel?
+	@IBOutlet weak var keywordsView: UITextView?
 	@IBOutlet weak var descriptionView: UITextView?
 
 	var url: NSURL? {
@@ -60,10 +60,10 @@ class DetailsController: UIViewController {
 
 		let parser = Readability(data: htmlData)
 
-		titleLabel?.text = parser.title()
+		titleView?.text = parser.title()
 		descriptionView?.text = parser.description()
 		if let keywords = parser.keywords() {
-			keywordsLabel?.text = keywords.joinWithSeparator(" ")
+			keywordsView?.text = keywords.joinWithSeparator(" ")
 		}
 
 		guard let imageUrlStr = parser.imageUrl() else {
