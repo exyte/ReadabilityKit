@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ReadabilityKit'
-  s.version          = '0.1.1'
+  s.version          = '0.1.0'
   s.summary          = 'HTML document meta info extractor.'
   
   s.homepage         = 'https://github.com/exyte/ReadabilityKit.git'
