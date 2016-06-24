@@ -57,4 +57,31 @@ class Tests: XCTestCase {
 		XCTAssert(readability.imageUrl() == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
 			"Wrong image url")
 	}
+
+	func testMmochampionPage() {
+
+		let bundle = NSBundle(forClass: self.dynamicType)
+		guard let path = bundle.pathForResource("mmochampion", ofType: "html") else {
+			XCTFail("No resource path available")
+			return
+		}
+
+		guard let htmlData = NSData(contentsOfFile: path) else {
+			XCTFail("No resource file available")
+			return
+		}
+
+		let readability = Readability(data: htmlData)
+
+		XCTAssert(readability.title() == "MMO-Champion - World of Warcraft News and Raiding Strategies")
+		XCTAssert(readability.description() == "Articles and forums with game news and raiding strategies.")
+
+		let keywords = ["mmo", "news", "world", "of", "warcraft", "raids", "mmo", "wow"]
+
+		guard let readabilityKeywords = readability.keywords() else {
+			return
+		}
+
+		XCTAssert(readabilityKeywords == keywords, "Wrong image url")
+	}
 }

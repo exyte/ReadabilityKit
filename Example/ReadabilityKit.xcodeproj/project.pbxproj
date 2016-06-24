@@ -11,6 +11,7 @@
 		5707F3A61D1A97D300FAD21C /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5707F3A51D1A97D300FAD21C /* DetailsController.swift */; };
 		5707F3A91D1AB41300FAD21C /* readcereal.html in Resources */ = {isa = PBXBuildFile; fileRef = 5707F3A81D1AB41300FAD21C /* readcereal.html */; };
 		570B34D01D1D308D008A77F7 /* starwars.html in Resources */ = {isa = PBXBuildFile; fileRef = 570B34CF1D1D308D008A77F7 /* starwars.html */; };
+		570B34D21D1D32F6008A77F7 /* mmochampion.html in Resources */ = {isa = PBXBuildFile; fileRef = 570B34D11D1D32F6008A77F7 /* mmochampion.html */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		5707F3A51D1A97D300FAD21C /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		5707F3A81D1AB41300FAD21C /* readcereal.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = readcereal.html; sourceTree = "<group>"; };
 		570B34CF1D1D308D008A77F7 /* starwars.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = starwars.html; sourceTree = "<group>"; };
+		570B34D11D1D32F6008A77F7 /* mmochampion.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mmochampion.html; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ReadabilityKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadabilityKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				570B34CF1D1D308D008A77F7 /* starwars.html */,
 				5707F3A81D1AB41300FAD21C /* readcereal.html */,
+				570B34D11D1D32F6008A77F7 /* mmochampion.html */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570B34D21D1D32F6008A77F7 /* mmochampion.html in Resources */,
 				5707F3A91D1AB41300FAD21C /* readcereal.html in Resources */,
 				570B34D01D1D308D008A77F7 /* starwars.html in Resources */,
 			);
