@@ -5,11 +5,29 @@
 [![License](https://img.shields.io/cocoapods/l/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 
-## Example
+ReadabilityKit is an HTML meta data parser library written in Swift.
+
+## Features
+
+Extracting:
+
+- [x] Title
+- [x] Description
+- [x] Title image url
+- [x] Keywords
+
+
+## Usage
+
+let parser = Readability(data: htmlData)
+
+let title = parser.title()
+let description = parser.description()
+let keywords = parser.keywords()
+let imageUrl = parser.imageUrl()
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
 
 ## Installation
 
