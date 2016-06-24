@@ -36,10 +36,25 @@ class Tests: XCTestCase {
 			"Wrong image url")
 	}
 
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measureBlock() {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
+	func testStarwarsPage() {
+
+		let bundle = NSBundle(forClass: self.dynamicType)
+		guard let path = bundle.pathForResource("starwars", ofType: "html") else {
+			XCTFail("No resource path available")
+			return
+		}
+
+		guard let htmlData = NSData(contentsOfFile: path) else {
+			XCTFail("No resource file available")
+			return
+		}
+
+		let readability = Readability(data: htmlData)
+
+		XCTAssert(readability.title() == "From a Certain Point of View: What Is the Best Scene in Star Wars: The Force Awakens? | StarWars.com")
+		XCTAssert(readability.description() == "Two StarWars.com writers argue for what they consider the best scene in Star Wars: The Force Awakens!",
+			"Wrong description")
+		XCTAssert(readability.imageUrl() == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
+			"Wrong image url")
+	}
 }
