@@ -343,7 +343,7 @@ public class Readability {
 	public init(data htmlData: NSData)
 	{
 
-		try document = Ji(htmlData: htmlData)
+		document = Ji(htmlData: htmlData)
 
 		findMaxWeightNode()
 		if let maxWeightNode = maxWeightNode {
