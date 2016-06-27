@@ -66,7 +66,7 @@ class DetailsController: UIViewController {
 			keywordsView?.text = keywords.joinWithSeparator(" ")
 		}
 
-		guard let imageUrlStr = parser.imageUrl() else {
+		guard let imageUrlStr = parser.topImage() else {
 			return
 		}
 

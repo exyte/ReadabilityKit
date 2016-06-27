@@ -478,7 +478,7 @@ public class Readability {
 		return maxWeightText
 	}
 
-	public func imageUrl() -> String?
+	public func topImage() -> String?
 	{
 		if let document = document {
 			if let imageUrl = extractValueUsing(document, queries: imageQueries) {

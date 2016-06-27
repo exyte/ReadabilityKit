@@ -47,7 +47,7 @@ class NodeWeightTests: XCTestCase {
 		}
 
 		let parser = Readability(data: contentData)
-		guard let imageUrl = parser.imageUrl() else {
+		guard let imageUrl = parser.topImage() else {
 			XCTFail("Image parsing failed.")
 			return
 		}

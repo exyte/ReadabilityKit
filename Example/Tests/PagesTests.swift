@@ -57,7 +57,7 @@ class Tests: XCTestCase {
 		XCTAssert(readability.title() == "Amsterdam Fog - Cereal", "Wrong title")
 		XCTAssert(readability.description() == "        The name Amsterdam arises from the city’s beginnings as a dam on the river Amstel. During the 17th century, a series of canals were built in four main bands, forming concentric circles inside the city, flowing south towards the river. Amsterdam’s historic canals, which total over 100km, are dotted with 1500 bridges, forming a sweeping network of aqua and stone.",
 			"Wrong description")
-		XCTAssert(readability.imageUrl() == "http://readcereal.com/wp-content/uploads/2015/11/jounral-post-three.jpg",
+		XCTAssert(readability.topImage() == "http://readcereal.com/wp-content/uploads/2015/11/jounral-post-three.jpg",
 			"Wrong image url")
 	}
 
@@ -75,7 +75,7 @@ class Tests: XCTestCase {
 		XCTAssert(readability.title() == "From a Certain Point of View: What Is the Best Scene in Star Wars: The Force Awakens? | StarWars.com")
 		XCTAssert(readability.description() == "Two StarWars.com writers argue for what they consider the best scene in Star Wars: The Force Awakens!",
 			"Wrong description")
-		XCTAssert(readability.imageUrl() == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
+		XCTAssert(readability.topImage() == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
 			"Wrong image url")
 	}
 
