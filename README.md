@@ -5,15 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 
-ReadabilityKit is an HTML meta data parser library written in Swift.
+ReadabilityKit helps you to extract a relevant metadata (for example, title, description and top image) from the URL. 
+
+The extraction goal is to try and get the best extraction from the article for servicing applications that need to show a snippet of a web article along with an image.
+
+Inspired by [goose](https://github.com/GravityLabs/goose) and [newspaper](https://github.com/codelucas/newspaper).
 
 ## Features
 
-Extracting:
+Extracts:
 
 - [x] Title
 - [x] Description
-- [x] Title image url
+- [x] Top image
 - [x] Keywords
 
 ## Requirements
@@ -23,7 +27,7 @@ Extracting:
 ## Usage
 
 ```swift
-let parser = Readability(data: htmlData)
+let parser = Readability(url: articleUrl)
 
 let title = parser.title()
 let description = parser.description()
@@ -45,7 +49,7 @@ pod "ReadabilityKit"
 
 ## Author
 
-Exyte, exyte.com
+exyte, [info@exyte.com](mailto:info@exyte.com)
 
 ## License
 
