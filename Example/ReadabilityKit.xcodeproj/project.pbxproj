@@ -13,6 +13,7 @@
 		570B34D01D1D308D008A77F7 /* starwars.html in Resources */ = {isa = PBXBuildFile; fileRef = 570B34CF1D1D308D008A77F7 /* starwars.html */; };
 		570B34D21D1D32F6008A77F7 /* mmochampion.html in Resources */ = {isa = PBXBuildFile; fileRef = 570B34D11D1D32F6008A77F7 /* mmochampion.html */; };
 		5728F19C1D20F2E0001F0D40 /* TitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728F19B1D20F2E0001F0D40 /* TitleTests.swift */; };
+		5728F19E1D20F328001F0D40 /* DescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728F19D1D20F328001F0D40 /* DescriptionTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		570B34CF1D1D308D008A77F7 /* starwars.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = starwars.html; sourceTree = "<group>"; };
 		570B34D11D1D32F6008A77F7 /* mmochampion.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mmochampion.html; sourceTree = "<group>"; };
 		5728F19B1D20F2E0001F0D40 /* TitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTests.swift; sourceTree = "<group>"; };
+		5728F19D1D20F328001F0D40 /* DescriptionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTests.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ReadabilityKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadabilityKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				5707F3A71D1AAC7400FAD21C /* Pages */,
 				607FACEB1AFB9204008FA782 /* PagesTests.swift */,
 				5728F19B1D20F2E0001F0D40 /* TitleTests.swift */,
+				5728F19D1D20F328001F0D40 /* DescriptionTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -339,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5728F19E1D20F328001F0D40 /* DescriptionTests.swift in Sources */,
 				5728F19C1D20F2E0001F0D40 /* TitleTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PagesTests.swift in Sources */,
 			);
