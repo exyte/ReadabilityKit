@@ -340,7 +340,30 @@ public class Readability {
 		return importantTexts.first
 	}
 
-	public init(data htmlData: NSData)
+	public convenience init(string: String) {
+		guard let htmlData = string.dataUsingEncoding(NSUTF8StringEncoding) else {
+			self.init(data: NSData())
+			return
+		}
+
+		self.init(data: htmlData)
+	}
+
+	public convenience init(url: NSURL) {
+		let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
+		let request = NSURLRequest(URL: url)
+
+		let data = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: response)
+
+		guard let htmlData = data else {
+			self.init(data: NSData())
+			return
+		}
+
+		self.init(data: htmlData)
+	}
+
+	public required init(data htmlData: NSData)
 	{
 
 		document = Ji(htmlData: htmlData)

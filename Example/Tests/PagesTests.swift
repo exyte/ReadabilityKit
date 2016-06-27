@@ -69,12 +69,13 @@ class Tests: XCTestCase {
 			return
 		}
 
-		guard let htmlData = NSData(contentsOfFile: path) else {
-			XCTFail("No resource file available")
-			return
-		}
+//		guard let htmlData = NSData(contentsOfFile: path) else {
+//			XCTFail("No resource file available")
+//			return
+//		}
 
-		let readability = Readability(data: htmlData)
+		let url = NSURL(fileURLWithPath: path)
+		let readability = Readability(url: url)
 
 		XCTAssert(readability.title() == "From a Certain Point of View: What Is the Best Scene in Star Wars: The Force Awakens? | StarWars.com")
 		XCTAssert(readability.description() == "Two StarWars.com writers argue for what they consider the best scene in Star Wars: The Force Awakens!",
