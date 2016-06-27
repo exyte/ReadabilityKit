@@ -92,12 +92,13 @@ class Tests: XCTestCase {
 			return
 		}
 
-		guard let htmlData = NSData(contentsOfFile: path) else {
-			XCTFail("No resource file available")
+		let url = NSURL(fileURLWithPath: path)
+		guard let htmlStr = try? String(contentsOfURL: url) else {
+			XCTFail("No resource path available")
 			return
 		}
 
-		let readability = Readability(data: htmlData)
+		let readability = Readability(string: htmlStr)
 
 		XCTAssert(readability.title() == "MMO-Champion - World of Warcraft News and Raiding Strategies")
 		XCTAssert(readability.description() == "Articles and forums with game news and raiding strategies.")
