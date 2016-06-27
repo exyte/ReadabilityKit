@@ -1,6 +1,6 @@
 # ReadabilityKit
 
-[![CI Status](http://img.shields.io/travis/Victor Sukochev/ReadabilityKit.svg?style=flat)](https://travis-ci.org/Victor Sukochev/ReadabilityKit)
+[![CI Status](http://img.shields.io/travis/Exyte/ReadabilityKit.svg?style=flat)](https://travis-ci.org/Exyte/ReadabilityKit)
 [![Version](https://img.shields.io/cocoapods/v/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![License](https://img.shields.io/cocoapods/l/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
