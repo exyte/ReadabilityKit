@@ -124,7 +124,7 @@ public class Readability {
 			}
 		}
 
-		if let style = node.attributes["style"] { // node.attributeForName("style")?.stringValue() {
+		if let style = node.attributes["style"] {
 			if let negativeRegExp = negativeRegExp {
 				if negativeRegExp.matchesInString(style, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, style.characters.count)).count > 0 {
 					weight -= 50
