@@ -69,11 +69,6 @@ class Tests: XCTestCase {
 			return
 		}
 
-//		guard let htmlData = NSData(contentsOfFile: path) else {
-//			XCTFail("No resource file available")
-//			return
-//		}
-
 		let url = NSURL(fileURLWithPath: path)
 		let readability = Readability(url: url)
 
