@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   
   s.homepage         = 'https://github.com/exyte/ReadabilityKit.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Exyte' => info@exyte.com' }
+  s.author           = { 'Exyte' => 'info@exyte.com' }
   s.source           = { :git => 'https://github.com/exyte/ReadabilityKit.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
