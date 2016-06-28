@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version          = '0.4.0'
   s.summary          = 'Metadata extractor for news, articles and full-texts'
   
-  s.homepage         = 'https://github.com/exyte/ReadabilityKit.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Exyte' => 'info@exyte.com' }
   s.source           = { :git => 'https://github.com/exyte/ReadabilityKit.git', :tag => s.version.to_s }
