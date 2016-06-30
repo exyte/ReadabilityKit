@@ -42,7 +42,7 @@ class Tests: XCTestCase {
 	func testReadcerealPage() {
 
 		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("readcereal", ofType: "html") else {
+		guard let path = bundle.pathForResource("readcereal", ofType: .None) else {
 			XCTFail("No resource path available")
 			return
 		}
@@ -64,7 +64,7 @@ class Tests: XCTestCase {
 	func testStarwarsPage() {
 
 		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("starwars", ofType: "html") else {
+		guard let path = bundle.pathForResource("starwars", ofType: .None) else {
 			XCTFail("No resource path available")
 			return
 		}
@@ -82,7 +82,7 @@ class Tests: XCTestCase {
 	func testMmochampionPage() {
 
 		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("mmochampion", ofType: "html") else {
+		guard let path = bundle.pathForResource("mmochampion", ofType: .None) else {
 			XCTFail("No resource path available")
 			return
 		}
