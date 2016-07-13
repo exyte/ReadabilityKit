@@ -52,11 +52,6 @@ target 'MyApp' do
     pod 'ReadabilityKit'
 end
 ```
-
-#### Manually
-1. Download and drop ```Readability.swift``` in your project.  
-2. Congratulations!  
-
 ## Author
 
 exyte, [info@exyte.com](mailto:info@exyte.com)
