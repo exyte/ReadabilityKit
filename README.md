@@ -52,6 +52,12 @@ target 'MyApp' do
     pod 'ReadabilityKit'
 end
 ```
+#### Manually
+
+1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
+2. Download and drop ReadabilityKit.swift in your project
+3. Congratulations!
+
 ## Author
 
 exyte, [info@exyte.com](mailto:info@exyte.com)
