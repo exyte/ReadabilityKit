@@ -45,7 +45,12 @@ ReadabilityKit is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "ReadabilityKit"
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+    pod 'ReadabilityKit'
+end
 ```
 
 #### Manually
