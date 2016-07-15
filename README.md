@@ -11,6 +11,9 @@ The extraction goal is to try and get the best extraction from the article for s
 
 Inspired by [goose](https://github.com/GravityLabs/goose) and [newspaper](https://github.com/codelucas/newspaper).
 
+## Demo
+![demo](https://github.com/exyte/ReadabilityKit/blob/master/demo.gif)
+
 ## Features
 
 Extracts:
