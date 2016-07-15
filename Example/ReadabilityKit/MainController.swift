@@ -24,13 +24,17 @@
 //
 
 import UIKit
+import ReadabilityKit
 
 class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 	@IBOutlet weak var addressField: UITextField?
 	@IBOutlet weak var webView: UIWebView?
+	@IBOutlet weak var activityView: UIView?
 
 	var url: NSURL?
+	var parser: Readability?
+	var image: UIImage?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -60,11 +64,34 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 		webView?.loadRequest(request)
 	}
 
+	@IBAction func onParse() {
+
+		UIView.animateWithDuration(0.1, animations: {
+			self.activityView?.alpha = 1.0
+		}) { _ in
+			self.parseUrl()
+			self.moveToDetails()
+		}
+	}
+
+	func moveToDetails() {
+		UIView.animateWithDuration(0.1, animations: {
+			self.activityView?.alpha = 0.0
+		}) { _ in
+			self.performSegueWithIdentifier("details_segue", sender: .None)
+		}
+	}
+
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
 		if segue.identifier == "details_segue" {
-			let detailsController = segue.destinationViewController as! DetailsController
-			detailsController.url = url
+
+			let detailsController = segue.destinationViewController as? DetailsController
+
+			detailsController?.titleText = parser?.title()
+			detailsController?.desc = parser?.description()
+			detailsController?.keywords = parser?.keywords()
+			detailsController?.image = image
 		}
 	}
 
@@ -87,11 +114,39 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 		addressField?.text = urlStr
 	}
 
-	// MARKL UITextFieldDelegate
+	// MARK: UITextFieldDelegate
 
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		onGo()
 
 		return true
+	}
+
+	// MARK: Parsing
+
+	func parseUrl() {
+		guard let url = url else {
+			return
+		}
+
+		guard let htmlData = NSData(contentsOfURL: url) else {
+			return
+		}
+
+		parser = Readability(data: htmlData)
+
+		guard let imageUrlStr = parser?.topImage() else {
+			return
+		}
+
+		guard let imageUrl = NSURL(string: imageUrlStr) else {
+			return
+		}
+
+		guard let imageData = NSData(contentsOfURL: imageUrl) else {
+			return
+		}
+
+		image = UIImage(data: imageData)
 	}
 }

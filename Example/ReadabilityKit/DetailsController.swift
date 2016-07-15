@@ -24,7 +24,6 @@
 //
 
 import UIKit
-import ReadabilityKit
 
 class DetailsController: UIViewController {
 
@@ -37,48 +36,17 @@ class DetailsController: UIViewController {
 	@IBOutlet weak var keywordsView: UITextView?
 	@IBOutlet weak var descriptionView: UITextView?
 
-	var url: NSURL? {
-		didSet {
-			parseUrl()
-		}
-	}
+	var image: UIImage?
+	var titleText: String?
+	var desc: String?
+	var keywords: [String]?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		parseUrl()
-	}
-
-	func parseUrl() {
-		guard let url = url else {
-			return
-		}
-
-		guard let htmlData = NSData(contentsOfURL: url) else {
-			return
-		}
-
-		let parser = Readability(data: htmlData)
-
-		titleView?.text = parser.title()
-		descriptionView?.text = parser.description()
-		if let keywords = parser.keywords() {
-			keywordsView?.text = keywords.joinWithSeparator(" ")
-		}
-
-		guard let imageUrlStr = parser.topImage() else {
-			return
-		}
-
-		guard let imageUrl = NSURL(string: imageUrlStr) else {
-			return
-		}
-
-		guard let imageData = NSData(contentsOfURL: imageUrl) else {
-			return
-		}
-
-		let image = UIImage(data: imageData)
+		titleView?.text = titleText
 		imageView?.image = image
+		keywordsView?.text = keywords?.joinWithSeparator(", ")
+		descriptionView?.text = desc
 	}
 }
