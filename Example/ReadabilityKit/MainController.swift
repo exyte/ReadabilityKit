@@ -32,7 +32,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var webView: UIWebView?
 	@IBOutlet weak var activityView: UIView?
 
-	var url: NSURL?
+	var  url: NSURL?
 	var parser: Readability?
 	var image: UIImage?
 
@@ -129,11 +129,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			return
 		}
 
-		guard let htmlData = NSData(contentsOfURL: url) else {
-			return
-		}
-
-		parser = Readability(data: htmlData)
+		parser = Readability(url: url)
 
 		guard let imageUrlStr = parser?.topImage() else {
 			return

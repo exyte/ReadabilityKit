@@ -79,6 +79,8 @@ public class Readability {
 	var maxWeightImgUrl: String?
 	var maxWeightText: String?
 
+	var directImageUrl: String?
+
 	private func weightNode(node: JiNode) -> Int {
 		var weight = 0
 
@@ -360,6 +362,18 @@ public class Readability {
 			return
 		}
 
+		#if os(OSX)
+			let image = NSImage(data: htmlData)
+		#elseif os(iOS)
+			let image = UIImage(data: htmlData)
+		#endif
+
+		if let _ = image {
+			self.init(data: NSData())
+			self.directImageUrl = url.absoluteString
+			return
+		}
+
 		self.init(data: htmlData)
 	}
 
@@ -480,6 +494,10 @@ public class Readability {
 
 	public func topImage() -> String?
 	{
+		if let _ = directImageUrl {
+			return directImageUrl
+		}
+
 		if let document = document {
 			if let imageUrl = extractValueUsing(document, queries: imageQueries) {
 				return imageUrl
