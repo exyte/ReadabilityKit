@@ -49,6 +49,10 @@ public class Readability {
 		("//head/meta[@name='thumbnail']", "content")
 	]
 
+	let videoQueries: [(String, String?)] = [
+		("//head/meta[@property='og:video:url']", "content")
+	]
+
 	let keywordsQueries: [(String, String?)] = [
 		("//head/meta[@name='keywords']", "content"),
 	]
@@ -286,7 +290,6 @@ public class Readability {
 	}
 
 	private func determineImageSource(node: JiNode) -> JiNode? {
-
 		var maxImgWeight = 20
 		var maxImgNode: JiNode?
 
@@ -383,9 +386,8 @@ public class Readability {
 		document = Ji(htmlData: htmlData)
 
 		findMaxWeightNode()
-		if let maxWeightNode = maxWeightNode {
 
-			// Images
+		if let maxWeightNode = maxWeightNode {
 			if let imageNode = determineImageSource(maxWeightNode) {
 				maxWeightImgUrl = imageNode.attributes["src"]
 			}
@@ -505,6 +507,16 @@ public class Readability {
 		}
 
 		return maxWeightImgUrl
+	}
+
+	public func topVideo() -> String? {
+		if let document = document {
+			if let imageUrl = extractValueUsing(document, queries: videoQueries) {
+				return imageUrl
+			}
+		}
+
+		return .None
 	}
 
 	public func keywords() -> [String]?

@@ -32,7 +32,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var webView: UIWebView?
 	@IBOutlet weak var activityView: UIView?
 
-	var  url: NSURL?
+	var url: NSURL?
 	var parser: Readability?
 	var image: UIImage?
 
@@ -92,6 +92,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			detailsController?.desc = parser?.description()
 			detailsController?.keywords = parser?.keywords()
 			detailsController?.image = image
+			detailsController?.videoURL = parser?.topVideo()
 		}
 	}
 
