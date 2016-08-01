@@ -1,5 +1,5 @@
 //
-//  DetailsController.swift
+//  VideoTests.swift
 //  ReadabilityKit
 //
 //  Copyright (c) 2016 Exyte http://www.exyte.com
@@ -23,48 +23,25 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+import XCTest
+import ReadabilityKit
 
-class DetailsController: UIViewController {
+class VideoTests: XCTestCase {
 
-	@IBAction func onDone() {
-		self.dismissViewControllerAnimated(true, completion: .None)
-	}
+	func testHeaderVideo() {
+		let content = "<html><head><meta property=\"og:type\" content=\"video\"><meta property=\"og:video:url\" content=\"https://www.youtube.com/watch?v=sGbxmsDFVnE\"></head><body></body<html>"
 
-	@IBOutlet weak var titleView: UITextView?
-	@IBOutlet weak var imageView: UIImageView?
-	@IBOutlet weak var keywordsView: UITextView?
-	@IBOutlet weak var descriptionView: UITextView?
-	@IBOutlet weak var videoURLView: UITextView?
-
-	var image: UIImage?
-	var titleText: String?
-	var desc: String?
-	var keywords: [String]?
-	var videoURL: String?
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		titleView?.text = titleText
-		imageView?.image = image
-		keywordsView?.text = keywords?.joinWithSeparator(", ")
-		descriptionView?.text = desc
-
-		if let videoURLVal = videoURL {
-			videoURLView?.text = videoURLVal
-			videoURLView?.hidden = false
-
-			let videoURLRecongnizer = UITapGestureRecognizer(target: self, action: #selector(DetailsController.openVideo))
-			videoURLView?.addGestureRecognizer(videoURLRecongnizer)
-		} else {
-			videoURLView?.hidden = true
+		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+			return
 		}
+
+		let parser = Readability(data: contentData)
+		guard let videoUrl = parser.topVideo() else {
+			XCTFail("Video parsing failed.")
+			return
+		}
+
+		XCTAssert(videoUrl == "https://www.youtube.com/watch?v=sGbxmsDFVnE", "Video URL parsing failed.")
 	}
 
-	func openVideo() {
-		if let url = NSURL(string: self.videoURLView!.text) {
-			UIApplication.sharedApplication().openURL(url)
-		}
-	}
 }

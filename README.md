@@ -35,7 +35,8 @@ let parser = Readability(url: articleUrl)
 let title = parser.title()
 let description = parser.description()
 let keywords = parser.keywords()
-let imageUrl = parser.imageUrl()
+let imageUrl = parser.topImage()
+let videoUrl = parser.topVideo()
 ```
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

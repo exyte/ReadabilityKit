@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xw4-Ib-czm">
-                                <rect key="frame" x="281.5" y="550" width="37" height="30"/>
+                                <rect key="frame" x="281" y="550" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="onDone" destination="1WW-cP-34y" eventType="touchUpInside" id="fRf-rv-PIN"/>
@@ -194,6 +194,15 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-TV-Afy">
+                                <rect key="frame" x="20" y="255" width="560" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="i6x-b7-oOJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,7 +210,9 @@
                             <constraint firstItem="9MR-95-drn" firstAttribute="top" secondItem="ZPB-XN-Qho" secondAttribute="topMargin" id="2tM-Zg-e4r"/>
                             <constraint firstItem="mO4-Bk-lWW" firstAttribute="leading" secondItem="ZPB-XN-Qho" secondAttribute="leadingMargin" id="4OE-Pp-2b3"/>
                             <constraint firstItem="qKd-1E-CTi" firstAttribute="trailing" secondItem="ZPB-XN-Qho" secondAttribute="trailingMargin" id="6wt-vo-cdA"/>
+                            <constraint firstItem="ggQ-TV-Afy" firstAttribute="top" secondItem="icN-c2-Me5" secondAttribute="bottom" constant="235" id="Cnf-R8-lGT"/>
                             <constraint firstItem="8kE-3V-yEZ" firstAttribute="top" secondItem="mO4-Bk-lWW" secondAttribute="bottom" id="DI6-ou-Mkh"/>
+                            <constraint firstAttribute="trailing" secondItem="ggQ-TV-Afy" secondAttribute="trailing" constant="20" id="Ewc-CB-lI2"/>
                             <constraint firstItem="8kE-3V-yEZ" firstAttribute="trailing" secondItem="ZPB-XN-Qho" secondAttribute="trailingMargin" id="Ged-gI-fWe"/>
                             <constraint firstItem="Xw4-Ib-czm" firstAttribute="top" secondItem="8kE-3V-yEZ" secondAttribute="bottom" id="IjB-dd-hcN"/>
                             <constraint firstItem="Xw4-Ib-czm" firstAttribute="centerX" secondItem="ZPB-XN-Qho" secondAttribute="centerX" id="Kmr-Mj-94l"/>
@@ -218,6 +229,7 @@
                             <constraint firstItem="Xw4-Ib-czm" firstAttribute="top" secondItem="mO4-Bk-lWW" secondAttribute="bottom" constant="8" id="pyW-Z9-g5v"/>
                             <constraint firstItem="9MR-95-drn" firstAttribute="trailing" secondItem="ZPB-XN-Qho" secondAttribute="trailingMargin" id="sfs-Wu-MUJ"/>
                             <constraint firstItem="mO4-Bk-lWW" firstAttribute="top" secondItem="8kE-3V-yEZ" secondAttribute="bottom" id="sr3-bI-FtW"/>
+                            <constraint firstItem="ggQ-TV-Afy" firstAttribute="leading" secondItem="ZPB-XN-Qho" secondAttribute="leading" constant="20" id="vAr-Nr-M7e"/>
                             <constraint firstItem="qKd-1E-CTi" firstAttribute="top" secondItem="icN-c2-Me5" secondAttribute="bottom" constant="248" id="w42-Xr-ELT"/>
                             <constraint firstItem="8kE-3V-yEZ" firstAttribute="leading" secondItem="ZPB-XN-Qho" secondAttribute="leadingMargin" id="wXg-Q4-ZQA"/>
                             <constraint firstItem="mO4-Bk-lWW" firstAttribute="top" secondItem="qKd-1E-CTi" secondAttribute="bottom" constant="7" id="zuC-1b-MUS"/>
@@ -242,6 +254,7 @@
                         <outlet property="imageView" destination="9MR-95-drn" id="SvO-ju-RM0"/>
                         <outlet property="keywordsView" destination="8kE-3V-yEZ" id="rfp-oy-6Sl"/>
                         <outlet property="titleView" destination="qKd-1E-CTi" id="7cs-32-daC"/>
+                        <outlet property="videoURLView" destination="ggQ-TV-Afy" id="qhQ-KR-TB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyk-JL-Msl" userLabel="First Responder" sceneMemberID="firstResponder"/>

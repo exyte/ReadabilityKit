@@ -25,6 +25,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* PagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* PagesTests.swift */; };
+		B0C0AB5A1D4F777B008DC733 /* VideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C0AB581D4F72F8008DC733 /* VideoTests.swift */; };
 		B1FC4F450974B977518C0F48 /* Pods_ReadabilityKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1724B33ED9EA2C29FE44D48F /* Pods_ReadabilityKit_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		607FACEB1AFB9204008FA782 /* PagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesTests.swift; sourceTree = "<group>"; };
 		ACC2EDE82A7E59DF7ADB44A4 /* Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadabilityKit_Example-ReadabilityKit_Tests/Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFD795EC3253A91F72C4FF19 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B0C0AB581D4F72F8008DC733 /* VideoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				5728F19F1D20F612001F0D40 /* KeywordsTests.swift */,
 				5728F1A31D20FCB2001F0D40 /* ImagesTests.swift */,
 				5728F1A11D20F85F001F0D40 /* NodeWeightTests.swift */,
+				B0C0AB581D4F72F8008DC733 /* VideoTests.swift */,
 				5742866E1D448314003549BA /* DirectImageUrlTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -427,6 +430,7 @@
 				5728F1A01D20F612001F0D40 /* KeywordsTests.swift in Sources */,
 				5728F19C1D20F2E0001F0D40 /* TitleTests.swift in Sources */,
 				5728F1A41D20FCB2001F0D40 /* ImagesTests.swift in Sources */,
+				B0C0AB5A1D4F777B008DC733 /* VideoTests.swift in Sources */,
 				5728F1A21D20F85F001F0D40 /* NodeWeightTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PagesTests.swift in Sources */,
 			);
