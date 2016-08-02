@@ -21,6 +21,7 @@ Extracts:
 - [x] Title
 - [x] Description
 - [x] Top image
+- [x] Top video
 - [x] Keywords
 
 ## Requirements
