@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 
-ReadabilityKit helps you to extract a relevant metadata (for example, title, description and top image) from the URL. 
+ReadabilityKit helps you to extract a relevant metadata (for example, title, description, top image and video) from the URL. 
 
-The extraction goal is to try and get the best extraction from the article for servicing applications that need to show a snippet of a web article along with an image.
+The extraction goal is to try and get the best extraction from the article for servicing applications that need to show a snippet of a web article along with an image. Comparison with other libraries available [here](https://github.com/exyte/ReadabilityKit/wiki/Competitors).
 
-Inspired by [goose](https://github.com/GravityLabs/goose) and [newspaper](https://github.com/codelucas/newspaper).
+Inspired by [snacktory](https://github.com/karussell/snacktory) and [newspaper](https://github.com/codelucas/newspaper).
 
 ## Demo
 <img src="https://github.com/exyte/ReadabilityKit/blob/master/demo.gif" width="320px" height="569px" />
