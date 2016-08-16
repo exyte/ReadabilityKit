@@ -15,8 +15,8 @@
 		57156E901D6334A8008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156E8B1D6334A0008A9C49 /* Ji.framework */; };
 		57156EA01D633726008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156E9F1D633726008A9C49 /* Ji.framework */; };
 		57156EA11D63377A008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57156ECA1D63395E008A9C49 /* ReadabilityKit tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156EC91D63395E008A9C49 /* ReadabilityKit tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57156ED11D63399D008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156ED01D63399D008A9C49 /* Ji.framework */; };
+		57156ED21D634087008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,6 @@
 		57156E961D633706008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57156E9F1D633726008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		57156EC71D63395E008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57156EC91D63395E008A9C49 /* ReadabilityKit tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReadabilityKit tvOS.h"; sourceTree = "<group>"; };
-		57156ECB1D63395E008A9C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57156ED01D63399D008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +75,6 @@
 				57156E891D6334A0008A9C49 /* Dependencies */,
 				57156D6D1D6326BD008A9C49 /* Headers */,
 				57156D681D632640008A9C49 /* Sources */,
-				57156EC81D63395E008A9C49 /* ReadabilityKit tvOS */,
 				57156D5E1D632539008A9C49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,15 +142,6 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		57156EC81D63395E008A9C49 /* ReadabilityKit tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				57156EC91D63395E008A9C49 /* ReadabilityKit tvOS.h */,
-				57156ECB1D63395E008A9C49 /* Info.plist */,
-			);
-			path = "ReadabilityKit tvOS";
-			sourceTree = "<group>";
-		};
 		57156ECF1D63399D008A9C49 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +181,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57156ECA1D63395E008A9C49 /* ReadabilityKit tvOS.h in Headers */,
+				57156ED21D634087008A9C49 /* ReadabilityKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
