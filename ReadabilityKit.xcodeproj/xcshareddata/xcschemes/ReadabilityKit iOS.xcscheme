@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "57156F011D63493B008A9C49"
+               BuildableName = "ReadabilityKitTests.xctest"
+               BlueprintName = "ReadabilityKitTests"
+               ReferencedContainer = "container:ReadabilityKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "57156D5C1D632539008A9C49"
+            BuildableName = "ReadabilityKit.framework"
+            BlueprintName = "ReadabilityKit iOS"
+            ReferencedContainer = "container:ReadabilityKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
