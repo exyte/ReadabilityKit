@@ -90,10 +90,14 @@ target 'MyApp' do
 end
 ```
 
-#### Carthage
-```ruby
+### [Carthage](http://github.com/Carthage/Carthage)
+
+To integrate `Ji` into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
 github "exyte/ReadabilityKit" ~> 0.4.3
 ```
+
 #### Manually
 
 1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
