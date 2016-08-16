@@ -4,7 +4,7 @@ PODS:
   - Ji/Ji (1.2.0):
     - Ji/Ji-libxml
   - Ji/Ji-libxml (1.2.0)
-  - ReadabilityKit (0.4.1):
+  - ReadabilityKit (0.4.2):
     - Ji (~> 1.2.0)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
-  ReadabilityKit: 68138701d33ab66886259e1e4c863b605cba8222
+  ReadabilityKit: dd46794bf341a3fbce69b9d58c3a71bea5ac3ba2
 
 PODFILE CHECKSUM: 89d78b6536bba36d6b25c300623fb6c1bb6916f9
 
