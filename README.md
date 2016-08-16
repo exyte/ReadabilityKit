@@ -95,7 +95,7 @@ end
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "exyte/ReadabilityKit" ~> 0.4.3
+github "exyte/ReadabilityKit" ~> 0.4.4
 ```
 
 #### Manually
