@@ -7,7 +7,7 @@
 
 ReadabilityKit helps you to extract a relevant preview (title, description, image and video) from the URL.
 
-The extraction goal is to try and get the best extraction from the article for servicing applications that need to show a preview of a web URL along with an image. Comparison with other libraries available [here](https://github.com/exyte/ReadabilityKit#comparison-with-other-libraries) and why you should use ReadabilityKit instead of SwiftLinkPreview [here](https://github.com/exyte/ReadabilityKit#readabilitykit-vs-swiftlinkpreview).
+The goal is to try and get the best extraction from the article for servicing applications that need to show a preview of a web URL along with an image. Comparison with other extraction libraries available [here](https://github.com/exyte/ReadabilityKit#comparison-with-other-libraries). Comparison with another iOS extraction library  ([SwiftLinkPreview](https://github.com/LeonardoCardoso/SwiftLinkPreview)) available [here](https://github.com/exyte/ReadabilityKit#readabilitykit-vs-swiftlinkpreview).
 
 Inspired by [snacktory](https://github.com/karussell/snacktory) and [newspaper](https://github.com/codelucas/newspaper).
 
@@ -69,10 +69,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 
 #### ReadabilityKit vs [SwiftLinkPreview](https://github.com/LeonardoCardoso/SwiftLinkPreview)
-- Better extraction. ReadabilityKit uses part of [ar90](https://github.com/masukomi/ar90-readability) algorithm which was transformed into the Redability.com product. This allows to make more accurate extraction.
-- Video support. ReadabilityKit detects videos on the page and extracts it into `Readability.topVideo`.
-- Typed API, that allows you to use statically typed properties without force casting.
-- Better threading model. You can use ReadabilityKit in sync or async way, it depends on you.
+- ReadabilityKit uses part of [ar90](https://github.com/masukomi/ar90-readability) algorithm which was transformed into the Redability.com product. This allows for more accurate extraction.
+- Video support. ReadabilityKit detects videos on the page and extracts the most relevant to `Readability.topVideo`.
+- Typed API that allows you to use statically typed properties without force casting.
+- Better threading model. You can use ReadabilityKit with both sync or async calls.
 - Keyword extraction.
  
 ## Installation
