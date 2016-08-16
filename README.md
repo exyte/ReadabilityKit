@@ -89,6 +89,11 @@ target 'MyApp' do
     pod 'ReadabilityKit'
 end
 ```
+
+#### Carthage
+```ruby
+github "exyte/ReadabilityKit" ~> 0.4.3
+```
 #### Manually
 
 1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
