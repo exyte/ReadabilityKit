@@ -25,6 +25,12 @@
 
 import Ji
 
+#if os(OSX)
+	import AppKit
+#else
+	import UIKit
+#endif
+
 public class Readability {
 
 	// Queries in order of priority
