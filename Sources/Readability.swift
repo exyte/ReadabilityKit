@@ -355,10 +355,7 @@ public class Readability {
 	}
 
 	public convenience init(url: NSURL) {
-		let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
-		let request = NSURLRequest(URL: url)
-
-		let data = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: response)
+		let data = NSData(contentsOfURL: url)
 
 		guard let htmlData = data else {
 			self.init(data: NSData())
@@ -367,7 +364,7 @@ public class Readability {
 
 		#if os(OSX)
 			let image = NSImage(data: htmlData)
-		#elseif os(iOS)
+		#else
 			let image = UIImage(data: htmlData)
 		#endif
 
