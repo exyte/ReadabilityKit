@@ -148,7 +148,20 @@ public class Readability {
 	}
 
 	private func calcWeightForChild(node: JiNode, ownText: String) -> Int {
-		return 0
+
+		var c = calculateNumberOfAppearance(ownText, substring: "&quot;")
+		c += calculateNumberOfAppearance(ownText, substring: "&lt;")
+		c += calculateNumberOfAppearance(ownText, substring: "&gt;")
+		c += calculateNumberOfAppearance(ownText, substring: "px")
+
+		var val = 0
+		if c > 5 {
+			val = -30
+		} else {
+			val = Int(Double(ownText.characters.count) / 25.0)
+		}
+
+		return val
 	}
 
 	private func weightChildNodes(node: JiNode) -> Int {
@@ -158,7 +171,7 @@ public class Readability {
 
 		node.children.forEach { child in
 
-			guard let text = child.content else {
+			guard var text = child.content else {
 				return
 			}
 
@@ -189,12 +202,28 @@ public class Readability {
 				}
 			}
 
-			if caption != nil {
+			if caption != .None {
 				weight += 30
 			}
 		}
 
 		return weight
+	}
+
+	private func calculateNumberOfAppearance(str: String, substring: String) -> Int {
+		var c = 0
+		guard let firstElement = str.rangeOfString(substring)?.startIndex else {
+			return 0
+		}
+
+		let index = str.startIndex.distanceTo(firstElement)
+		if index >= 0 {
+			c += 1
+			c += calculateNumberOfAppearance(str.substringFromIndex(firstElement.advancedBy(substring.characters.count)), substring: substring)
+
+		}
+
+		return c
 	}
 
 	private func importantNodes() -> [JiNode]? {
