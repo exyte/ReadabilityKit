@@ -361,7 +361,19 @@ public class Readability {
 	}
 
 	public convenience init(url: NSURL) {
-		let data = NSData(contentsOfURL: url)
+
+		let request = NSURLRequest(URL: url)
+		let semaphore = dispatch_semaphore_create(0)
+
+		var data: NSData?
+		NSURLSession.sharedSession().dataTaskWithRequest(request,
+			completionHandler: { (responseData, _, _) in
+				data = responseData
+				dispatch_semaphore_signal(semaphore)
+
+		}).resume()
+
+		dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
 		guard let htmlData = data else {
 			self.init(data: NSData())
