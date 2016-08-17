@@ -38,7 +38,8 @@ public class Readability {
 	let descQueries: [(String, String?)] = [
 		("//head/meta[@name='description']", "content"),
 		("//head/meta[@property='og:description']", "content"),
-		("//head/meta[@name='twitter:description']", "content")
+		("//head/meta[@name='twitter:description']", "content"),
+		("//head/meta[@property='twitter:description']", "content")
 	]
 
 	let titleQueries: [(String, String?)] = [
