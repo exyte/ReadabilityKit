@@ -253,10 +253,11 @@ public class Readability {
 		}
 
 		if let importantNodes = importantNodes() {
-			importantNodes.forEach { node in
+
+			for node in importantNodes {
 				var weight = weightNode(node)
 				guard let stringValue = node.content else {
-					return
+					continue
 				}
 				weight += stringValue.characters.count / 10
 
@@ -265,6 +266,10 @@ public class Readability {
 				{
 					maxWeight = weight
 					maxWeightNode = node
+				}
+
+				if weight > 200 {
+					break
 				}
 			}
 		}
@@ -445,8 +450,8 @@ public class Readability {
 	public required init(data htmlData: NSData)
 	{
 
-		// let str = NSString(data: htmlData, encoding: NSUTF8StringEncoding)
-		// print("\(str)")
+//		let str = NSString(data: htmlData, encoding: NSUTF8StringEncoding)
+//		print("\(str)")
 
 		document = Ji(htmlData: htmlData)
 
