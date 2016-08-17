@@ -73,7 +73,7 @@ public class Readability {
 
 	let negative = "nav($|igation)|user|com(ment|bx)|(^com-)|contact|"
 		+ "foot|masthead|(me(dia|ta))|outbrain|promo|related|scroll|(sho(utbox|pping))|"
-		+ "sidebar|sponsor|tags|tool|widget|player|disclaimer|toc|infobox|vcard"
+		+ "sidebar|sponsor|tags|tool|widget|player|disclaimer|toc|infobox|vcard|post-ratings"
 
 	let nodesTags = "p|div|td|h1|h2|article|section"
 
@@ -351,6 +351,24 @@ public class Readability {
 		return importantTexts.first
 	}
 
+	private func extractFullText(node: JiNode) -> String?
+	{
+		guard let strValue = clearNodeContent(node) else {
+			return .None
+		}
+
+		let texts = strValue.stringByReplacingOccurrencesOfString("\t", withString: "").componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+		var importantTexts = [String]()
+		texts.forEach({ (text: String) in
+			let length = text.characters.count
+			if length > 140 {
+				importantTexts.append(text)
+			}
+		})
+
+		return importantTexts.reduce("", combine: { $0! + "\n" + $1 })
+	}
+
 	public convenience init(string: String) {
 		guard let htmlData = string.dataUsingEncoding(NSUTF8StringEncoding) else {
 			self.init(data: NSData())
@@ -397,6 +415,9 @@ public class Readability {
 
 	public required init(data htmlData: NSData)
 	{
+
+		// let str = NSString(data: htmlData, encoding: NSUTF8StringEncoding)
+		// print("\(str)")
 
 		document = Ji(htmlData: htmlData)
 
@@ -507,6 +528,14 @@ public class Readability {
 		}
 
 		return maxWeightText
+	}
+
+	public func text() -> String? {
+		guard let maxWeightNode = maxWeightNode else {
+			return .None
+		}
+
+		return extractFullText(maxWeightNode)
 	}
 
 	public func topImage() -> String?
