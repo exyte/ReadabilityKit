@@ -89,7 +89,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			let detailsController = segue.destinationViewController as? DetailsController
 
 			detailsController?.titleText = parser?.title()
-			detailsController?.desc = parser?.description()
+			detailsController?.desc = parser?.text()
 			detailsController?.keywords = parser?.keywords()
 			detailsController?.image = image
 			detailsController?.videoURL = parser?.topVideo()
@@ -131,6 +131,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 		}
 
 		parser = Readability(url: url)
+		print("Text: \n \(parser!.text())")
 
 		guard let imageUrlStr = parser?.topImage() else {
 			return

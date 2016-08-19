@@ -386,9 +386,18 @@ public class Readability {
 		return importantTexts.first
 	}
 
-	private func extractFullText(node: JiNode) -> String?
-	{
-		guard let strValue = clearNodeContent(node) else {
+	private func extractFullText(node: JiNode) -> String? {
+
+		guard let document = document else {
+			return .None
+		}
+
+		var nodesToRemove = findNodesToRemove(node)
+		nodesToRemove.appendContentsOf(lowContentChildren(node))
+
+		let cleanNode = remove(node, document: document, nodesToRemove: nodesToRemove)
+
+		guard var strValue = cleanNode.content else {
 			return .None
 		}
 
@@ -402,31 +411,38 @@ public class Readability {
 		})
 
 		var fullText = importantTexts.reduce("", combine: { $0 + "\n" + $1 })
-		lowContentChildren(node).forEach { lowContent in
-			fullText = fullText.stringByReplacingOccurrencesOfString(lowContent, withString: "")
-		}
-
 		return fullText
 	}
 
-	private func lowContentChildren(node: JiNode) -> [String] {
+	private func lowContentChildren(node: JiNode) -> [JiNode] {
 
-		var contents = [String]()
+		var lowContents = [JiNode]()
 
 		if node.children.count == 0 {
 			if let content = node.content {
 				let length = content.characters.count
 				if length > 3 && length < 175 {
-					contents.append(content)
+					lowContents.append(node)
+					return lowContents
 				}
 			}
 		}
 
 		node.children.forEach { childNode in
-			contents.appendContentsOf(lowContentChildren(childNode))
+			lowContents.appendContentsOf(lowContentChildren(childNode))
 		}
 
-		return contents
+		return lowContents
+	}
+
+	private func findNodesToRemove(node: JiNode) -> [JiNode] {
+
+		var nodesToRemove = [
+			node.xPath("//script"),
+			node.xPath("//noscript"),
+			node.xPath("//style")].flatMap { $0 }
+
+		return nodesToRemove
 	}
 
 	public convenience init(string: String) {
