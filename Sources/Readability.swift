@@ -401,7 +401,32 @@ public class Readability {
 			}
 		})
 
-		return importantTexts.reduce("", combine: { $0! + "\n" + $1 })
+		var fullText = importantTexts.reduce("", combine: { $0 + "\n" + $1 })
+		lowContentChildren(node).forEach { lowContent in
+			fullText = fullText.stringByReplacingOccurrencesOfString(lowContent, withString: "")
+		}
+
+		return fullText
+	}
+
+	private func lowContentChildren(node: JiNode) -> [String] {
+
+		var contents = [String]()
+
+		if node.children.count == 0 {
+			if let content = node.content {
+				let length = content.characters.count
+				if length > 3 && length < 175 {
+					contents.append(content)
+				}
+			}
+		}
+
+		node.children.forEach { childNode in
+			contents.appendContentsOf(lowContentChildren(childNode))
+		}
+
+		return contents
 	}
 
 	public convenience init(string: String) {
@@ -450,10 +475,6 @@ public class Readability {
 
 	public required init(data htmlData: NSData)
 	{
-
-//		let str = NSString(data: htmlData, encoding: NSUTF8StringEncoding)
-//		print("\(str)")
-
 		document = Ji(htmlData: htmlData)
 
 		findMaxWeightNode()
