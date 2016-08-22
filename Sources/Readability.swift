@@ -380,7 +380,13 @@ public class Readability {
 		var importantTexts = [String]()
 		texts.forEach({ (text: String) in
 			let length = text.characters.count
-			if length > 140 {
+
+			if let titleLength = title()?.characters.count {
+				if length > titleLength {
+					importantTexts.append(text)
+				}
+
+			} else if length > 100 {
 				importantTexts.append(text)
 			}
 		})
