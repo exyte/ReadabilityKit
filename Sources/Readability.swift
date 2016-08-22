@@ -53,7 +53,8 @@ public class Readability {
 		("//head/meta[@property='og:image']", "content"),
 		("//head/meta[@name='twitter:image']", "content"),
 		("//link[@rel='image_src']", "href"),
-		("//head/meta[@name='thumbnail']", "content")
+		("//head/meta[@name='thumbnail']", "content"),
+		("//img[contains(@src,':small')]", "src")
 	]
 
 	let videoQueries: [(String, String?)] = [
