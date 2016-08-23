@@ -632,7 +632,7 @@ public class Readability {
 			return .None
 		}
 
-		return extractFullText(maxWeightNode)
+		return extractFullText(maxWeightNode)?.trim()
 	}
 
 	public func topImage() -> String?
