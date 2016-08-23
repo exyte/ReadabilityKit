@@ -412,10 +412,11 @@ public class Readability {
 
 		let texts = strValue.stringByReplacingOccurrencesOfString("\t", withString: "").componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
 		var importantTexts = [String]()
+		let extractedTitle = title()
 		texts.forEach({ (text: String) in
 			let length = text.characters.count
 
-			if let titleLength = title()?.characters.count {
+			if let titleLength = extractedTitle?.characters.count {
 				if length > titleLength {
 					importantTexts.append(text)
 				}
@@ -613,7 +614,7 @@ public class Readability {
 			return title
 		}
 
-		return nil
+		return .None
 	}
 
 	public func description() -> String?
