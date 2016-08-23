@@ -424,7 +424,7 @@ public class Readability {
 				importantTexts.append(text)
 			}
 		})
-		return importantTexts.first
+		return importantTexts.first?.trim()
 	}
 
 	private func extractFullText(node: JiNode) -> String?
