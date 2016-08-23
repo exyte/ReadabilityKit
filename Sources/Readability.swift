@@ -332,22 +332,56 @@ public class Readability {
 	}
 
 	private func determineImageSource(node: JiNode) -> JiNode? {
-		var maxImgWeight = 20
+		var maxImgWeight = 20.0
 		var maxImgNode: JiNode?
 
-		let imageNodes = node.xPath("//img")
+		var imageNodes = node.xPath("//img")
+		if imageNodes.count == 0 {
+			if let parent = node.parent {
+				imageNodes = parent.xPath("//img")
+			}
+		}
+
+		var score = 1.0
 		imageNodes.forEach { imageNode in
-			let weight = sizeWeight(imageNode) +
-				altWeight(imageNode) +
-				titleWeight(imageNode)
+
+			guard let url = imageNode.attributes["src"] else {
+				return
+			}
+
+			if isAdImage(url) {
+				return
+			}
+
+			var weight = Double(sizeWeight(imageNode) +
+					altWeight(imageNode) +
+					titleWeight(imageNode))
+
+			var nofollow = false
+			if let parent = imageNode.parent {
+				if let rel = parent.attributes["rel"] {
+					rel.containsString("nofollow")
+					nofollow = true
+
+					weight -= 40.0
+				}
+			}
+
+			weight = weight * score
 
 			if weight > maxImgWeight {
 				maxImgWeight = weight
 				maxImgNode = imageNode
+				score = score / 2.0
 			}
+
 		}
 
 		return maxImgNode
+	}
+
+	private func isAdImage(url: String) -> Bool {
+		return calculateNumberOfAppearance(url, substring: "ad") > 2
 	}
 
 	private func clearNodeContent(node: JiNode) -> String? {
