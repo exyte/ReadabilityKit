@@ -35,6 +35,10 @@
 		57156F301D6350A3008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156E8D1D6334A0008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57156F321D6350BB008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156E9F1D633726008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57156F341D6350D6008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156ED01D63399D008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57ECA8A11D6C903D00537596 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECA8A01D6C903D00537596 /* Utils.swift */; };
+		57ECA8A21D6C903D00537596 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECA8A01D6C903D00537596 /* Utils.swift */; };
+		57ECA8A31D6C903D00537596 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECA8A01D6C903D00537596 /* Utils.swift */; };
+		57ECA8A41D6C903D00537596 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECA8A01D6C903D00537596 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +121,7 @@
 		57156F1C1D634982008A9C49 /* PagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesTests.swift; sourceTree = "<group>"; };
 		57156F1D1D634982008A9C49 /* TitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTests.swift; sourceTree = "<group>"; };
 		57156F1E1D634982008A9C49 /* VideoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTests.swift; sourceTree = "<group>"; };
+		57ECA8A01D6C903D00537596 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				57156D691D632640008A9C49 /* Info.plist */,
+				57ECA8A01D6C903D00537596 /* Utils.swift */,
 				57156D6A1D632640008A9C49 /* Readability.swift */,
 			);
 			path = Sources;
@@ -521,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57156D6C1D632640008A9C49 /* Readability.swift in Sources */,
+				57ECA8A11D6C903D00537596 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ECA8A21D6C903D00537596 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ECA8A31D6C903D00537596 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ECA8A41D6C903D00537596 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -728,6 +739,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -737,6 +749,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -764,6 +777,7 @@
 		57156E9C1D633706008A9C49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -783,12 +797,14 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		57156E9D1D633706008A9C49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -814,6 +830,7 @@
 		57156ECD1D63395E008A9C49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -829,6 +846,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -837,6 +855,7 @@
 		57156ECE1D63395E008A9C49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -907,6 +926,7 @@
 				57156D7E1D6331A0008A9C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57156E9B1D633706008A9C49 /* Build configuration list for PBXNativeTarget "ReadabilityKit macOS" */ = {
 			isa = XCConfigurationList;
@@ -915,6 +935,7 @@
 				57156E9D1D633706008A9C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57156ECC1D63395E008A9C49 /* Build configuration list for PBXNativeTarget "ReadabilityKit tvOS" */ = {
 			isa = XCConfigurationList;
@@ -923,6 +944,7 @@
 				57156ECE1D63395E008A9C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57156F0A1D63493B008A9C49 /* Build configuration list for PBXNativeTarget "ReadabilityKitTests" */ = {
 			isa = XCConfigurationList;
@@ -931,6 +953,7 @@
 				57156F0C1D63493B008A9C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
