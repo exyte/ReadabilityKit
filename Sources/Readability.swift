@@ -482,7 +482,9 @@ public class Readability {
 
 	public convenience init(url: NSURL) {
 
-		let request = NSURLRequest(URL: url)
+		let request = NSMutableURLRequest(URL: url)
+		request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7", forHTTPHeaderField: "User-Agent")
+
 		let semaphore = dispatch_semaphore_create(0)
 
 		var data: NSData?
