@@ -52,8 +52,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 | [youtube](https://www.youtube.com/watch?v=ky3OcJR-5N4) | ✅ | ❌ |☑️ | ✅ | ☑️ | 
 | [vimeo](https://vimeo.com/177533449) | ✅ | ❌ |✅ | ✅ | ☑️ | 
 | [instagram](https://www.instagram.com/p/BIk6ZSEhbzs/) | ✅ | ✅ | ☑️ | ✅ | ✅ | 
-| [nytimes](http://www.nytimes.com/2016/06/26/magazine/how-an-archive-of-the-internet-could-change-history.html?_r=3) | ☑️ | ✅ | ❌ | ✅ | ✅ | 
-| [twitter](https://twitter.com/armadsen/status/680877848043728896) | ☑️ | ☑️ | ❌ | ✅ | ❌ | 
+| [nytimes](http://www.nytimes.com/2016/06/26/magazine/how-an-archive-of-the-internet-could-change-history.html?_r=3) | ✅ | ✅ | ❌ | ✅ | ✅ | 
+| [twitter](https://twitter.com/armadsen/status/680877848043728896) | ✅ | ☑️ | ❌ | ✅ | ❌ | 
 | [medium](https://medium.com/friendship-dot-js/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558#.bc3z65o4k) | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [facebook](https://www.facebook.com/zuck/posts/10103010090805691?pnref=story) | ✅ | ☑️ | ☑️ | ☑️ | ✅ | 
 | [imgur](http://imgur.com/J4A9PMH) | ✅ | ✅ | ✅ | ✅ | ✅ |
