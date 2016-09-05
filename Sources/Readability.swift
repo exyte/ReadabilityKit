@@ -173,7 +173,7 @@ public class Readability {
 
 		node.children.forEach { child in
 
-			guard var text = child.content else {
+			guard let text = child.content else {
 				return
 			}
 
@@ -471,55 +471,17 @@ public class Readability {
 		return contents
 	}
 
-	public convenience init(string: String) {
-		guard let htmlData = string.dataUsingEncoding(NSUTF8StringEncoding) else {
-			self.init(data: NSData())
-			return
-		}
-
-		self.init(data: htmlData)
-	}
-
-	public convenience init(url: NSURL) {
-
-		let request = NSMutableURLRequest(URL: url)
-		request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7", forHTTPHeaderField: "User-Agent")
-
-		let semaphore = dispatch_semaphore_create(0)
-
-		var data: NSData?
-		NSURLSession.sharedSession().dataTaskWithRequest(request,
-			completionHandler: { (responseData, _, _) in
-				data = responseData
-				dispatch_semaphore_signal(semaphore)
-
-		}).resume()
-
-		dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-		guard let htmlData = data else {
-			self.init(data: NSData())
-			return
-		}
-
-		#if os(OSX)
-			let image = NSImage(data: htmlData)
-		#else
-			let image = UIImage(data: htmlData)
-		#endif
-
-		if let _ = image {
-			self.init(data: NSData())
-			self.directImageUrl = url.absoluteString
-			return
-		}
-
-		self.init(data: htmlData)
-	}
-
-	public required init(data htmlData: NSData)
+	public init(data htmlData: NSData)
 	{
-		document = Ji(htmlData: htmlData)
+		parse(htmlData)
+	}
+
+	internal init() {
+
+	}
+
+	func parse(data: NSData) {
+		document = Ji(htmlData: data)
 
 		findMaxWeightNode()
 
@@ -531,6 +493,7 @@ public class Readability {
 			// Text
 			maxWeightText = extractText(maxWeightNode)
 		}
+
 	}
 
 	private func extractValueUsing(document: Ji, path: String, attribute: String?) -> String? {
