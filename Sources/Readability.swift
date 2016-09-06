@@ -31,6 +31,15 @@ import Ji
 	import UIKit
 #endif
 
+public struct ReadabilityData {
+	public let title: String
+	public let description: String?
+	public let topImage: String?
+	public let text: String?
+	public let topVideo: String?
+	public let keywords: [String]?
+}
+
 public class Readability {
 
 	// Queries in order of priority
@@ -471,27 +480,58 @@ public class Readability {
 		return contents
 	}
 
-	public init(data htmlData: NSData)
-	{
-		parse(htmlData)
-	}
-
-	internal init() {
+	public required init() {
 
 	}
 
-	func parse(data: NSData) {
-		document = Ji(htmlData: data)
+	public func parse(htmlData: NSData, completion: (ReadabilityData?) -> ()) {
 
-		findMaxWeightNode()
+		let isMainThread = NSThread.isMainThread()
 
-		if let maxWeightNode = maxWeightNode {
-			if let imageNode = determineImageSource(maxWeightNode) {
-				maxWeightImgUrl = imageNode.attributes["src"]
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+			self.document = Ji(htmlData: htmlData)
+
+			self.findMaxWeightNode()
+
+			if let maxWeightNode = self.maxWeightNode {
+				if let imageNode = self.determineImageSource(maxWeightNode) {
+					self.maxWeightImgUrl = imageNode.attributes["src"]
+				}
+
+				// Text
+				self.maxWeightText = self.extractText(maxWeightNode)
 			}
 
-			// Text
-			maxWeightText = extractText(maxWeightNode)
+			guard let title = self.title() else {
+
+				if isMainThread {
+					dispatch_async(dispatch_get_main_queue(), {
+						completion(.None)
+					})
+
+				} else {
+					completion(.None)
+				}
+				return
+			}
+
+			let parsedData = ReadabilityData(
+				title: title,
+				description: self.description(),
+				topImage: self.topImage(),
+				text: self.text(),
+				topVideo: self.topVideo(),
+				keywords: self.keywords()
+			)
+
+			if isMainThread {
+				dispatch_async(dispatch_get_main_queue(), {
+					completion(parsedData)
+				})
+			} else {
+				completion(parsedData)
+			}
+
 		}
 
 	}
@@ -582,7 +622,7 @@ public class Readability {
 		return .None
 	}
 
-	public func description() -> String?
+	func description() -> String?
 	{
 		if let document = document {
 			if let description = extractValueUsing(document, queries: descQueries) {
@@ -593,7 +633,7 @@ public class Readability {
 		return maxWeightText
 	}
 
-	public func text() -> String? {
+	func text() -> String? {
 		guard let maxWeightNode = maxWeightNode else {
 			return .None
 		}
@@ -601,12 +641,8 @@ public class Readability {
 		return extractFullText(maxWeightNode)?.trim()
 	}
 
-	public func topImage() -> String?
+	func topImage() -> String?
 	{
-		if let _ = directImageUrl {
-			return directImageUrl
-		}
-
 		if let document = document {
 			if let imageUrl = extractValueUsing(document, queries: imageQueries) {
 				return imageUrl
@@ -616,7 +652,7 @@ public class Readability {
 		return maxWeightImgUrl
 	}
 
-	public func topVideo() -> String? {
+	func topVideo() -> String? {
 		if let document = document {
 			if let imageUrl = extractValueUsing(document, queries: videoQueries) {
 				return imageUrl
@@ -626,7 +662,7 @@ public class Readability {
 		return .None
 	}
 
-	public func keywords() -> [String]?
+	func keywords() -> [String]?
 	{
 		if let document = document {
 			if let values = extractValuesUsing(document, queries: keywordsQueries) {

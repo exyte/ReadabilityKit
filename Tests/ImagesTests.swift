@@ -28,77 +28,107 @@ import ReadabilityKit
 
 class ImagesTests: XCTestCase {
 
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-
 	func testImageCase1() {
 
-		let content = "<html><head><meta property = \"og:image\" content = \"imageUrl\"></head><html>"
+		let content = "<html><head><title>test</title><meta property = \"og:image\" content = \"imageUrl\"></head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let image = parser.topImage() else {
-			XCTFail("Image parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test image case 1")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let image = data?.topImage else {
+				XCTFail("Image parsing failed.")
+				return
+			}
+
+			XCTAssert(image == "imageUrl", "Image parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(image == "imageUrl", "Image parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testImageCase2() {
 
-		let content = "<html><head><meta name = \"twitter:image\" content = \"imageUrl\"></head><html>"
+		let content = "<html><head><title>test</title><meta name = \"twitter:image\" content = \"imageUrl\"></head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let image = parser.topImage() else {
-			XCTFail("Image parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test image case 2")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let image = data?.topImage else {
+				XCTFail("Image parsing failed.")
+				return
+			}
+
+			XCTAssert(image == "imageUrl", "Image parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(image == "imageUrl", "Image parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testImageCase3() {
 
-		let content = "<html><body><link rel = \"image_src\" href = \"imageUrl\"></body><html>"
+		let content = "<html><head><title>test</title></head><body><link rel = \"image_src\" href = \"imageUrl\"></body><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let image = parser.topImage() else {
-			XCTFail("Image parsing topImage.")
-			return
+		let expectation = expectationWithDescription("Test image case 3")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let image = data?.topImage else {
+				XCTFail("Image parsing topImage.")
+				return
+			}
+
+			XCTAssert(image == "imageUrl", "Image parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(image == "imageUrl", "Image parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testImageCase4() {
 
-		let content = "<html><head><meta name = \"thumbnail\" content = \"imageUrl\"></head><html>"
+		let content = "<html><head><title>test</title><meta name = \"thumbnail\" content = \"imageUrl\"></head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let image = parser.topImage() else {
-			XCTFail("Image parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test image case 4")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let image = data?.topImage else {
+				XCTFail("Image parsing failed.")
+				return
+			}
+
+			XCTAssert(image == "imageUrl", "Image parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(image == "imageUrl", "Image parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }

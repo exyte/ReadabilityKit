@@ -28,61 +28,83 @@ import ReadabilityKit
 
 class DescriptionTests: XCTestCase {
 
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-
 	func testDescriptionCase1() {
 
-		let content = "<html><head><meta name = \"description\" content = \"Test\"><head><html>"
+		let content = "<html><head><title>test</title><meta name = \"description\" content = \"Test\"><head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let description = parser.description() else {
-			XCTFail("Description parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test description case 1 failed")
+
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let description = data?.description else {
+				XCTFail("Description parsing failed.")
+				return
+			}
+
+			XCTAssert(description == "Test", "Description parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(description == "Test", "Description parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testDescriptionCase2() {
 
-		let content = "<html><head><meta property = \"og:description\" content = \"Test\"><head><html>"
+		let content = "<html><head><title>test</title><meta property = \"og:description\" content = \"Test\"><head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let description = parser.description() else {
-			XCTFail("Description parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test description case 2 failed")
+
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let description = data?.description else {
+				XCTFail("Description parsing failed.")
+				return
+			}
+
+			XCTAssert(description == "Test", "Description parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(description == "Test", "Description parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testDescriptionCase3() {
 
-		let content = "<html><head><meta name = \"twitter:description\" content = \"Test\"><head><html>"
+		let content = "<html><head><title>test</title><meta name = \"twitter:description\" content = \"Test\"><head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let description = parser.description() else {
-			XCTFail("Description parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test description case 3 failed")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let description = data?.description else {
+				XCTFail("Description parsing failed.")
+				return
+			}
+
+			XCTAssert(description == "Test", "Description parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(description == "Test", "Description parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }

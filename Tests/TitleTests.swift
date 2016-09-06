@@ -28,16 +28,6 @@ import ReadabilityKit
 
 class TitleTests: XCTestCase {
 
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-
 	func testTitleCase1() {
 
 		let content = "<html><head><title>Test<title><head><html>"
@@ -45,13 +35,23 @@ class TitleTests: XCTestCase {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let title = parser.title() else {
-			XCTFail("Title parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test title case 1")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let title = data?.title else {
+				XCTFail("Title parsing failed.")
+				return
+			}
+
+			XCTAssert(title == "Test", "Title parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(title == "Test", "Title parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testTitleCase2() {
@@ -61,13 +61,23 @@ class TitleTests: XCTestCase {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let title = parser.title() else {
-			XCTFail("Title parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test title case 2")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let title = data?.title else {
+				XCTFail("Title parsing failed.")
+				return
+			}
+
+			XCTAssert(title == "Test", "Title parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(title == "Test", "Title parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testTitleCase3() {
@@ -77,13 +87,23 @@ class TitleTests: XCTestCase {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let title = parser.title() else {
-			XCTFail("Title parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test title case 3")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let title = data?.title else {
+				XCTFail("Title parsing failed.")
+				return
+			}
+
+			XCTAssert(title == "Test", "Title parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(title == "Test", "Title parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testTitleCase4() {
@@ -93,12 +113,22 @@ class TitleTests: XCTestCase {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let title = parser.title() else {
-			XCTFail("Title parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test title case 4")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let title = data?.title else {
+				XCTFail("Title parsing failed.")
+				return
+			}
+
+			XCTAssert(title == "Test", "Title parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(title == "Test", "Title parsing failed.")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }

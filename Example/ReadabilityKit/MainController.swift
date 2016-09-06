@@ -35,6 +35,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	var url: NSURL?
 	var parser: Readability?
 	var image: UIImage?
+	var parsedData: ReadabilityData?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -70,7 +71,6 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			self.activityView?.alpha = 1.0
 		}) { _ in
 			self.parseUrl()
-			self.moveToDetails()
 		}
 	}
 
@@ -88,11 +88,11 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 			let detailsController = segue.destinationViewController as? DetailsController
 
-			detailsController?.titleText = parser?.title()
-			detailsController?.desc = parser?.description()
-			detailsController?.keywords = parser?.keywords()
+			detailsController?.titleText = parsedData?.title
+			detailsController?.desc = parsedData?.description
+			detailsController?.keywords = parsedData?.keywords
 			detailsController?.image = image
-			detailsController?.videoURL = parser?.topVideo()
+			detailsController?.videoURL = parsedData?.topVideo
 		}
 	}
 
@@ -130,20 +130,27 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			return
 		}
 
-		parser = Readability(url: url)
+		parser = Readability()
+		parser?.parse(url, completion: { data in
 
-		guard let imageUrlStr = parser?.topImage() else {
-			return
-		}
+			self.parsedData = data
 
-		guard let imageUrl = NSURL(string: imageUrlStr) else {
-			return
-		}
+			guard let imageUrlStr = data?.topImage else {
+				return
+			}
 
-		guard let imageData = NSData(contentsOfURL: imageUrl) else {
-			return
-		}
+			guard let imageUrl = NSURL(string: imageUrlStr) else {
+				return
+			}
 
-		image = UIImage(data: imageData)
+			guard let imageData = NSData(contentsOfURL: imageUrl) else {
+				return
+			}
+
+			self.image = UIImage(data: imageData)
+
+			self.moveToDetails()
+		})
+
 	}
 }

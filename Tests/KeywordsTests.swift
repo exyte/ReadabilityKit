@@ -40,17 +40,27 @@ class KeywordsTests: XCTestCase {
 
 	func testKeywords() {
 
-		let content = "<html><head><meta name = \"keywords\" content = \"Test1, Test2\"><head><html>"
+		let content = "<html><head><title>test</title><meta name = \"keywords\" content = \"Test1, Test2\"><head><html>"
 		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
 			return
 		}
 
-		let parser = Readability(data: contentData)
-		guard let keywords = parser.keywords() else {
-			XCTFail("Keywords parsing failed.")
-			return
+		let expectation = expectationWithDescription("Test keywords failed")
+		let parser = Readability()
+		parser.parse(contentData) { data in
+			guard let keywords = data?.keywords else {
+				XCTFail("Keywords parsing failed.")
+				return
+			}
+
+			XCTAssert(keywords == ["Test1", "Test2"], "Keywords parsing failed.")
+			expectation.fulfill()
 		}
 
-		XCTAssert(keywords == ["Test1", "Test2"], "Keywords parsing failed.")
+        waitForExpectationsWithTimeout(30.0) { error in
+            if let err = error {
+                XCTFail("Failed with error: \(err)")
+            }
+        }
 	}
 }

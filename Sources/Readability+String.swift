@@ -25,13 +25,12 @@
 
 public extension Readability {
 
-	public convenience init(string: String) {
+	public func parse(string: String, completion: (ReadabilityData?) -> ()) {
 		guard let htmlData = string.dataUsingEncoding(NSUTF8StringEncoding) else {
-			self.init()
+			completion(.None)
 			return
 		}
 
-		self.init(data: htmlData)
-		return
+		parse(htmlData, completion: completion)
 	}
 }

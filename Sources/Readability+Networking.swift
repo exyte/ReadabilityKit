@@ -27,44 +27,9 @@ let readabilityUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) Appl
 
 public extension Readability {
 
-	public convenience init(url: NSURL) {
+	public func parse(url: NSURL, completion: (ReadabilityData?) -> ()) {
 
-		self.init()
-		let request = NSMutableURLRequest(URL: url)
-		request.setValue(readabilityUserAgent, forHTTPHeaderField: "User-Agent")
-
-		let semaphore = dispatch_semaphore_create(0)
-
-		var data: NSData?
-
-		// Avoiding deadlock in shared session thread
-		let sessionQueue = dispatch_queue_create("readability_url_session_queue", DISPATCH_QUEUE_SERIAL)
-		dispatch_async(sessionQueue) {
-			NSURLSession.sharedSession().dataTaskWithRequest(request,
-				completionHandler: { (responseData, _, _) in
-					data = responseData
-					dispatch_semaphore_signal(semaphore)
-
-			}).resume()
-		}
-
-		dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-		guard let htmlData = data else {
-			return
-		}
-
-		if self.checkForImage(htmlData) {
-			self.directImageUrl = url.absoluteString
-			return
-		}
-
-		parse(htmlData)
-	}
-
-	public convenience init(url: NSURL, completion: (() -> ())?) {
-
-		self.init()
+		let isMainThread = NSThread.isMainThread()
 
 		let request = NSMutableURLRequest(URL: url)
 		request.setValue(readabilityUserAgent, forHTTPHeaderField: "User-Agent")
@@ -76,13 +41,31 @@ public extension Readability {
 				}
 
 				if self.checkForImage(htmlData) {
-					self.directImageUrl = url.absoluteString
-					completion?()
+					let parsedData = ReadabilityData(title: url.absoluteString,
+						description: .None,
+						topImage: url.absoluteString,
+						text: .None,
+						topVideo: .None,
+						keywords: .None)
+
+					if isMainThread {
+						dispatch_async(dispatch_get_main_queue(), {
+							completion(parsedData)
+						})
+					} else {
+						completion(parsedData)
+					}
+
 					return
 				}
 
-				self.parse(htmlData)
-				completion?()
+				if isMainThread {
+					dispatch_async(dispatch_get_main_queue(), {
+						self.parse(htmlData, completion: completion)
+					})
+				} else {
+					self.parse(htmlData, completion: completion)
+				}
 
 		}).resume()
 	}

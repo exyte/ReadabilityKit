@@ -46,7 +46,22 @@ class DirectImageUrlTests: XCTestCase {
 			return
 		}
 
-		let readability = Readability(url: NSURL(fileURLWithPath: path))
-		XCTAssert(readability.topImage() == "file://\(path)", "Direct image url is not recognized")
+		let expectation = expectationWithDescription("Test image url")
+		let readability = Readability()
+		readability.parse(NSURL(fileURLWithPath: path)) { data in
+			guard let image = data?.topImage else {
+				XCTFail("Image parsing failed.")
+				return
+			}
+
+			XCTAssert(image == "file://\(path)", "Direct image url is not recognized")
+			expectation.fulfill()
+		}
+
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }

@@ -29,16 +29,6 @@ import ReadabilityKit
 
 class Tests: XCTestCase {
 
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-
 	func testReadcerealPage() {
 
 		let bundle = NSBundle(forClass: self.dynamicType)
@@ -52,13 +42,38 @@ class Tests: XCTestCase {
 			return
 		}
 
-		let readability = Readability(data: htmlData)
+		let expectation = expectationWithDescription("Test readcereal page")
+		let readability = Readability()
+		readability.parse(htmlData) { data in
+			guard let parsedData = data else {
+				XCTFail("Parsing failed")
+				return
+			}
 
-		XCTAssert(readability.title() == "Amsterdam Fog - Cereal", "Wrong title")
-		XCTAssert(readability.description() == "Travel & Style Magazine",
-			"Wrong description")
-		XCTAssert(readability.topImage() == "http://readcereal.com/wp-content/uploads/2015/11/jounral-post-three.jpg",
-			"Wrong image url")
+			guard let description = parsedData.description else {
+				XCTFail("Parsing failed")
+				return
+			}
+
+			guard let topImage = parsedData.topImage else {
+				XCTFail("Parsing failed")
+				return
+			}
+
+			XCTAssert(parsedData.title == "Amsterdam Fog - Cereal", "Wrong title")
+			XCTAssert(description == "Travel & Style Magazine",
+				"Wrong description")
+			XCTAssert(topImage == "http://readcereal.com/wp-content/uploads/2015/11/jounral-post-three.jpg",
+				"Wrong image url")
+
+			expectation.fulfill()
+		}
+
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testStarwarsPage() {
@@ -69,14 +84,40 @@ class Tests: XCTestCase {
 			return
 		}
 
-		let url = NSURL(fileURLWithPath: path)
-		let readability = Readability(url: url)
+		let expectation = expectationWithDescription("Test starwars page")
+		let readability = Readability()
 
-		XCTAssert(readability.title() == "From a Certain Point of View: What Is the Best Scene in Star Wars: The Force Awakens? | StarWars.com")
-		XCTAssert(readability.description() == "Two StarWars.com writers argue for what they consider the best scene in Star Wars: The Force Awakens!",
-			"Wrong description")
-		XCTAssert(readability.topImage() == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
-			"Wrong image url")
+		let url = NSURL(fileURLWithPath: path)
+		readability.parse(url) { data in
+
+			guard let parsedData = data else {
+				XCTFail("Parsing failed")
+				return
+			}
+
+			guard let description = parsedData.description else {
+				XCTFail("Parsing failed")
+				return
+			}
+
+			guard let topImage = parsedData.topImage else {
+				XCTFail("Parsing failed")
+				return
+			}
+
+			XCTAssert(parsedData.title == "From a Certain Point of View: What Is the Best Scene in Star Wars: The Force Awakens? | StarWars.com")
+			XCTAssert(description == "Two StarWars.com writers argue for what they consider the best scene in Star Wars: The Force Awakens!",
+				"Wrong description")
+			XCTAssert(topImage == "http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/10/star-wars-force-awakens-official-poster.jpg",
+				"Wrong image url")
+			expectation.fulfill()
+		}
+
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 
 	func testMmochampionPage() {
@@ -93,17 +134,36 @@ class Tests: XCTestCase {
 			return
 		}
 
-		let readability = Readability(string: htmlStr)
+		let expectation = expectationWithDescription("Test starwars page")
+		let readability = Readability()
+		readability.parse(htmlStr) { data in
+			guard let parsedData = data else {
+				XCTFail("Parsing failed")
+				return
+			}
 
-		XCTAssert(readability.title() == "MMO-Champion - World of Warcraft News and Raiding Strategies")
-		XCTAssert(readability.description() == "Articles and forums with game news and raiding strategies.")
+			guard let description = parsedData.description else {
+				XCTFail("Parsing failed")
+				return
+			}
 
-		let keywords = ["mmo", "news", "world", "of", "warcraft", "raids", "mmo", "wow"]
+			guard let keywords = parsedData.keywords else {
+				XCTFail("Parsing failed")
+				return
+			}
 
-		guard let readabilityKeywords = readability.keywords() else {
-			return
+			XCTAssert(parsedData.title == "MMO-Champion - World of Warcraft News and Raiding Strategies")
+			XCTAssert(description == "Articles and forums with game news and raiding strategies.")
+
+			let words = ["mmo", "news", "world", "of", "warcraft", "raids", "mmo", "wow"]
+			XCTAssert(keywords == words, "Wrong image url")
+			expectation.fulfill()
 		}
 
-		XCTAssert(readabilityKeywords == keywords, "Wrong image url")
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }
