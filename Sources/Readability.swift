@@ -476,60 +476,39 @@ public class Readability {
 		return contents
 	}
 
-	public required init() {
-
+	public class func parse(htmlData: NSData) -> ReadabilityData? {
+		let readability = Readability()
+		return readability.parseData(htmlData)
 	}
 
-	public func parse(htmlData: NSData, completion: (ReadabilityData?) -> ()) {
+	func parseData(htmlData: NSData) -> ReadabilityData? {
+		self.document = Ji(htmlData: htmlData)
 
-		let isMainThread = NSThread.isMainThread()
+		self.findMaxWeightNode()
 
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-			self.document = Ji(htmlData: htmlData)
-
-			self.findMaxWeightNode()
-
-			if let maxWeightNode = self.maxWeightNode {
-				if let imageNode = self.determineImageSource(maxWeightNode) {
-					self.maxWeightImgUrl = imageNode.attributes["src"]
-				}
-
-				// Text
-				self.maxWeightText = self.extractText(maxWeightNode)
+		if let maxWeightNode = self.maxWeightNode {
+			if let imageNode = self.determineImageSource(maxWeightNode) {
+				self.maxWeightImgUrl = imageNode.attributes["src"]
 			}
 
-			guard let title = self.title() else {
-
-				if isMainThread {
-					dispatch_async(dispatch_get_main_queue(), {
-						completion(.None)
-					})
-
-				} else {
-					completion(.None)
-				}
-				return
-			}
-
-			let parsedData = ReadabilityData(
-				title: title,
-				description: self.description(),
-				topImage: self.topImage(),
-				text: self.text(),
-				topVideo: self.topVideo(),
-				keywords: self.keywords()
-			)
-
-			if isMainThread {
-				dispatch_async(dispatch_get_main_queue(), {
-					completion(parsedData)
-				})
-			} else {
-				completion(parsedData)
-			}
-
+			// Text
+			self.maxWeightText = self.extractText(maxWeightNode)
 		}
 
+		guard let title = self.title() else {
+			return .None
+		}
+
+		let parsedData = ReadabilityData(
+			title: title,
+			description: self.description(),
+			topImage: self.topImage(),
+			text: self.text(),
+			topVideo: self.topVideo(),
+			keywords: self.keywords()
+		)
+
+		return parsedData
 	}
 
 	private func extractValueUsing(document: Ji, path: String, attribute: String?) -> String? {

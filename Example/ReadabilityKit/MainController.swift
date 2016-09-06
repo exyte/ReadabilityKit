@@ -130,8 +130,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			return
 		}
 
-		parser = Readability()
-		parser?.parse(url, completion: { data in
+		Readability.parse(url: url) { data in
 
 			self.parsedData = data
 
@@ -150,7 +149,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			self.image = UIImage(data: imageData)
 
 			self.moveToDetails()
-		})
-
 	}
+
+}
 }

@@ -27,7 +27,7 @@ let readabilityUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) Appl
 
 public extension Readability {
 
-	public func parse(url: NSURL, completion: (ReadabilityData?) -> ()) {
+	public class func parse(url url: NSURL, completion: (ReadabilityData?) -> ()) {
 
 		let isMainThread = NSThread.isMainThread()
 
@@ -37,10 +37,19 @@ public extension Readability {
 		NSURLSession.sharedSession().dataTaskWithRequest(request,
 			completionHandler: { (responseData, _, _) in
 				guard let htmlData = responseData else {
+
+					if isMainThread {
+						dispatch_async(dispatch_get_main_queue(), {
+							completion(.None)
+						})
+					} else {
+						completion(.None)
+					}
+
 					return
 				}
 
-				if self.checkForImage(htmlData) {
+				if Readability.checkForImage(htmlData) {
 					let parsedData = ReadabilityData(title: url.absoluteString,
 						description: .None,
 						topImage: url.absoluteString,
@@ -61,16 +70,16 @@ public extension Readability {
 
 				if isMainThread {
 					dispatch_async(dispatch_get_main_queue(), {
-						self.parse(htmlData, completion: completion)
+						Readability.parse(data: htmlData, completion: completion)
 					})
 				} else {
-					self.parse(htmlData, completion: completion)
+					Readability.parse(data: htmlData, completion: completion)
 				}
 
 		}).resume()
 	}
 
-	private func checkForImage(data: NSData) -> Bool {
+	class func checkForImage(data: NSData) -> Bool {
 		#if os(OSX)
 			let image = NSImage(data: data)
 		#else

@@ -36,8 +36,7 @@ class ImagesTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test image case 1")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return
@@ -62,8 +61,7 @@ class ImagesTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test image case 2")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return
@@ -88,8 +86,7 @@ class ImagesTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test image case 3")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing topImage.")
 				return
@@ -114,8 +111,7 @@ class ImagesTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test image case 4")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return

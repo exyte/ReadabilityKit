@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  StringExtension.swift
 //  ReadabilityKit
 //
 //  Copyright (c) 2016 Exyte http://www.exyte.com
@@ -22,6 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
+
 import Foundation
 
 extension String {

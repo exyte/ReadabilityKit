@@ -43,8 +43,7 @@ class Tests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test readcereal page")
-		let readability = Readability()
-		readability.parse(htmlData) { data in
+		Readability.parse(data: htmlData) { data in
 			guard let parsedData = data else {
 				XCTFail("Parsing failed")
 				return
@@ -85,10 +84,9 @@ class Tests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test starwars page")
-		let readability = Readability()
 
 		let url = NSURL(fileURLWithPath: path)
-		readability.parse(url) { data in
+		Readability.parse(url: url) { data in
 
 			guard let parsedData = data else {
 				XCTFail("Parsing failed")
@@ -135,8 +133,7 @@ class Tests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test starwars page")
-		let readability = Readability()
-		readability.parse(htmlStr) { data in
+		Readability.parse(htmlString: htmlStr) { data in
 			guard let parsedData = data else {
 				XCTFail("Parsing failed")
 				return

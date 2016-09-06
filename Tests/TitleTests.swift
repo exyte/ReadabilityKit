@@ -36,8 +36,7 @@ class TitleTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test title case 1")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let title = data?.title else {
 				XCTFail("Title parsing failed.")
 				return
@@ -62,8 +61,7 @@ class TitleTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test title case 2")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let title = data?.title else {
 				XCTFail("Title parsing failed.")
 				return
@@ -88,8 +86,7 @@ class TitleTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test title case 3")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let title = data?.title else {
 				XCTFail("Title parsing failed.")
 				return
@@ -114,8 +111,7 @@ class TitleTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test title case 4")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let title = data?.title else {
 				XCTFail("Title parsing failed.")
 				return

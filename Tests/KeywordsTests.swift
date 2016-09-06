@@ -46,8 +46,7 @@ class KeywordsTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test keywords failed")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let keywords = data?.keywords else {
 				XCTFail("Keywords parsing failed.")
 				return
@@ -57,10 +56,10 @@ class KeywordsTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-        waitForExpectationsWithTimeout(30.0) { error in
-            if let err = error {
-                XCTFail("Failed with error: \(err)")
-            }
-        }
+		waitForExpectationsWithTimeout(30.0) { error in
+			if let err = error {
+				XCTFail("Failed with error: \(err)")
+			}
+		}
 	}
 }

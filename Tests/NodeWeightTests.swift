@@ -37,8 +37,7 @@ class NodeWeightTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test node weight case 1")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let imageUrl = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return
@@ -64,8 +63,7 @@ class NodeWeightTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test node weight case 1")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
 				XCTFail("Description parsing failed.")
 				return

@@ -36,8 +36,7 @@ class VideoTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test header video")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let videoUrl = data?.topVideo else {
 				XCTFail("Video parsing failed.")
 				return

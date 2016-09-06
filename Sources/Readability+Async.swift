@@ -1,5 +1,5 @@
 //
-//  Readability+String.swift
+//  Readability+Async.swift
 //  ReadabilityKit
 //
 //  Copyright (c) 2016 Exyte http://www.exyte.com
@@ -24,14 +24,17 @@
 //
 
 public extension Readability {
-
-	public class func parse(htmlString htmlString: String, completion: (ReadabilityData?) -> ()) {
-
-		guard let htmlData = htmlString.dataUsingEncoding(NSUTF8StringEncoding) else {
-			completion(.None)
-			return
+	public class func parse(data htmlData: NSData, completion: (ReadabilityData?) -> ()) {
+		let isMainThread = NSThread.isMainThread()
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+			let parsedData = Readability.parse(htmlData)
+			if isMainThread {
+				dispatch_async(dispatch_get_main_queue(), {
+					completion(parsedData)
+				})
+			} else {
+				completion(parsedData)
+			}
 		}
-
-		Readability.parse(data: htmlData, completion: completion)
 	}
 }

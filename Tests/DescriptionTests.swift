@@ -37,8 +37,7 @@ class DescriptionTests: XCTestCase {
 
 		let expectation = expectationWithDescription("Test description case 1 failed")
 
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
 				XCTFail("Description parsing failed.")
 				return
@@ -64,8 +63,7 @@ class DescriptionTests: XCTestCase {
 
 		let expectation = expectationWithDescription("Test description case 2 failed")
 
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
 				XCTFail("Description parsing failed.")
 				return
@@ -90,8 +88,7 @@ class DescriptionTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test description case 3 failed")
-		let parser = Readability()
-		parser.parse(contentData) { data in
+		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
 				XCTFail("Description parsing failed.")
 				return

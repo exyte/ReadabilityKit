@@ -47,8 +47,8 @@ class DirectImageUrlTests: XCTestCase {
 		}
 
 		let expectation = expectationWithDescription("Test image url")
-		let readability = Readability()
-		readability.parse(NSURL(fileURLWithPath: path)) { data in
+
+		Readability.parse(url: NSURL(fileURLWithPath: path)) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return
