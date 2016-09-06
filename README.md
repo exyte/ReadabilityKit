@@ -32,13 +32,13 @@ Extracts:
 ## Usage
 
 ```swift
-let parser = Readability(url: articleUrl)
-
-let title = parser.title()
-let description = parser.description()
-let keywords = parser.keywords()
-let imageUrl = parser.topImage()
-let videoUrl = parser.topVideo()
+Readability.parse(url: articleUrl, { data in
+  let title = data.title()
+  let description = data.description()
+  let keywords = data.keywords()
+  let imageUrl = data.topImage()
+  let videoUrl = data.topVideo()
+})
 ```
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -73,7 +73,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - ReadabilityKit uses part of [ar90](https://github.com/masukomi/ar90-readability) algorithm which was transformed into the Redability.com product. This allows for more accurate extraction.
 - Video support. ReadabilityKit detects videos on the page and extracts the most relevant to `Readability.topVideo`.
 - Typed API that allows you to use statically typed properties without force casting.
-- Better threading model. You can use ReadabilityKit with both sync or async calls.
 - Keyword extraction.
  
 ## Installation
@@ -102,7 +101,7 @@ github "exyte/ReadabilityKit" ~> 0.4.8
 #### Manually
 
 1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
-2. Download and drop ReadabilityKit.swift in your project
+2. Download and drop all files from Sources folder in your project
 3. Congratulations!
 
 ## Author
