@@ -33,11 +33,11 @@ Extracts:
 
 ```swift
 Readability.parse(url: articleUrl, { data in
-  let title = data.title()
-  let description = data.description()
-  let keywords = data.keywords()
-  let imageUrl = data.topImage()
-  let videoUrl = data.topVideo()
+  let title = data?.title
+  let description = data?.description
+  let keywords = data?.keywords
+  let imageUrl = data?.topImage
+  let videoUrl = data?.topVideo
 })
 ```
 
