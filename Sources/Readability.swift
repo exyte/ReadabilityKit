@@ -25,12 +25,6 @@
 
 import Ji
 
-#if os(OSX)
-	import AppKit
-#else
-	import UIKit
-#endif
-
 public struct ReadabilityData {
 	public let title: String
 	public let description: String?
