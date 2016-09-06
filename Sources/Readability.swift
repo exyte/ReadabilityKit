@@ -366,12 +366,8 @@ public class Readability {
 					altWeight(imageNode) +
 					titleWeight(imageNode))
 
-			var nofollow = false
 			if let parent = imageNode.parent {
-				if let rel = parent.attributes["rel"] {
-					rel.containsString("nofollow")
-					nofollow = true
-
+				if let _ = parent.attributes["rel"] {
 					weight -= 40.0
 				}
 			}
