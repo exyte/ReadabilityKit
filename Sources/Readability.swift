@@ -73,7 +73,7 @@ public class Readability {
 		+ "a(d|ll|gegate|rchive|ttachment)|(pag(er|ination))|popup|print|"
 		+ "login|si(debar|gn|ngle)"
 
-	let posetive = "(^(body|content|h?entry|main|page|post|text|blog|story|haupt))"
+	let positive = "(^(body|content|h?entry|main|page|post|text|blog|story|haupt))"
 		+ "|arti(cle|kel)|instapaper_body"
 
 	let negative = "nav($|igation)|user|com(ment|bx)|(^com-)|contact|"
@@ -83,7 +83,7 @@ public class Readability {
 	let nodesTags = "p|div|td|h1|h2|article|section"
 
 	var unlikelyRegExp: NSRegularExpression?
-	var posetiveRegExp: NSRegularExpression?
+	var positiveRegExp: NSRegularExpression?
 	var negativeRegExp: NSRegularExpression?
 	var nodesRegExp: NSRegularExpression?
 
@@ -101,8 +101,8 @@ public class Readability {
 
 		if let className = node.attributes["class"] {
 			let classNameRange = NSMakeRange(0, className.characters.count)
-			if let posetiveRegExp = posetiveRegExp {
-				if posetiveRegExp.matchesInString(className, options: NSMatchingOptions.ReportProgress, range: classNameRange).count > 0 {
+			if let positiveRegExp = positiveRegExp {
+				if positiveRegExp.matchesInString(className, options: NSMatchingOptions.ReportProgress, range: classNameRange).count > 0 {
 					weight += 35
 				}
 			}
@@ -122,8 +122,8 @@ public class Readability {
 
 		if let id = node.attributes["id"] {
 			let idRange = NSMakeRange(0, id.characters.count)
-			if let posetiveRegExp = posetiveRegExp {
-				if posetiveRegExp.matchesInString(id, options: NSMatchingOptions.ReportProgress, range: idRange).count > 0 {
+			if let positiveRegExp = positiveRegExp {
+				if positiveRegExp.matchesInString(id, options: NSMatchingOptions.ReportProgress, range: idRange).count > 0 {
 					weight += 40
 				}
 			}
@@ -248,7 +248,7 @@ public class Readability {
 		maxWeight = 0
 		do {
 			try unlikelyRegExp = NSRegularExpression(pattern: unlikely, options: NSRegularExpressionOptions.CaseInsensitive)
-			try posetiveRegExp = NSRegularExpression(pattern: posetive, options: NSRegularExpressionOptions.CaseInsensitive)
+			try positiveRegExp = NSRegularExpression(pattern: positive, options: NSRegularExpressionOptions.CaseInsensitive)
 			try negativeRegExp = NSRegularExpression(pattern: negative, options: NSRegularExpressionOptions.CaseInsensitive)
 			try nodesRegExp = NSRegularExpression(pattern: nodesTags, options: NSRegularExpressionOptions.CaseInsensitive)
 		}
