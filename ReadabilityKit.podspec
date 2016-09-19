@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ReadabilityKit'
-  s.version          = '0.5.3'
+  s.version          = '0.5.4'
   s.summary          = 'Metadata extractor for news, articles and full-texts.'
   
   s.homepage         = 'https://github.com/exyte/ReadabilityKit.git'
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/*.swift'
   
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '2.3' }
   s.dependency  'Ji', '~> 1.2.0'
 
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }

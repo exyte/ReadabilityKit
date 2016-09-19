@@ -99,7 +99,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-    pod 'ReadabilityKit', '~> 0.5.3'
+    pod 'ReadabilityKit', '~> 0.5.4'
 end
 ```
 
@@ -115,7 +115,7 @@ github "exyte/ReadabilityKit" ~> 0.5.2
 
 swift 2.3:
 ```ogdl
-github "exyte/ReadabilityKit" ~> 0.5.3
+github "exyte/ReadabilityKit" ~> 0.5.4
 ```
 
 #### Manually
