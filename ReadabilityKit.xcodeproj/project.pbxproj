@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38D3163A1D90369D00D1207A /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D316391D90369D00D1207A /* Ji.framework */; };
+		38D3163E1D90370E00D1207A /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D3163D1D90370E00D1207A /* Ji.framework */; };
+		38D316401D903B0D00D1207A /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D3163F1D903B0D00D1207A /* Ji.framework */; };
 		57156D6B1D632640008A9C49 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57156D691D632640008A9C49 /* Info.plist */; };
 		57156D6C1D632640008A9C49 /* Readability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156D6A1D632640008A9C49 /* Readability.swift */; };
 		57156D6F1D6326BD008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57156D811D633264008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57156E8F1D6334A1008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156E8D1D6334A0008A9C49 /* Ji.framework */; };
-		57156E901D6334A8008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156E8B1D6334A0008A9C49 /* Ji.framework */; };
-		57156EA01D633726008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156E9F1D633726008A9C49 /* Ji.framework */; };
 		57156EA11D63377A008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57156ED11D63399D008A9C49 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57156ED01D63399D008A9C49 /* Ji.framework */; };
 		57156ED21D634087008A9C49 /* ReadabilityKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,9 +31,6 @@
 		57156F291D634982008A9C49 /* PagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156F1C1D634982008A9C49 /* PagesTests.swift */; };
 		57156F2A1D634982008A9C49 /* TitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156F1D1D634982008A9C49 /* TitleTests.swift */; };
 		57156F2B1D634982008A9C49 /* VideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156F1E1D634982008A9C49 /* VideoTests.swift */; };
-		57156F2E1D634F0E008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156E8B1D6334A0008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		57156F301D6350A3008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156E8D1D6334A0008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		57156F321D6350BB008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156E9F1D633726008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57156F341D6350D6008A9C49 /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57156ED01D63399D008A9C49 /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57185B6E1D7D7CF700C76FAD /* Readability+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B6D1D7D7CF700C76FAD /* Readability+Networking.swift */; };
 		57185B6F1D7D7CF700C76FAD /* Readability+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B6D1D7D7CF700C76FAD /* Readability+Networking.swift */; };
@@ -73,7 +70,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				57156F2E1D634F0E008A9C49 /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +79,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				57156F301D6350A3008A9C49 /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +88,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				57156F321D6350BB008A9C49 /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,15 +104,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38D316391D90369D00D1207A /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
+		38D3163D1D90370E00D1207A /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
+		38D3163F1D903B0D00D1207A /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		57156D5D1D632539008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57156D691D632640008A9C49 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57156D6A1D632640008A9C49 /* Readability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Readability.swift; sourceTree = "<group>"; };
 		57156D6E1D6326BD008A9C49 /* ReadabilityKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadabilityKit.h; sourceTree = "<group>"; };
 		57156D771D6331A0008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57156E8B1D6334A0008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
-		57156E8D1D6334A0008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		57156E961D633706008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57156E9F1D633726008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		57156EC71D63395E008A9C49 /* ReadabilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadabilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57156ED01D63399D008A9C49 /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		57156F021D63493B008A9C49 /* ReadabilityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadabilityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57156E901D6334A8008A9C49 /* Ji.framework in Frameworks */,
+				38D3163A1D90369D00D1207A /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57156E8F1D6334A1008A9C49 /* Ji.framework in Frameworks */,
+				38D3163E1D90370E00D1207A /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57156EA01D633726008A9C49 /* Ji.framework in Frameworks */,
+				38D316401D903B0D00D1207A /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +239,7 @@
 		57156E8A1D6334A0008A9C49 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				57156E8B1D6334A0008A9C49 /* Ji.framework */,
+				38D316391D90369D00D1207A /* Ji.framework */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -253,7 +247,7 @@
 		57156E8C1D6334A0008A9C49 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				57156E8D1D6334A0008A9C49 /* Ji.framework */,
+				38D3163D1D90370E00D1207A /* Ji.framework */,
 			);
 			path = watchOS;
 			sourceTree = "<group>";
@@ -261,7 +255,7 @@
 		57156E9E1D633725008A9C49 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				57156E9F1D633726008A9C49 /* Ji.framework */,
+				38D3163F1D903B0D00D1207A /* Ji.framework */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -462,6 +456,7 @@
 				TargetAttributes = {
 					57156D5C1D632539008A9C49 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					57156D761D6331A0008A9C49 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -474,6 +469,7 @@
 					};
 					57156F011D63493B008A9C49 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -727,6 +723,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -748,6 +745,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -776,6 +774,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -805,6 +804,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -834,6 +834,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -860,6 +861,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -883,6 +885,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -907,6 +910,7 @@
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -920,6 +924,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.readabilitykit.ReadabilityKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -931,6 +936,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.readabilitykit.ReadabilityKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
