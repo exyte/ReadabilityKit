@@ -12,10 +12,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ReadabilityKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
   ReadabilityKit: 76937c360aec273140ed059cd0f3becf20c5b2e8
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 4e70b24940d28f8b55638c996b361e9b66c676bc
+
+COCOAPODS: 1.0.1

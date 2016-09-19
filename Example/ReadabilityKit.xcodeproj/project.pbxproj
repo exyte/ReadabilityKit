@@ -133,7 +133,6 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				E8845BC4AC6DB6E104C66B77 /* [CP] Embed Pods Frameworks */,
 				07BE57630D24C84443D2003E /* [CP] Copy Pods Resources */,
-				100BF0145B90CDF18F9D37A1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,7 +155,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -205,21 +203,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadabilityKit_Example/Pods-ReadabilityKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		100BF0145B90CDF18F9D37A1 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadabilityKit_Example/Pods-ReadabilityKit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8845BC4AC6DB6E104C66B77 /* [CP] Embed Pods Frameworks */ = {
@@ -379,7 +362,6 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -393,7 +375,6 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

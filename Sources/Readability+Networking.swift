@@ -56,12 +56,7 @@ public extension Readability {
 				}
 
 				if Readability.checkForImage(htmlData) {
-                    
-                    guard let urlStr = url.absoluteString else {
-                        return
-                    }
-                    
-					let parsedData = ReadabilityData(title: urlStr,
+					let parsedData = ReadabilityData(title: url.absoluteString,
 						description: .None,
 						topImage: url.absoluteString,
 						text: .None,
