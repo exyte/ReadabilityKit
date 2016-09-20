@@ -88,7 +88,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-    pod 'ReadabilityKit', '~> 0.5.2'
+    pod 'ReadabilityKit', '0.5.2'
 end
 ```
 
@@ -99,7 +99,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-    pod 'ReadabilityKit', '~> 0.5.4'
+    pod 'ReadabilityKit', '0.5.4'
 end
 ```
 
@@ -110,12 +110,12 @@ To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it
 swift 2.2:
 
 ```ogdl
-github "exyte/ReadabilityKit" ~> 0.5.2
+github "exyte/ReadabilityKit" "0.5.2"
 ```
 
 swift 2.3:
 ```ogdl
-github "exyte/ReadabilityKit" ~> 0.5.4
+github "exyte/ReadabilityKit" "0.5.4"
 ```
 
 #### Manually
