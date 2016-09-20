@@ -88,7 +88,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-    pod 'ReadabilityKit', '~> 0.5.1'
+    pod 'ReadabilityKit', '~> 0.5.2'
 end
 ```
 
