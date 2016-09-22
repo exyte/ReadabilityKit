@@ -31,18 +31,18 @@ class Tests: XCTestCase {
 
 	func testReadcerealPage() {
 
-		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("readcereal", ofType: .None) else {
+		let bundle = Bundle(for: type(of: self))
+		guard let path = bundle.path(forResource: "readcereal", ofType: .none) else {
 			XCTFail("No resource path available")
 			return
 		}
 
-		guard let htmlData = NSData(contentsOfFile: path) else {
+		guard let htmlData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
 			XCTFail("No resource file available")
 			return
 		}
 
-		let expectation = expectationWithDescription("Test readcereal page")
+		let expectation = self.expectation(description: "Test readcereal page")
 		Readability.parse(data: htmlData) { data in
 			guard let parsedData = data else {
 				XCTFail("Parsing failed")
@@ -68,7 +68,7 @@ class Tests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -77,15 +77,15 @@ class Tests: XCTestCase {
 
 	func testStarwarsPage() {
 
-		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("starwars", ofType: .None) else {
+		let bundle = Bundle(for: type(of: self))
+		guard let path = bundle.path(forResource: "starwars", ofType: .none) else {
 			XCTFail("No resource path available")
 			return
 		}
 
-		let expectation = expectationWithDescription("Test starwars page")
+		let expectation = self.expectation(description: "Test starwars page")
 
-		let url = NSURL(fileURLWithPath: path)
+		let url = URL(fileURLWithPath: path)
 		Readability.parse(url: url) { data in
 
 			guard let parsedData = data else {
@@ -111,7 +111,7 @@ class Tests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -120,19 +120,19 @@ class Tests: XCTestCase {
 
 	func testMmochampionPage() {
 
-		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("mmochampion", ofType: .None) else {
+		let bundle = Bundle(for: type(of: self))
+		guard let path = bundle.path(forResource: "mmochampion", ofType: .none) else {
 			XCTFail("No resource path available")
 			return
 		}
 
-		let url = NSURL(fileURLWithPath: path)
-		guard let htmlStr = try? String(contentsOfURL: url) else {
+		let url = URL(fileURLWithPath: path)
+		guard let htmlStr = try? String(contentsOf: url) else {
 			XCTFail("No resource path available")
 			return
 		}
 
-		let expectation = expectationWithDescription("Test starwars page")
+		let expectation = self.expectation(description: "Test starwars page")
 		Readability.parse(htmlString: htmlStr) { data in
 			guard let parsedData = data else {
 				XCTFail("Parsing failed")
@@ -157,7 +157,7 @@ class Tests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}

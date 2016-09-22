@@ -41,11 +41,11 @@ class KeywordsTests: XCTestCase {
 	func testKeywords() {
 
 		let content = "<html><head><title>test</title><meta name = \"keywords\" content = \"Test1, Test2\"><head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test keywords failed")
+		let expectation = self.expectation(description: "Test keywords failed")
 		Readability.parse(data: contentData) { data in
 			guard let keywords = data?.keywords else {
 				XCTFail("Keywords parsing failed.")
@@ -56,7 +56,7 @@ class KeywordsTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}

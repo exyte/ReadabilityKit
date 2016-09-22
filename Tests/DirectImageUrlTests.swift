@@ -40,15 +40,15 @@ class DirectImageUrlTests: XCTestCase {
 
 	func testImageUrl() {
 
-		let bundle = NSBundle(forClass: self.dynamicType)
-		guard let path = bundle.pathForResource("ImageData", ofType: .None) else {
+		let bundle = Bundle(for: type(of: self))
+		guard let path = bundle.path(forResource: "ImageData", ofType: .none) else {
 			XCTFail("No resource path available")
 			return
 		}
 
-		let expectation = expectationWithDescription("Test image url")
+		let expectation = self.expectation(description: "Test image url")
 
-		Readability.parse(url: NSURL(fileURLWithPath: path)) { data in
+		Readability.parse(url: URL(fileURLWithPath: path)) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
 				return
@@ -58,7 +58,7 @@ class DirectImageUrlTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}

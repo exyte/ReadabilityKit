@@ -31,11 +31,11 @@ class DescriptionTests: XCTestCase {
 	func testDescriptionCase1() {
 
 		let content = "<html><head><title>test</title><meta name = \"description\" content = \"Test\"><head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test description case 1 failed")
+		let expectation = self.expectation(description: "Test description case 1 failed")
 
 		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
@@ -47,7 +47,7 @@ class DescriptionTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -57,11 +57,11 @@ class DescriptionTests: XCTestCase {
 	func testDescriptionCase2() {
 
 		let content = "<html><head><title>test</title><meta property = \"og:description\" content = \"Test\"><head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test description case 2 failed")
+		let expectation = self.expectation(description: "Test description case 2 failed")
 
 		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
@@ -73,7 +73,7 @@ class DescriptionTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -83,11 +83,11 @@ class DescriptionTests: XCTestCase {
 	func testDescriptionCase3() {
 
 		let content = "<html><head><title>test</title><meta name = \"twitter:description\" content = \"Test\"><head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test description case 3 failed")
+		let expectation = self.expectation(description: "Test description case 3 failed")
 		Readability.parse(data: contentData) { data in
 			guard let description = data?.description else {
 				XCTFail("Description parsing failed.")
@@ -98,7 +98,7 @@ class DescriptionTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}

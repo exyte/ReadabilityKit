@@ -31,11 +31,11 @@ class VideoTests: XCTestCase {
 	func testHeaderVideo() {
 		let content = "<html><head><title>test</title><meta property=\"og:type\" content=\"video\"><meta property=\"og:video:url\" content=\"https://www.youtube.com/watch?v=sGbxmsDFVnE\"></head><body></body<html>"
 
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test header video")
+		let expectation = self.expectation(description: "Test header video")
 		Readability.parse(data: contentData) { data in
 			guard let videoUrl = data?.topVideo else {
 				XCTFail("Video parsing failed.")
@@ -46,7 +46,7 @@ class VideoTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}

@@ -31,11 +31,11 @@ class ImagesTests: XCTestCase {
 	func testImageCase1() {
 
 		let content = "<html><head><title>test</title><meta property = \"og:image\" content = \"imageUrl\"></head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test image case 1")
+		let expectation = self.expectation(description: "Test image case 1")
 		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
@@ -46,7 +46,7 @@ class ImagesTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -56,11 +56,11 @@ class ImagesTests: XCTestCase {
 	func testImageCase2() {
 
 		let content = "<html><head><title>test</title><meta name = \"twitter:image\" content = \"imageUrl\"></head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test image case 2")
+		let expectation = self.expectation(description: "Test image case 2")
 		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
@@ -71,7 +71,7 @@ class ImagesTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -81,11 +81,11 @@ class ImagesTests: XCTestCase {
 	func testImageCase3() {
 
 		let content = "<html><head><title>test</title></head><body><link rel = \"image_src\" href = \"imageUrl\"></body><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test image case 3")
+		let expectation = self.expectation(description: "Test image case 3")
 		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing topImage.")
@@ -96,7 +96,7 @@ class ImagesTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
@@ -106,11 +106,11 @@ class ImagesTests: XCTestCase {
 	func testImageCase4() {
 
 		let content = "<html><head><title>test</title><meta name = \"thumbnail\" content = \"imageUrl\"></head><html>"
-		guard let contentData = content.dataUsingEncoding(NSUTF8StringEncoding) else {
+		guard let contentData = content.data(using: String.Encoding.utf8) else {
 			return
 		}
 
-		let expectation = expectationWithDescription("Test image case 4")
+		let expectation = self.expectation(description: "Test image case 4")
 		Readability.parse(data: contentData) { data in
 			guard let image = data?.topImage else {
 				XCTFail("Image parsing failed.")
@@ -121,7 +121,7 @@ class ImagesTests: XCTestCase {
 			expectation.fulfill()
 		}
 
-		waitForExpectationsWithTimeout(30.0) { error in
+		waitForExpectations(timeout: 30.0) { error in
 			if let err = error {
 				XCTFail("Failed with error: \(err)")
 			}
