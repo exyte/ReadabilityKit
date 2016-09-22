@@ -28,7 +28,7 @@ import UIKit
 class DetailsController: UIViewController {
 
 	@IBAction func onDone() {
-		self.dismissViewControllerAnimated(true, completion: .None)
+		self.dismiss(animated: true, completion: .none)
 	}
 
 	@IBOutlet weak var titleView: UITextView?
@@ -48,23 +48,23 @@ class DetailsController: UIViewController {
 
 		titleView?.text = titleText
 		imageView?.image = image
-		keywordsView?.text = keywords?.joinWithSeparator(", ")
+		keywordsView?.text = keywords?.joined(separator: ", ")
 		descriptionView?.text = desc
 
 		if let videoURLVal = videoURL {
 			videoURLView?.text = videoURLVal
-			videoURLView?.hidden = false
+			videoURLView?.isHidden = false
 
 			let videoURLRecongnizer = UITapGestureRecognizer(target: self, action: #selector(DetailsController.openVideo))
 			videoURLView?.addGestureRecognizer(videoURLRecongnizer)
 		} else {
-			videoURLView?.hidden = true
+			videoURLView?.isHidden = true
 		}
 	}
 
 	func openVideo() {
-		if let url = NSURL(string: self.videoURLView!.text) {
-			UIApplication.sharedApplication().openURL(url)
+		if let url = URL(string: self.videoURLView!.text) {
+			UIApplication.shared.openURL(url)
 		}
 	}
 }

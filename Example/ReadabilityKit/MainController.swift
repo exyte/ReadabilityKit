@@ -32,7 +32,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	@IBOutlet weak var webView: UIWebView?
 	@IBOutlet weak var activityView: UIView?
 
-	var url: NSURL?
+	var url: URL?
 	var parser: Readability?
 	var image: UIImage?
 	var parsedData: ReadabilityData?
@@ -51,42 +51,42 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 		}
 
 		var urlStr = addressStr
-		if !urlStr.containsString("https://") &&
-		!urlStr.containsString("http://") {
+		if !urlStr.contains("https://") &&
+		!urlStr.contains("http://") {
 			urlStr = "https://\(urlStr)"
 		}
 
-		url = NSURL(string: urlStr)
+		url = URL(string: urlStr)
 		guard let url = url else {
 			return
 		}
 
-		let request = NSURLRequest(URL: url)
+		let request = URLRequest(url: url)
 		webView?.loadRequest(request)
 	}
 
 	@IBAction func onParse() {
 
-		UIView.animateWithDuration(0.1, animations: {
+		UIView.animate(withDuration: 0.1, animations: {
 			self.activityView?.alpha = 1.0
-		}) { _ in
+		}, completion: { _ in
 			self.parseUrl()
-		}
+		}) 
 	}
 
 	func moveToDetails() {
-		UIView.animateWithDuration(0.1, animations: {
+		UIView.animate(withDuration: 0.1, animations: {
 			self.activityView?.alpha = 0.0
-		}) { _ in
-			self.performSegueWithIdentifier("details_segue", sender: .None)
-		}
+		}, completion: { _ in
+			self.performSegue(withIdentifier: "details_segue", sender: .none)
+		}) 
 	}
 
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 		if segue.identifier == "details_segue" {
 
-			let detailsController = segue.destinationViewController as? DetailsController
+			let detailsController = segue.destination as? DetailsController
 
 			detailsController?.titleText = parsedData?.title
 			detailsController?.desc = parsedData?.description
@@ -97,17 +97,17 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	}
 
 	func loadDefaultPage() {
-		guard let url = NSURL(string: "https://google.com") else {
+		guard let url = URL(string: "https://google.com") else {
 			return
 		}
 
-		let request = NSURLRequest(URL: url)
+		let request = URLRequest(url: url)
 		webView?.loadRequest(request)
 	}
 
 	// MARK: UIWebView delegate
-	func webViewDidFinishLoad(webView: UIWebView) {
-		url = webView.request?.URL
+	func webViewDidFinishLoad(_ webView: UIWebView) {
+		url = webView.request?.url
 		guard let urlStr = url?.absoluteString else {
 			return
 		}
@@ -117,7 +117,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 	// MARK: UITextFieldDelegate
 
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		onGo()
 
 		return true
@@ -138,14 +138,14 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 				return
 			}
 
-			guard let imageUrl = NSURL(string: imageUrlStr) else {
+			guard let imageUrl = URL(string: imageUrlStr) else {
 				return
 			}
 
-			guard let imageData = NSData(contentsOfURL: imageUrl) else {
-				return
-			}
-
+            guard let imageData = try? Data(contentsOf: imageUrl) else {
+                return
+            }
+            
 			self.image = UIImage(data: imageData)
 
 			self.moveToDetails()

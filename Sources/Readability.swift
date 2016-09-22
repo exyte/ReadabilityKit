@@ -34,7 +34,7 @@ public struct ReadabilityData {
 	public let keywords: [String]?
 }
 
-public class Readability {
+open class Readability {
 
 	// Queries in order of priority
 
@@ -87,34 +87,34 @@ public class Readability {
 	var negativeRegExp: NSRegularExpression?
 	var nodesRegExp: NSRegularExpression?
 
-	private var document: Ji?
-	private var maxWeight = 0
-	private var maxWeightNode: JiNode?
+	fileprivate var document: Ji?
+	fileprivate var maxWeight = 0
+	fileprivate var maxWeightNode: JiNode?
 
 	var maxWeightImgUrl: String?
 	var maxWeightText: String?
 
 	var directImageUrl: String?
 
-	private func weightNode(node: JiNode) -> Int {
+	fileprivate func weightNode(_ node: JiNode) -> Int {
 		var weight = 0
 
 		if let className = node.attributes["class"] {
 			let classNameRange = NSMakeRange(0, className.characters.count)
 			if let positiveRegExp = positiveRegExp {
-				if positiveRegExp.matchesInString(className, options: NSMatchingOptions.ReportProgress, range: classNameRange).count > 0 {
+				if positiveRegExp.matches(in: className, options: NSRegularExpression.MatchingOptions.reportProgress, range: classNameRange).count > 0 {
 					weight += 35
 				}
 			}
 
 			if let unlikelyRegExp = unlikelyRegExp {
-				if unlikelyRegExp.matchesInString(className, options: NSMatchingOptions.ReportProgress, range: classNameRange).count > 0 {
+				if unlikelyRegExp.matches(in: className, options: NSRegularExpression.MatchingOptions.reportProgress, range: classNameRange).count > 0 {
 					weight -= 20
 				}
 			}
 
 			if let negativeRegExp = negativeRegExp {
-				if negativeRegExp.matchesInString(className, options: NSMatchingOptions.ReportProgress, range: classNameRange).count > 0 {
+				if negativeRegExp.matches(in: className, options: NSRegularExpression.MatchingOptions.reportProgress, range: classNameRange).count > 0 {
 					weight -= 50
 				}
 			}
@@ -123,19 +123,19 @@ public class Readability {
 		if let id = node.attributes["id"] {
 			let idRange = NSMakeRange(0, id.characters.count)
 			if let positiveRegExp = positiveRegExp {
-				if positiveRegExp.matchesInString(id, options: NSMatchingOptions.ReportProgress, range: idRange).count > 0 {
+				if positiveRegExp.matches(in: id, options: NSRegularExpression.MatchingOptions.reportProgress, range: idRange).count > 0 {
 					weight += 40
 				}
 			}
 
 			if let unlikelyRegExp = unlikelyRegExp {
-				if unlikelyRegExp.matchesInString(id, options: NSMatchingOptions.ReportProgress, range: idRange).count > 0 {
+				if unlikelyRegExp.matches(in: id, options: NSRegularExpression.MatchingOptions.reportProgress, range: idRange).count > 0 {
 					weight -= 20
 				}
 			}
 
 			if let negativeRegExp = negativeRegExp {
-				if negativeRegExp.matchesInString(id, options: NSMatchingOptions.ReportProgress, range: idRange).count > 0 {
+				if negativeRegExp.matches(in: id, options: NSRegularExpression.MatchingOptions.reportProgress, range: idRange).count > 0 {
 					weight -= 50
 				}
 			}
@@ -143,7 +143,7 @@ public class Readability {
 
 		if let style = node.attributes["style"] {
 			if let negativeRegExp = negativeRegExp {
-				if negativeRegExp.matchesInString(style, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, style.characters.count)).count > 0 {
+				if negativeRegExp.matches(in: style, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, style.characters.count)).count > 0 {
 					weight -= 50
 				}
 			}
@@ -152,7 +152,7 @@ public class Readability {
 		return weight
 	}
 
-	private func calcWeightForChild(node: JiNode, ownText: String) -> Int {
+	fileprivate func calcWeightForChild(_ node: JiNode, ownText: String) -> Int {
 
 		var c = calculateNumberOfAppearance(ownText, substring: "&quot;")
 		c += calculateNumberOfAppearance(ownText, substring: "&lt;")
@@ -169,7 +169,7 @@ public class Readability {
 		return val
 	}
 
-	private func weightChildNodes(node: JiNode) -> Int {
+	fileprivate func weightChildNodes(_ node: JiNode) -> Int {
 		var weight = 0
 		var pEls = [JiNode]()
 		var caption: JiNode?
@@ -201,13 +201,13 @@ public class Readability {
 				}
 
 				if let className = node.attributes["class"] {
-					if className.lowercaseString == "caption" {
+					if className.lowercased() == "caption" {
 						caption = node
 					}
 				}
 			}
 
-			if caption != .None {
+			if caption != .none {
 				weight += 30
 			}
 		}
@@ -215,23 +215,23 @@ public class Readability {
 		return weight
 	}
 
-	private func calculateNumberOfAppearance(str: String, substring: String) -> Int {
+	fileprivate func calculateNumberOfAppearance(_ str: String, substring: String) -> Int {
 		var c = 0
-		guard let firstElement = str.rangeOfString(substring)?.startIndex else {
+		guard let firstElement = str.range(of: substring)?.lowerBound else {
 			return 0
 		}
 
-		let index = str.startIndex.distanceTo(firstElement)
+		let index = str.characters.distance(from: str.startIndex, to: firstElement)
 		if index >= 0 {
 			c += 1
-			c += calculateNumberOfAppearance(str.substringFromIndex(firstElement.advancedBy(substring.characters.count)), substring: substring)
+            c += calculateNumberOfAppearance(str.substring(from: str.index(firstElement, offsetBy: substring.characters.count)), substring: substring)
 
 		}
 
 		return c
 	}
 
-	private func importantNodes() -> [JiNode]? {
+	fileprivate func importantNodes() -> [JiNode]? {
 
 		if let bodyNodes = document?.xPath("//body") {
 			if bodyNodes.count > 0 {
@@ -241,16 +241,16 @@ public class Readability {
 			}
 		}
 
-		return .None
+		return .none
 	}
 
-	private func findMaxWeightNode() {
+	fileprivate func findMaxWeightNode() {
 		maxWeight = 0
 		do {
-			try unlikelyRegExp = NSRegularExpression(pattern: unlikely, options: NSRegularExpressionOptions.CaseInsensitive)
-			try positiveRegExp = NSRegularExpression(pattern: positive, options: NSRegularExpressionOptions.CaseInsensitive)
-			try negativeRegExp = NSRegularExpression(pattern: negative, options: NSRegularExpressionOptions.CaseInsensitive)
-			try nodesRegExp = NSRegularExpression(pattern: nodesTags, options: NSRegularExpressionOptions.CaseInsensitive)
+			try unlikelyRegExp = NSRegularExpression(pattern: unlikely, options: NSRegularExpression.Options.caseInsensitive)
+			try positiveRegExp = NSRegularExpression(pattern: positive, options: NSRegularExpression.Options.caseInsensitive)
+			try negativeRegExp = NSRegularExpression(pattern: negative, options: NSRegularExpression.Options.caseInsensitive)
+			try nodesRegExp = NSRegularExpression(pattern: nodesTags, options: NSRegularExpression.Options.caseInsensitive)
 		}
 		catch _ {
 			NSLog("Error creating regular expressions")
@@ -287,32 +287,34 @@ public class Readability {
 		 */
 	}
 
-	private func sizeWeight(imgNode: JiNode) -> Int {
+	fileprivate func sizeWeight(_ imgNode: JiNode) -> Int {
 		var weight = 0
 		if let widthStr = imgNode.attributes["width"] {
-			let width = Int(widthStr)
-			if width >= 50 {
-				weight += 20
-			}
-			else {
-				weight -= 20
-			}
+            if let width = Int(widthStr) {
+                if width >= 50 {
+                    weight += 20
+                }
+                else {
+                    weight -= 20
+                }
+            }
 		}
 
 		if let heightStr = imgNode.attributes["height"] {
-			let height = Int(heightStr)
-			if height >= 50 {
-				weight += 20
-			}
-			else {
-				weight -= 20
-			}
+            if let height = Int(heightStr) {
+                if height >= 50 {
+                    weight += 20
+                }
+                else {
+                    weight -= 20
+                }
+            }
 		}
 
 		return weight
 	}
 
-	private func altWeight(imgNode: JiNode) -> Int {
+	fileprivate func altWeight(_ imgNode: JiNode) -> Int {
 		var weight = 0
 		if let altStr = imgNode.attributes["alt"] {
 			if (altStr.characters.count > 35) {
@@ -323,7 +325,7 @@ public class Readability {
 		return weight
 	}
 
-	private func titleWeight(imgNode: JiNode) -> Int {
+	fileprivate func titleWeight(_ imgNode: JiNode) -> Int {
 		var weight = 0
 		if let titleStr = imgNode.attributes["title"] {
 			if (titleStr.characters.count > 35) {
@@ -334,7 +336,7 @@ public class Readability {
 		return weight
 	}
 
-	private func determineImageSource(node: JiNode) -> JiNode? {
+	fileprivate func determineImageSource(_ node: JiNode) -> JiNode? {
 		var maxImgWeight = 20.0
 		var maxImgNode: JiNode?
 
@@ -379,13 +381,13 @@ public class Readability {
 		return maxImgNode
 	}
 
-	private func isAdImage(url: String) -> Bool {
+	fileprivate func isAdImage(_ url: String) -> Bool {
 		return calculateNumberOfAppearance(url, substring: "ad") > 2
 	}
 
-	private func clearNodeContent(node: JiNode) -> String? {
+	fileprivate func clearNodeContent(_ node: JiNode) -> String? {
 		guard var strValue = node.content else {
-			return .None
+			return .none
 		}
 
 		let nodesToRemove = [
@@ -397,19 +399,19 @@ public class Readability {
 				return
 			}
 
-			strValue = strValue.stringByReplacingOccurrencesOfString(contentToRemove, withString: "")
+			strValue = strValue.replacingOccurrences(of: contentToRemove, with: "")
 		}
 
 		return strValue
 	}
 
-	private func extractText(node: JiNode) -> String?
+	fileprivate func extractText(_ node: JiNode) -> String?
 	{
 		guard let strValue = clearNodeContent(node) else {
-			return .None
+			return .none
 		}
 
-		let texts = strValue.stringByReplacingOccurrencesOfString("\t", withString: "").componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+		let texts = strValue.replacingOccurrences(of: "\t", with: "").components(separatedBy: CharacterSet.newlines)
 		var importantTexts = [String]()
 		let extractedTitle = title()
 		texts.forEach({ (text: String) in
@@ -427,13 +429,13 @@ public class Readability {
 		return importantTexts.first?.trim()
 	}
 
-	private func extractFullText(node: JiNode) -> String?
+	fileprivate func extractFullText(_ node: JiNode) -> String?
 	{
 		guard let strValue = clearNodeContent(node) else {
-			return .None
+			return .none
 		}
 
-		let texts = strValue.stringByReplacingOccurrencesOfString("\t", withString: "").componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+		let texts = strValue.replacingOccurrences(of: "\t", with: "").components(separatedBy: CharacterSet.newlines)
 		var importantTexts = [String]()
 		texts.forEach({ (text: String) in
 			let length = text.characters.count
@@ -442,15 +444,15 @@ public class Readability {
 			}
 		})
 
-		var fullText = importantTexts.reduce("", combine: { $0 + "\n" + $1 })
+		var fullText = importantTexts.reduce("", { $0 + "\n" + $1 })
 		lowContentChildren(node).forEach { lowContent in
-			fullText = fullText.stringByReplacingOccurrencesOfString(lowContent, withString: "")
+			fullText = fullText.replacingOccurrences(of: lowContent, with: "")
 		}
 
 		return fullText
 	}
 
-	private func lowContentChildren(node: JiNode) -> [String] {
+	fileprivate func lowContentChildren(_ node: JiNode) -> [String] {
 
 		var contents = [String]()
 
@@ -464,18 +466,18 @@ public class Readability {
 		}
 
 		node.children.forEach { childNode in
-			contents.appendContentsOf(lowContentChildren(childNode))
+			contents.append(contentsOf: lowContentChildren(childNode))
 		}
 
 		return contents
 	}
 
-	public class func parse(htmlData: NSData) -> ReadabilityData? {
+	open class func parse(_ htmlData: Data) -> ReadabilityData? {
 		let readability = Readability()
 		return readability.parseData(htmlData)
 	}
 
-	func parseData(htmlData: NSData) -> ReadabilityData? {
+	func parseData(_ htmlData: Data) -> ReadabilityData? {
 		self.document = Ji(htmlData: htmlData)
 
 		self.findMaxWeightNode()
@@ -490,7 +492,7 @@ public class Readability {
 		}
 
 		guard let title = self.title() else {
-			return .None
+			return .none
 		}
 
 		let parsedData = ReadabilityData(
@@ -505,14 +507,14 @@ public class Readability {
 		return parsedData
 	}
 
-	private func extractValueUsing(document: Ji, path: String, attribute: String?) -> String? {
+	fileprivate func extractValueUsing(_ document: Ji, path: String, attribute: String?) -> String? {
 
 		guard let nodes = document.xPath(path) else {
-			return .None
+			return .none
 		}
 
 		if nodes.count == 0 {
-			return .None
+			return .none
 		}
 
 		if let node = nodes.first {
@@ -529,10 +531,10 @@ public class Readability {
 			}
 		}
 
-		return .None
+		return .none
 	}
 
-	private func extractValuesUsing(document: Ji, path: String, attribute: String?) -> [String]? {
+	fileprivate func extractValuesUsing(_ document: Ji, path: String, attribute: String?) -> [String]? {
 		var values: [String]?
 
 		let nodes = document.xPath(path)
@@ -554,7 +556,7 @@ public class Readability {
 		return values
 	}
 
-	private func extractValueUsing(document: Ji, queries: [(String, String?)]) -> String? {
+	fileprivate func extractValueUsing(_ document: Ji, queries: [(String, String?)]) -> String? {
 		for query in queries {
 			if let value = extractValueUsing(document, path: query.0, attribute: query.1) {
 				return value
@@ -564,7 +566,7 @@ public class Readability {
 		return nil
 	}
 
-	private func extractValuesUsing(document: Ji, queries: [(String, String?)]) -> [String]? {
+	fileprivate func extractValuesUsing(_ document: Ji, queries: [(String, String?)]) -> [String]? {
 		for query in queries {
 			if let values = extractValuesUsing(document, path: query.0, attribute: query.1) {
 				return values
@@ -574,21 +576,21 @@ public class Readability {
 		return nil
 	}
 
-	public func title() -> String?
+	open func title() -> String?
 	{
 		if let document = document {
 			guard let title = extractValueUsing(document, queries: titleQueries) else {
-				return .None
+				return .none
 			}
 
 			if title.characters.count == 0 {
-				return .None
+				return .none
 			}
 
 			return title
 		}
 
-		return .None
+		return .none
 	}
 
 	func description() -> String?
@@ -604,7 +606,7 @@ public class Readability {
 
 	func text() -> String? {
 		guard let maxWeightNode = maxWeightNode else {
-			return .None
+			return .none
 		}
 
 		return extractFullText(maxWeightNode)?.trim()
@@ -628,7 +630,7 @@ public class Readability {
 			}
 		}
 
-		return .None
+		return .none
 	}
 
 	func keywords() -> [String]?
@@ -637,9 +639,9 @@ public class Readability {
 			if let values = extractValuesUsing(document, queries: keywordsQueries) {
 				var keywords = [String]()
 				values.forEach { (value: String) in
-					let separatorsCharacterSet = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
-					separatorsCharacterSet.formUnionWithCharacterSet(NSCharacterSet.punctuationCharacterSet())
-					keywords.appendContentsOf(value.componentsSeparatedByCharactersInSet(separatorsCharacterSet))
+					var separatorsCharacterSet = CharacterSet.whitespacesAndNewlines
+					separatorsCharacterSet.formUnion(NSCharacterSet.punctuationCharacters)
+					keywords.append(contentsOf: value.components(separatedBy: separatorsCharacterSet))
 				}
 
 				keywords = keywords.filter({ $0.characters.count > 1 })
@@ -648,6 +650,6 @@ public class Readability {
 			}
 		}
 
-		return .None
+		return .none
 	}
 }

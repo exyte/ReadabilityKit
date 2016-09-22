@@ -33,23 +33,24 @@ let readabilityUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) Appl
 
 public extension Readability {
 
-	public class func parse(url url: NSURL, completion: (ReadabilityData?) -> ()) {
+	public class func parse(url: URL, completion: @escaping (ReadabilityData?) -> ()) {
 
-		let isMainThread = NSThread.isMainThread()
+		let isMainThread = Thread.isMainThread
 
-		let request = NSMutableURLRequest(URL: url)
+		var request = URLRequest(url: url)
 		request.setValue(readabilityUserAgent, forHTTPHeaderField: "User-Agent")
+        
 
-		NSURLSession.sharedSession().dataTaskWithRequest(request,
+		URLSession.shared.dataTask(with: request,
 			completionHandler: { (responseData, _, _) in
 				guard let htmlData = responseData else {
 
 					if isMainThread {
-						dispatch_async(dispatch_get_main_queue(), {
-							completion(.None)
+						DispatchQueue.main.async(execute: {
+							completion(.none)
 						})
 					} else {
-						completion(.None)
+						completion(.none)
 					}
 
 					return
@@ -57,14 +58,14 @@ public extension Readability {
 
 				if Readability.checkForImage(htmlData) {
 					let parsedData = ReadabilityData(title: url.absoluteString,
-						description: .None,
+						description: .none,
 						topImage: url.absoluteString,
-						text: .None,
-						topVideo: .None,
-						keywords: .None)
+						text: .none,
+						topVideo: .none,
+						keywords: .none)
 
 					if isMainThread {
-						dispatch_async(dispatch_get_main_queue(), {
+						DispatchQueue.main.async(execute: {
 							completion(parsedData)
 						})
 					} else {
@@ -75,7 +76,7 @@ public extension Readability {
 				}
 
 				if isMainThread {
-					dispatch_async(dispatch_get_main_queue(), {
+					DispatchQueue.main.async(execute: {
 						Readability.parse(data: htmlData, completion: completion)
 					})
 				} else {
@@ -85,7 +86,7 @@ public extension Readability {
 		}).resume()
 	}
 
-	class func checkForImage(data: NSData) -> Bool {
+	class func checkForImage(_ data: Data) -> Bool {
 		#if os(OSX)
 			let image = NSImage(data: data)
 		#else

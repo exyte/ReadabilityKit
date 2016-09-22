@@ -24,12 +24,12 @@
 //
 
 public extension Readability {
-	public class func parse(data htmlData: NSData, completion: (ReadabilityData?) -> ()) {
-		let isMainThread = NSThread.isMainThread()
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+	public class func parse(data htmlData: Data, completion: @escaping (ReadabilityData?) -> ()) {
+		let isMainThread = Thread.isMainThread
+		DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
 			let parsedData = Readability.parse(htmlData)
 			if isMainThread {
-				dispatch_async(dispatch_get_main_queue(), {
+				DispatchQueue.main.async(execute: {
 					completion(parsedData)
 				})
 			} else {
