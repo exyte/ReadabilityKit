@@ -26,7 +26,8 @@
 public extension Readability {
 	public class func parse(data htmlData: Data, completion: @escaping (ReadabilityData?) -> ()) {
 		let isMainThread = Thread.isMainThread
-		DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+        
+        DispatchQueue.global(qos: .default).async {
 			let parsedData = Readability.parse(htmlData)
 			if isMainThread {
 				DispatchQueue.main.async(execute: {
