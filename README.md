@@ -27,7 +27,7 @@ Extracts:
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
+- iOS 8.0+ / Mac OS X 10.10+ / tvOS 9.0+ / watchOS 2.0+
 
 ## Usage
 
@@ -81,18 +81,18 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ReadabilityKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile
 
-swift 2.2:
+swift 3.0:
 
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
 
 target 'MyApp' do
-    pod 'ReadabilityKit', '0.5.2'
+    pod 'ReadabilityKit'
 end
 ```
 
-swift 2.3:
+Legacy swift 2.3:
 
 ```ruby
 platform :ios, '8.0'
@@ -103,19 +103,37 @@ target 'MyApp' do
 end
 ```
 
+Legacy swift 2.2:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+    pod 'ReadabilityKit', '0.5.2'
+end
+```
+
+
+
 ### [Carthage](http://github.com/Carthage/Carthage)
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
 
-swift 2.2:
+swift 3.0:
+```ogdl
+github "exyte/ReadabilityKit"
+```
+
+Legacy swift 2.3:
+```ogdl
+github "exyte/ReadabilityKit" "0.5.4"
+```
+
+Legacy swift 2.2:
 
 ```ogdl
 github "exyte/ReadabilityKit" "0.5.2"
-```
-
-swift 2.3:
-```ogdl
-github "exyte/ReadabilityKit" "0.5.4"
 ```
 
 #### Manually
