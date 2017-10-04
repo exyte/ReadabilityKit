@@ -1,0 +1,4 @@
+module libxml2 {
+    umbrella "/usr/include/libxml2"
+    export *
+}
