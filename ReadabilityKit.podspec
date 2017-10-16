@@ -25,5 +25,6 @@ Pod::Spec.new do |s|
   }
   s.preserve_paths = 'Dependencies/libxml2/module.modulemap'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+  s.libraries = 'xml2'
 
 end
