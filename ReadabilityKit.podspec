@@ -15,11 +15,15 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target    = '9.0'
 
   s.source_files = [
-     'Source/**/*.swift'
+     'Sources/*.*',
+	 'Dependencies/Ji/*.*'
   ]
 
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-
+  s.xcconfig = { 
+	'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2',
+	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/ReadabilityKit/Dependencies/libxml2'
+  }
+  s.preserve_paths = 'Dependencies/libxml2/module.modulemap'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end
