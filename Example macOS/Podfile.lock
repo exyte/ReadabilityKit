@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ReadabilityKit:
-    :commit: bdaa2210f91989d1c5e9a54b63b90d07d033b013
+    :commit: 2f6b6c90d79e08ff85027ccf39504fd298fa3cf0
     :git: https://github.com/exyte/ReadabilityKit.git
 
 SPEC CHECKSUMS:
-  ReadabilityKit: 49ca24ebdf9033d648943665f1d30af9ea2a585e
+  ReadabilityKit: b1d549547cf21f26e96d3c00f17b78c597cca4b0
 
 PODFILE CHECKSUM: 49ac5430d238ce851bd302b4f32984ae1e72582c
 

@@ -38,15 +38,17 @@ class ViewController: NSViewController {
 			return
 		}
 
-		guard let url = NSURL(string: urlStr) else {
+		guard let url = URL(string: urlStr) else {
+            resultView?.string = "ERROR: Not supported url"
 			return
 		}
 
-		let parser = Readability(url: url)
-		let title = parser.title() ?? "Not found"
-		let desc = parser.description() ?? "Not found"
-		let imageUrl = parser.topImage() ?? "Not found"
-		resultView?.string = "TITLE: \(title)\nDESC:\(desc)\nIMAGE:\(imageUrl)"
+        Readability.parse(url: url) { [weak self] data in
+            let title = data?.title ?? "Not found"
+            let desc = data?.description ?? "Not found"
+            let imageUrl = data?.topImage ?? "Not found"
+            self?.resultView?.string = "TITLE: \(title)\nDESC:\(desc)\nIMAGE:\(imageUrl)"
+        }
 	}
 }
 
