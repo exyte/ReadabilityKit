@@ -289,27 +289,34 @@ open class JiNode {
 		
 		xPathContext?.pointee.node = self.xmlNode
 		
-		let xPathObject = xmlXPathEvalExpression(UnsafeRawPointer(xPath.cString(using: String.Encoding.utf8)!).assumingMemoryBound(to: xmlChar.self), xPathContext)
-		xmlXPathFreeContext(xPathContext)
-		if xPathObject == nil {
-			// Unable to evaluate XPath.
-			return []
-		}
-		
-		let nodeSet = xPathObject?.pointee.nodesetval
-		if nodeSet == nil || nodeSet?.pointee.nodeNr == 0 || nodeSet?.pointee.nodeTab == nil {
-			// NodeSet is nil.
+        //xmlXPathEvalExpression(<#T##str: UnsafePointer<xmlChar>!##UnsafePointer<xmlChar>!#>, <#T##ctxt: xmlXPathContextPtr!##xmlXPathContextPtr!#>)
+        //let tmpPath = xPath.cString(using: String.Encoding.utf8)!
+        
+        var resultNodes = [JiNode]()
+        
+        xPath.utf8CString.withUnsafeBytes { ptr in
+            let xPathObject = xmlXPathEvalExpression(ptr.baseAddress!.assumingMemoryBound(to: xmlChar.self), xPathContext)
+            xmlXPathFreeContext(xPathContext)
+            if xPathObject == nil {
+                // Unable to evaluate XPath.
+                return
+            }
+            
+            let nodeSet = xPathObject?.pointee.nodesetval
+            if nodeSet == nil || nodeSet?.pointee.nodeNr == 0 || nodeSet?.pointee.nodeTab == nil {
+                // NodeSet is nil.
+                xmlXPathFreeObject(xPathObject)
+                return
+            }
+            
+            
+            for i in 0 ..< Int((nodeSet?.pointee.nodeNr)!) {
+                let jiNode = JiNode(xmlNode: (nodeSet?.pointee.nodeTab[i]!)!, jiDocument: self.document, keepTextNode: keepTextNode)
+                resultNodes.append(jiNode)
+            }
+            
             xmlXPathFreeObject(xPathObject)
-			return []
-		}
-		
-		var resultNodes = [JiNode]()
-		for i in 0 ..< Int((nodeSet?.pointee.nodeNr)!) {
-			let jiNode = JiNode(xmlNode: (nodeSet?.pointee.nodeTab[i]!)!, jiDocument: self.document, keepTextNode: keepTextNode)
-			resultNodes.append(jiNode)
-		}
-		
-		xmlXPathFreeObject(xPathObject)
+        }
 		
 		return resultNodes
 	}
