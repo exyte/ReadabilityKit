@@ -34,6 +34,12 @@
 		57185B791D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
 		57185B7A1D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
 		57185B7B1D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
+		575AE3EF1F97623A00944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3ED1F97623A00944DE2 /* libxml2.2.tbd */; };
+		575AE3F01F97623A00944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3EE1F97623A00944DE2 /* libxml2.tbd */; };
+		575AE3F31F97624800944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F11F97624800944DE2 /* libxml2.2.tbd */; };
+		575AE3F41F97624800944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F21F97624800944DE2 /* libxml2.tbd */; };
+		575AE3F71F97625100944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F51F97625100944DE2 /* libxml2.tbd */; };
+		575AE3F81F97625100944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F61F97625100944DE2 /* libxml2.2.tbd */; };
 		57614BCC1F85233000875933 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E217721F7E81B600812364 /* libxml2.2.tbd */; };
 		57614BCD1F85233000875933 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E217A81F7E977900812364 /* libxml2.tbd */; };
 		57A51B851D7EF016005C574F /* Readability+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A51B841D7EF016005C574F /* Readability+Async.swift */; };
@@ -135,6 +141,12 @@
 		57156F1E1D634982008A9C49 /* VideoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTests.swift; sourceTree = "<group>"; };
 		57185B6D1D7D7CF700C76FAD /* Readability+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Readability+Networking.swift"; sourceTree = "<group>"; };
 		57185B771D7D7EF900C76FAD /* Readability+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Readability+String.swift"; sourceTree = "<group>"; };
+		575AE3ED1F97623A00944DE2 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/usr/lib/libxml2.2.tbd; sourceTree = DEVELOPER_DIR; };
+		575AE3EE1F97623A00944DE2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
+		575AE3F11F97624800944DE2 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libxml2.2.tbd; sourceTree = DEVELOPER_DIR; };
+		575AE3F21F97624800944DE2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
+		575AE3F51F97625100944DE2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.0.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
+		575AE3F61F97625100944DE2 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.0.sdk/usr/lib/libxml2.2.tbd; sourceTree = DEVELOPER_DIR; };
 		57614BD51F85351500875933 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		57A51B841D7EF016005C574F /* Readability+Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Readability+Async.swift"; sourceTree = "<group>"; };
 		57E217551F7E80DB00812364 /* Ji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ji.swift; sourceTree = "<group>"; };
@@ -160,6 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575AE3EF1F97623A00944DE2 /* libxml2.2.tbd in Frameworks */,
+				575AE3F01F97623A00944DE2 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575AE3F31F97624800944DE2 /* libxml2.2.tbd in Frameworks */,
+				575AE3F41F97624800944DE2 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575AE3F71F97625100944DE2 /* libxml2.tbd in Frameworks */,
+				575AE3F81F97625100944DE2 /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +316,13 @@
 		57E217501F7E80A700812364 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				575AE3F61F97625100944DE2 /* libxml2.2.tbd */,
 				57E217A81F7E977900812364 /* libxml2.tbd */,
+				575AE3ED1F97623A00944DE2 /* libxml2.2.tbd */,
+				575AE3EE1F97623A00944DE2 /* libxml2.tbd */,
+				575AE3F11F97624800944DE2 /* libxml2.2.tbd */,
+				575AE3F21F97624800944DE2 /* libxml2.tbd */,
+				575AE3F51F97625100944DE2 /* libxml2.tbd */,
 				57E217A51F7E917400812364 /* libxml2.2.dylib */,
 				57E217721F7E81B600812364 /* libxml2.2.tbd */,
 			);
@@ -817,13 +841,16 @@
 					"$(PROJECT_DIR)/Dependencies/watchOS",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-watchOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -849,13 +876,16 @@
 					"$(PROJECT_DIR)/Dependencies/watchOS",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-watchOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
@@ -877,14 +907,17 @@
 					"$(PROJECT_DIR)/Dependencies/macOS",
 				);
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-macOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -905,14 +938,17 @@
 					"$(PROJECT_DIR)/Dependencies/macOS",
 				);
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-macOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -930,13 +966,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/tvOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-tvOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -957,13 +996,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/tvOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-tvOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Dependencies/libxml2";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
