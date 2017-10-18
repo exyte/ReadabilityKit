@@ -1,6 +1,6 @@
 use_frameworks!
 
 target 'ReadabilityKit_Example' do
-  pod 'ReadabilityKit', :path => '../'
+  pod 'ReadabilityKit', :git => 'https://github.com/exyte/ReadabilityKit.git'
 end
 

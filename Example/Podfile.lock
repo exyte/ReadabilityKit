@@ -1,23 +1,21 @@
 PODS:
-  - Ji (2.0.1):
-    - Ji/Ji (= 2.0.1)
-  - Ji/Ji (2.0.1):
-    - Ji/Ji-libxml
-  - Ji/Ji-libxml (2.0.1)
-  - ReadabilityKit (0.6.0):
-    - Ji (~> 2.0.1)
+  - ReadabilityKit (0.7.0)
 
 DEPENDENCIES:
-  - ReadabilityKit (from `../`)
+  - ReadabilityKit (from `https://github.com/exyte/ReadabilityKit.git`)
 
 EXTERNAL SOURCES:
   ReadabilityKit:
-    :path: "../"
+    :git: https://github.com/exyte/ReadabilityKit.git
+
+CHECKOUT OPTIONS:
+  ReadabilityKit:
+    :commit: 660f4f44cbf829115a27525da638a42e567814a6
+    :git: https://github.com/exyte/ReadabilityKit.git
 
 SPEC CHECKSUMS:
-  Ji: 6bb602a28dd08b804158f64990e6051ed5de0110
-  ReadabilityKit: 2627da6e7579f83ecf93e8f47ddb33d93817c81a
+  ReadabilityKit: 49ca24ebdf9033d648943665f1d30af9ea2a585e
 
-PODFILE CHECKSUM: 8a8bc56d87b8f358a9181608271da4e80f5b2fe3
+PODFILE CHECKSUM: 93a0f264556d98dc89db76d2bc35d4a91faa4a83
 
 COCOAPODS: 1.1.1
