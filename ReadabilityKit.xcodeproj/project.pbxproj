@@ -34,14 +34,6 @@
 		57185B791D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
 		57185B7A1D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
 		57185B7B1D7D7EF900C76FAD /* Readability+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57185B771D7D7EF900C76FAD /* Readability+String.swift */; };
-		575AE3EF1F97623A00944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3ED1F97623A00944DE2 /* libxml2.2.tbd */; };
-		575AE3F01F97623A00944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3EE1F97623A00944DE2 /* libxml2.tbd */; };
-		575AE3F31F97624800944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F11F97624800944DE2 /* libxml2.2.tbd */; };
-		575AE3F41F97624800944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F21F97624800944DE2 /* libxml2.tbd */; };
-		575AE3F71F97625100944DE2 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F51F97625100944DE2 /* libxml2.tbd */; };
-		575AE3F81F97625100944DE2 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575AE3F61F97625100944DE2 /* libxml2.2.tbd */; };
-		57614BCC1F85233000875933 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E217721F7E81B600812364 /* libxml2.2.tbd */; };
-		57614BCD1F85233000875933 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E217A81F7E977900812364 /* libxml2.tbd */; };
 		57A51B851D7EF016005C574F /* Readability+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A51B841D7EF016005C574F /* Readability+Async.swift */; };
 		57A51B861D7EF016005C574F /* Readability+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A51B841D7EF016005C574F /* Readability+Async.swift */; };
 		57A51B871D7EF016005C574F /* Readability+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A51B841D7EF016005C574F /* Readability+Async.swift */; };
@@ -49,18 +41,14 @@
 		57A51B891D7EFFA1005C574F /* Readability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156D6A1D632640008A9C49 /* Readability.swift */; };
 		57A51B8A1D7EFFA2005C574F /* Readability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156D6A1D632640008A9C49 /* Readability.swift */; };
 		57A51B8B1D7EFFA2005C574F /* Readability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57156D6A1D632640008A9C49 /* Readability.swift */; };
-		57E2175E1F7E817100812364 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217551F7E80DB00812364 /* Ji.swift */; };
-		57E2175F1F7E817100812364 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217551F7E80DB00812364 /* Ji.swift */; };
-		57E217601F7E817200812364 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217551F7E80DB00812364 /* Ji.swift */; };
-		57E217611F7E817200812364 /* Ji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217551F7E80DB00812364 /* Ji.swift */; };
-		57E217661F7E818200812364 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217571F7E80DB00812364 /* JiHelper.swift */; };
-		57E217671F7E818200812364 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217571F7E80DB00812364 /* JiHelper.swift */; };
-		57E217681F7E818300812364 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217571F7E80DB00812364 /* JiHelper.swift */; };
-		57E217691F7E818400812364 /* JiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217571F7E80DB00812364 /* JiHelper.swift */; };
-		57E2176E1F7E818D00812364 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217591F7E80DB00812364 /* JiNode.swift */; };
-		57E2176F1F7E818D00812364 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217591F7E80DB00812364 /* JiNode.swift */; };
-		57E217701F7E818F00812364 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217591F7E80DB00812364 /* JiNode.swift */; };
-		57E217711F7E819000812364 /* JiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E217591F7E80DB00812364 /* JiNode.swift */; };
+		57FAE9DD1F9DFCF2004040BA /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FAE9D81F9DFCE7004040BA /* Ji.framework */; };
+		57FAE9DE1F9DFCF8004040BA /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FAE9DA1F9DFCE7004040BA /* Ji.framework */; };
+		57FAE9DF1F9DFCFD004040BA /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FAE9D61F9DFCE7004040BA /* Ji.framework */; };
+		57FAE9E01F9DFD02004040BA /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FAE9DC1F9DFCE7004040BA /* Ji.framework */; };
+		57FAE9E11F9DFF61004040BA /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57FAE9DA1F9DFCE7004040BA /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57FAE9E31F9DFFA8004040BA /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57FAE9DC1F9DFCE7004040BA /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57FAE9E41F9DFFB1004040BA /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57FAE9D81F9DFCE7004040BA /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57FAE9E51F9DFFB9004040BA /* Ji.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57FAE9D61F9DFCE7004040BA /* Ji.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B04BC0DA1D7EC55200A3D1DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BC0D91D7EC55200A3D1DD /* StringExtension.swift */; };
 		B04BC0DB1D7EC55200A3D1DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BC0D91D7EC55200A3D1DD /* StringExtension.swift */; };
 		B04BC0DC1D7EC55200A3D1DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BC0D91D7EC55200A3D1DD /* StringExtension.swift */; };
@@ -84,6 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				57FAE9E11F9DFF61004040BA /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				57FAE9E31F9DFFA8004040BA /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				57FAE9E41F9DFFB1004040BA /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				57FAE9E51F9DFFB9004040BA /* Ji.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +139,14 @@
 		575AE3F21F97624800944DE2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
 		575AE3F51F97625100944DE2 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.0.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
 		575AE3F61F97625100944DE2 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.0.sdk/usr/lib/libxml2.2.tbd; sourceTree = DEVELOPER_DIR; };
-		57614BD51F85351500875933 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		57A51B841D7EF016005C574F /* Readability+Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Readability+Async.swift"; sourceTree = "<group>"; };
-		57E217551F7E80DB00812364 /* Ji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ji.swift; sourceTree = "<group>"; };
-		57E217571F7E80DB00812364 /* JiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiHelper.swift; sourceTree = "<group>"; };
-		57E217591F7E80DB00812364 /* JiNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiNode.swift; sourceTree = "<group>"; };
 		57E217721F7E81B600812364 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		57E217A51F7E917400812364 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
 		57E217A81F7E977900812364 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		57FAE9D61F9DFCE7004040BA /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
+		57FAE9D81F9DFCE7004040BA /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
+		57FAE9DA1F9DFCE7004040BA /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
+		57FAE9DC1F9DFCE7004040BA /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ji.framework; sourceTree = "<group>"; };
 		B04BC0D91D7EC55200A3D1DD /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57614BCC1F85233000875933 /* libxml2.2.tbd in Frameworks */,
-				57614BCD1F85233000875933 /* libxml2.tbd in Frameworks */,
+				57FAE9DE1F9DFCF8004040BA /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				575AE3EF1F97623A00944DE2 /* libxml2.2.tbd in Frameworks */,
-				575AE3F01F97623A00944DE2 /* libxml2.tbd in Frameworks */,
+				57FAE9E01F9DFD02004040BA /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				575AE3F31F97624800944DE2 /* libxml2.2.tbd in Frameworks */,
-				575AE3F41F97624800944DE2 /* libxml2.tbd in Frameworks */,
+				57FAE9DD1F9DFCF2004040BA /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				575AE3F71F97625100944DE2 /* libxml2.tbd in Frameworks */,
-				575AE3F81F97625100944DE2 /* libxml2.2.tbd in Frameworks */,
+				57FAE9DF1F9DFCFD004040BA /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +243,10 @@
 		57156E891D6334A0008A9C49 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				57614BD41F8534F400875933 /* libxml2 */,
-				57E217521F7E80DB00812364 /* Ji */,
+				57FAE9D91F9DFCE7004040BA /* iOS */,
+				57FAE9D71F9DFCE7004040BA /* Mac */,
+				57FAE9D51F9DFCE7004040BA /* tvOS */,
+				57FAE9DB1F9DFCE7004040BA /* watchOS */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -305,14 +295,6 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
-		57614BD41F8534F400875933 /* libxml2 */ = {
-			isa = PBXGroup;
-			children = (
-				57614BD51F85351500875933 /* module.modulemap */,
-			);
-			path = libxml2;
-			sourceTree = "<group>";
-		};
 		57E217501F7E80A700812364 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,14 +311,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57E217521F7E80DB00812364 /* Ji */ = {
+		57FAE9D51F9DFCE7004040BA /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				57E217551F7E80DB00812364 /* Ji.swift */,
-				57E217571F7E80DB00812364 /* JiHelper.swift */,
-				57E217591F7E80DB00812364 /* JiNode.swift */,
+				57FAE9D61F9DFCE7004040BA /* Ji.framework */,
 			);
-			path = Ji;
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		57FAE9D71F9DFCE7004040BA /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				57FAE9D81F9DFCE7004040BA /* Ji.framework */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		57FAE9D91F9DFCE7004040BA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				57FAE9DA1F9DFCE7004040BA /* Ji.framework */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		57FAE9DB1F9DFCE7004040BA /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				57FAE9DC1F9DFCE7004040BA /* Ji.framework */,
+			);
+			path = watchOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,12 +572,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E217691F7E818400812364 /* JiHelper.swift in Sources */,
 				B04BC0DA1D7EC55200A3D1DD /* StringExtension.swift in Sources */,
-				57E217711F7E819000812364 /* JiNode.swift in Sources */,
 				57A51B851D7EF016005C574F /* Readability+Async.swift in Sources */,
 				57185B6E1D7D7CF700C76FAD /* Readability+Networking.swift in Sources */,
-				57E217611F7E817200812364 /* Ji.swift in Sources */,
 				57185B781D7D7EF900C76FAD /* Readability+String.swift in Sources */,
 				57156D6C1D632640008A9C49 /* Readability.swift in Sources */,
 			);
@@ -583,12 +584,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E217681F7E818300812364 /* JiHelper.swift in Sources */,
 				57185B6F1D7D7CF700C76FAD /* Readability+Networking.swift in Sources */,
-				57E217701F7E818F00812364 /* JiNode.swift in Sources */,
 				57A51B891D7EFFA1005C574F /* Readability.swift in Sources */,
 				57A51B861D7EF016005C574F /* Readability+Async.swift in Sources */,
-				57E217601F7E817200812364 /* Ji.swift in Sources */,
 				57185B791D7D7EF900C76FAD /* Readability+String.swift in Sources */,
 				B04BC0DB1D7EC55200A3D1DD /* StringExtension.swift in Sources */,
 			);
@@ -598,12 +596,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E217671F7E818200812364 /* JiHelper.swift in Sources */,
 				57185B701D7D7CF700C76FAD /* Readability+Networking.swift in Sources */,
-				57E2176F1F7E818D00812364 /* JiNode.swift in Sources */,
 				57A51B8A1D7EFFA2005C574F /* Readability.swift in Sources */,
 				57A51B871D7EF016005C574F /* Readability+Async.swift in Sources */,
-				57E2175F1F7E817100812364 /* Ji.swift in Sources */,
 				57185B7A1D7D7EF900C76FAD /* Readability+String.swift in Sources */,
 				B04BC0DC1D7EC55200A3D1DD /* StringExtension.swift in Sources */,
 			);
@@ -613,12 +608,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E217661F7E818200812364 /* JiHelper.swift in Sources */,
 				57185B711D7D7CF700C76FAD /* Readability+Networking.swift in Sources */,
-				57E2176E1F7E818D00812364 /* JiNode.swift in Sources */,
 				57A51B8B1D7EFFA2005C574F /* Readability.swift in Sources */,
 				57A51B881D7EF016005C574F /* Readability+Async.swift in Sources */,
-				57E2175E1F7E817100812364 /* Ji.swift in Sources */,
 				57185B7B1D7D7EF900C76FAD /* Readability+String.swift in Sources */,
 				B04BC0DD1D7EC55200A3D1DD /* StringExtension.swift in Sources */,
 			);
@@ -777,12 +769,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.readabilitykit.ReadabilityKit;
 				PRODUCT_NAME = ReadabilityKit;
@@ -807,12 +799,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.readabilitykit.ReadabilityKit;
 				PRODUCT_NAME = ReadabilityKit;
@@ -841,11 +833,11 @@
 					"$(PROJECT_DIR)/Dependencies/watchOS",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-watchOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
@@ -876,11 +868,11 @@
 					"$(PROJECT_DIR)/Dependencies/watchOS",
 					"$(PROJECT_DIR)/Dependencies/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-watchOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = watchos;
@@ -905,14 +897,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/macOS",
+					"$(PROJECT_DIR)/Dependencies/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-macOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
@@ -936,14 +929,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/macOS",
+					"$(PROJECT_DIR)/Dependencies/Mac",
 				);
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-macOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = macosx;
@@ -966,11 +960,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/tvOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-tvOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;
@@ -996,11 +990,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/tvOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.exyte.readabilitykit.ReadabilityKit-tvOS";
 				PRODUCT_NAME = ReadabilityKit;
 				SDKROOT = appletvos;

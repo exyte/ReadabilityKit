@@ -1,0 +1,11 @@
+framework module Ji {
+  umbrella header "Ji.h"
+
+  export *
+  module * { export * }
+}
+
+module Ji.Swift {
+    header "Ji-Swift.h"
+    requires objc
+}

@@ -224,7 +224,12 @@ open class Readability {
 		let index = str.characters.distance(from: str.startIndex, to: firstElement)
 		if index >= 0 {
 			c += 1
-            c += calculateNumberOfAppearance(str.substring(from: str.index(firstElement, offsetBy: substring.characters.count)), substring: substring)
+            
+            let sourceStr = String(str[str.index(firstElement, offsetBy: substring.characters.count)...])
+            c += calculateNumberOfAppearance(sourceStr,
+                                             substring: substring)
+            
+            //c += calculateNumberOfAppearance(str.substring(from: str.index(firstElement, offsetBy: substring.characters.count)), substring: substring)
 
 		}
 
