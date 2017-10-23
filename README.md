@@ -32,7 +32,8 @@ Extracts:
 ## Usage
 
 ```swift
-Readability.parse(url: articleUrl, { data in
+let articleUrl = URL(text: "https://someurl.com/")
+Readability.parse(url: articleUrl, completion: { data in
   let title = data?.title
   let description = data?.description
   let keywords = data?.keywords
@@ -81,7 +82,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ReadabilityKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile
 
-swift 3.0:
+swift 4.0:
 
 ```ruby
 platform :ios, '8.0'
@@ -89,6 +90,17 @@ use_frameworks!
 
 target 'MyApp' do
     pod 'ReadabilityKit'
+end
+```
+
+swift 3.2:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+    pod 'ReadabilityKit', '0.6.0'
 end
 ```
 
@@ -113,8 +125,6 @@ target 'MyApp' do
     pod 'ReadabilityKit', '0.5.2'
 end
 ```
-
-
 
 ### [Carthage](http://github.com/Carthage/Carthage)
 
@@ -144,7 +154,7 @@ github "exyte/ReadabilityKit" "0.5.2"
 
 ## Author
 
-This project is maintained by [exyte](http://exyte.com). We design and build mobile and VR/AR applications.
+This project is maintained by [exyte](https://exyte.com). We design and build mobile and VR/AR applications.
 
 ## License
 
