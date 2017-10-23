@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-// import Ji
+import Ji
 
 public struct ReadabilityData {
 	public let title: String

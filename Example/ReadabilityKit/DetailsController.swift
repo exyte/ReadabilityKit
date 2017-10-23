@@ -62,7 +62,7 @@ class DetailsController: UIViewController {
 		}
 	}
 
-	func openVideo() {
+    @objc func openVideo() {
 		if let url = URL(string: self.videoURLView!.text) {
 			UIApplication.shared.openURL(url)
 		}
