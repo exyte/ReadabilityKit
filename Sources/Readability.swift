@@ -100,7 +100,7 @@ open class Readability {
 		var weight = 0
 
 		if let className = node.attributes["class"] {
-			let classNameRange = NSMakeRange(0, className.characters.count)
+			let classNameRange = NSMakeRange(0, className.count)
 			if let positiveRegExp = positiveRegExp {
 				if positiveRegExp.matches(in: className, options: NSRegularExpression.MatchingOptions.reportProgress, range: classNameRange).count > 0 {
 					weight += 35
@@ -121,7 +121,7 @@ open class Readability {
 		}
 
 		if let id = node.attributes["id"] {
-			let idRange = NSMakeRange(0, id.characters.count)
+			let idRange = NSMakeRange(0, id.count)
 			if let positiveRegExp = positiveRegExp {
 				if positiveRegExp.matches(in: id, options: NSRegularExpression.MatchingOptions.reportProgress, range: idRange).count > 0 {
 					weight += 40
@@ -143,7 +143,7 @@ open class Readability {
 
 		if let style = node.attributes["style"] {
 			if let negativeRegExp = negativeRegExp {
-				if negativeRegExp.matches(in: style, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, style.characters.count)).count > 0 {
+				if negativeRegExp.matches(in: style, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, style.count)).count > 0 {
 					weight -= 50
 				}
 			}
@@ -163,7 +163,7 @@ open class Readability {
 		if c > 5 {
 			val = -30
 		} else {
-			val = Int(Double(ownText.characters.count) / 25.0)
+			val = Int(Double(ownText.count) / 25.0)
 		}
 
 		return val
@@ -180,7 +180,7 @@ open class Readability {
 				return
 			}
 
-			let length = text.characters.count
+			let length = text.count
 			if length < 20 {
 				return
 			}
@@ -221,15 +221,15 @@ open class Readability {
 			return 0
 		}
 
-		let index = str.characters.distance(from: str.startIndex, to: firstElement)
+		let index = str.distance(from: str.startIndex, to: firstElement)
 		if index >= 0 {
 			c += 1
             
-            let sourceStr = String(str[str.index(firstElement, offsetBy: substring.characters.count)...])
+            let sourceStr = String(str[str.index(firstElement, offsetBy: substring.count)...])
             c += calculateNumberOfAppearance(sourceStr,
                                              substring: substring)
             
-            //c += calculateNumberOfAppearance(str.substring(from: str.index(firstElement, offsetBy: substring.characters.count)), substring: substring)
+            //c += calculateNumberOfAppearance(str.substring(from: str.index(firstElement, offsetBy: substring.count)), substring: substring)
 
 		}
 
@@ -269,7 +269,7 @@ open class Readability {
 				guard let stringValue = node.content else {
 					continue
 				}
-				weight += stringValue.characters.count / 10
+				weight += stringValue.count / 10
 
 				weight += weightChildNodes(node)
 				if (weight > maxWeight)
@@ -322,7 +322,7 @@ open class Readability {
 	fileprivate func altWeight(_ imgNode: JiNode) -> Int {
 		var weight = 0
 		if let altStr = imgNode.attributes["alt"] {
-			if (altStr.characters.count > 35) {
+			if (altStr.count > 35) {
 				weight += 20
 			}
 		}
@@ -333,7 +333,7 @@ open class Readability {
 	fileprivate func titleWeight(_ imgNode: JiNode) -> Int {
 		var weight = 0
 		if let titleStr = imgNode.attributes["title"] {
-			if (titleStr.characters.count > 35) {
+			if (titleStr.count > 35) {
 				weight += 20
 			}
 		}
@@ -420,9 +420,9 @@ open class Readability {
 		var importantTexts = [String]()
 		let extractedTitle = title()
 		texts.forEach({ (text: String) in
-			let length = text.characters.count
+			let length = text.count
 
-			if let titleLength = extractedTitle?.characters.count {
+			if let titleLength = extractedTitle?.count {
 				if length > titleLength {
 					importantTexts.append(text)
 				}
@@ -443,7 +443,7 @@ open class Readability {
 		let texts = strValue.replacingOccurrences(of: "\t", with: "").components(separatedBy: CharacterSet.newlines)
 		var importantTexts = [String]()
 		texts.forEach({ (text: String) in
-			let length = text.characters.count
+			let length = text.count
 			if length > 175 {
 				importantTexts.append(text)
 			}
@@ -463,7 +463,7 @@ open class Readability {
 
 		if node.children.count == 0 {
 			if let content = node.content {
-				let length = content.characters.count
+				let length = content.count
 				if length > 3 && length < 175 {
 					contents.append(content)
 				}
@@ -588,7 +588,7 @@ open class Readability {
 				return .none
 			}
 
-			if title.characters.count == 0 {
+			if title.count == 0 {
 				return .none
 			}
 
@@ -649,7 +649,7 @@ open class Readability {
 					keywords.append(contentsOf: value.components(separatedBy: separatorsCharacterSet))
 				}
 
-				keywords = keywords.filter({ $0.characters.count > 1 })
+				keywords = keywords.filter({ $0.count > 1 })
 
 				return keywords
 			}
