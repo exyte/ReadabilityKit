@@ -55,46 +55,26 @@ it, simply add the following line to your Podfile
 
 swift 4.x:
 
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-    pod 'ReadabilityKit'
-end
+```swift
+pod 'ReadabilityKit'
 ```
 
 swift 3.2:
 
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-    pod 'ReadabilityKit', '0.6.0'
-end
+```swift
+ pod 'ReadabilityKit', '0.6.0'
 ```
 
 Legacy swift 2.3:
 
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-    pod 'ReadabilityKit', '0.5.4'
-end
+```swift
+pod 'ReadabilityKit', '0.5.4'
 ```
 
 Legacy swift 2.2:
 
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-    pod 'ReadabilityKit', '0.5.2'
-end
+```
+pod 'ReadabilityKit', '0.5.2'
 ```
 
 ### [Carthage](http://github.com/Carthage/Carthage)
