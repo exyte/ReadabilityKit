@@ -30,7 +30,7 @@ Extracts:
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.10+
+- iOS 8.0+ / Mac OS X 10.10+ / tvOS 9.0+ / watchOS 2.0+
 
 ## Usage
 
@@ -49,9 +49,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
  
 ## Installation
 
-#### CocoaPods
-ReadabilityKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile
+#### [CocoaPods](http://cocoapods.org)
+To install `ReadabilityKit`, simply add the following line to your Podfile
 
 swift 4.x:
 
@@ -80,12 +79,13 @@ pod "ReadabilityKit", "0.5.2"
 ### [Carthage](http://github.com/Carthage/Carthage)
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
+
 swift 4.x:
 ```ogdl
 github "exyte/ReadabilityKit"
 ```
 
-swift 3.0:
+swift 3.2:
 ```ogdl
 github "exyte/ReadabilityKit" "0.6.0"
 ```
