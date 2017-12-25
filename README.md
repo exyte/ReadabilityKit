@@ -35,7 +35,7 @@ Extracts:
 ## Usage
 
 ```swift
-let articleUrl = URL(text: "https://someurl.com/")
+let articleUrl = URL(string: "https://someurl.com/")!
 Readability.parse(url: articleUrl, completion: { data in
   let title = data?.title
   let description = data?.description
@@ -80,10 +80,14 @@ pod "ReadabilityKit", "0.5.2"
 ### [Carthage](http://github.com/Carthage/Carthage)
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
+swift 4.x:
+```ogdl
+github "exyte/ReadabilityKit"
+```
 
 swift 3.0:
 ```ogdl
-github "exyte/ReadabilityKit"
+github "exyte/ReadabilityKit" "0.6.0"
 ```
 
 Legacy swift 2.3:
