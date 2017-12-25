@@ -62,19 +62,19 @@ pod 'ReadabilityKit'
 swift 3.2:
 
 ```swift
- pod 'ReadabilityKit', '0.6.0'
+pod "ReadabilityKit", "0.6.0"
 ```
 
 Legacy swift 2.3:
 
 ```swift
-pod 'ReadabilityKit', '0.5.4'
+pod "ReadabilityKit", "0.5.4"
 ```
 
 Legacy swift 2.2:
 
 ```
-pod 'ReadabilityKit', '0.5.2'
+pod "ReadabilityKit", "0.5.2"
 ```
 
 ### [Carthage](http://github.com/Carthage/Carthage)
