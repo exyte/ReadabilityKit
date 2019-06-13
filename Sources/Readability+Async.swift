@@ -24,7 +24,7 @@
 //
 
 public extension Readability {
-	public class func parse(data htmlData: Data, completion: @escaping (ReadabilityData?) -> ()) {
+    class func parse(data htmlData: Data, completion: @escaping (ReadabilityData?) -> ()) {
 		let isMainThread = Thread.isMainThread
         
         DispatchQueue.global(qos: .default).async {

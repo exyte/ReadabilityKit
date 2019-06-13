@@ -25,7 +25,7 @@
 
 public extension Readability {
 
-	public class func parse(htmlString: String, completion: @escaping (ReadabilityData?) -> ()) {
+    class func parse(htmlString: String, completion: @escaping (ReadabilityData?) -> ()) {
 
 		guard let htmlData = htmlString.data(using: String.Encoding.utf8) else {
 			completion(.none)
