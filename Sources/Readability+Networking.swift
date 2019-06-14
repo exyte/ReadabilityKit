@@ -33,7 +33,7 @@ let readabilityUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) Appl
 
 public extension Readability {
 
-	public class func parse(url: URL, completion: @escaping (ReadabilityData?) -> ()) {
+    class func parse(url: URL, completion: @escaping (ReadabilityData?) -> ()) {
 
 		let isMainThread = Thread.isMainThread
 
