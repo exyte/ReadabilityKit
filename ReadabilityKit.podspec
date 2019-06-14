@@ -13,8 +13,12 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target    = '9.0'
+
+  s.swift_versions = ['5.0']
  
   s.dependency 'Ji', '5.0.0'
+
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 
   s.source_files = [
      'Sources/*.swift',
