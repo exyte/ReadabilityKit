@@ -52,10 +52,15 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 #### [CocoaPods](http://cocoapods.org)
 To install `ReadabilityKit`, simply add the following line to your Podfile
 
+swift 5.x:
+```swift
+pod "ReadabilityKit"
+```
+
 swift 4.x:
 
 ```swift
-pod 'ReadabilityKit'
+pod 'ReadabilityKit' "0.7.1"
 ```
 
 swift 3.2:
