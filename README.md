@@ -85,9 +85,14 @@ pod "ReadabilityKit", "0.5.2"
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
 
-swift 4.x:
+swift 5.x:
 ```ogdl
 github "exyte/ReadabilityKit"
+```
+
+swift 4.x:
+```ogdl
+github "exyte/ReadabilityKit" "0.7.1"
 ```
 
 swift 3.2:
