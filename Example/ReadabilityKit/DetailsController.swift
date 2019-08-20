@@ -27,44 +27,64 @@ import UIKit
 
 class DetailsController: UIViewController {
 
-	@IBAction func onDone() {
-		self.dismiss(animated: true, completion: .none)
-	}
-
-	@IBOutlet weak var titleView: UITextView?
-	@IBOutlet weak var imageView: UIImageView?
-	@IBOutlet weak var keywordsView: UITextView?
-	@IBOutlet weak var descriptionView: UITextView?
-	@IBOutlet weak var videoURLView: UITextView?
-
+    @IBOutlet weak var imageView: UIImageView?
+    @IBOutlet weak var videoURLTextView: UITextView?
+    @IBOutlet weak var contentTextView: UITextView?
+    
 	var image: UIImage?
 	var titleText: String?
 	var desc: String?
 	var keywords: [String]?
 	var videoURL: String?
+    
+    @IBAction func onDone() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		titleView?.text = titleText
-		imageView?.image = image
-		keywordsView?.text = keywords?.joined(separator: ", ")
-		descriptionView?.text = desc
-
-		if let videoURLVal = videoURL {
-			videoURLView?.text = videoURLVal
-			videoURLView?.isHidden = false
-
-			let videoURLRecongnizer = UITapGestureRecognizer(target: self, action: #selector(DetailsController.openVideo))
-			videoURLView?.addGestureRecognizer(videoURLRecongnizer)
-		} else {
-			videoURLView?.isHidden = true
-		}
+        imageView?.image = image
+        
+        if let videoURL = self.videoURL {
+            videoURLTextView?.text = videoURL
+            videoURLTextView?.isHidden = false
+            
+            let videoURLRecongnizer = UITapGestureRecognizer(target: self, action: #selector(openVideo))
+            videoURLTextView?.addGestureRecognizer(videoURLRecongnizer)
+        } else {
+            videoURLTextView?.isHidden = true
+        }
+        
+        let boldFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        let regularFont = UIFont.systemFont(ofSize: 17)
+        let stringFormat = "%@\n"
+        
+        let contentAttributedString = NSMutableAttributedString()
+        contentAttributedString.append(
+            NSAttributedString(
+                string: String(format: stringFormat, titleText ?? ""),
+                attributes: [NSAttributedString.Key.font: boldFont]
+            )
+        )
+        contentAttributedString.append(
+            NSAttributedString(
+                string: String(format: stringFormat, keywords?.joined(separator: ", ") ?? ""),
+                attributes: [NSAttributedString.Key.font: regularFont]
+            )
+        )
+        contentAttributedString.append(
+            NSAttributedString(
+                string: String(format: stringFormat, desc ?? ""),
+                attributes: [NSAttributedString.Key.font: regularFont]
+            )
+        )
+        contentTextView?.attributedText = contentAttributedString
 	}
 
     @objc func openVideo() {
-		if let url = URL(string: self.videoURLView!.text) {
-			UIApplication.shared.openURL(url)
+		if let url = URL(string: videoURLTextView?.text ?? "") {
+            UIApplication.shared.open(url, options: [:], completionHandler: .none)
 		}
 	}
 }

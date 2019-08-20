@@ -30,12 +30,15 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 	@IBOutlet weak var addressField: UITextField?
 	@IBOutlet weak var webView: UIWebView?
-	@IBOutlet weak var activityView: UIView?
 
 	var url: URL?
 	var parser: Readability?
 	var image: UIImage?
 	var parsedData: ReadabilityData?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,34 +69,19 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 	}
 
 	@IBAction func onParse() {
-
-		UIView.animate(withDuration: 0.1, animations: {
-			self.activityView?.alpha = 1.0
-		}, completion: { _ in
-			self.parseUrl()
-		}) 
+        parseHTMLContent()
 	}
 
 	func moveToDetails() {
-		UIView.animate(withDuration: 0.1, animations: {
-			self.activityView?.alpha = 0.0
-		}, completion: { _ in
-			self.performSegue(withIdentifier: "details_segue", sender: .none)
-		}) 
-	}
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-		if segue.identifier == "details_segue" {
-
-			let detailsController = segue.destination as? DetailsController
-
-			detailsController?.titleText = parsedData?.title
-			detailsController?.desc = parsedData?.description
-			detailsController?.keywords = parsedData?.keywords
-			detailsController?.image = image
-			detailsController?.videoURL = parsedData?.topVideo
-		}
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Details View Controller") as? DetailsController else {
+            return
+        }
+        viewController.titleText = parsedData?.title
+        viewController.desc = parsedData?.description
+        viewController.keywords = parsedData?.keywords
+        viewController.image = image
+        viewController.videoURL = parsedData?.topVideo
+		self.navigationController?.pushViewController(viewController, animated: true)
 	}
 
 	func loadDefaultPage() {
@@ -125,13 +113,12 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
 	// MARK: Parsing
 
-	func parseUrl() {
-		guard let url = url else {
+	func parseHTMLContent() {
+        guard let htmlContent = webView?.htmlContent else {
 			return
 		}
-
-		Readability.parse(url: url) { data in
-
+        
+		Readability.parse(htmlString: htmlContent) { data in
 			self.parsedData = data
 
 			guard let imageUrlStr = data?.topImage else {
@@ -149,7 +136,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 			self.image = UIImage(data: imageData)
 
 			self.moveToDetails()
-	}
-
-}
+        }
+    }
+    
 }

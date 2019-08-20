@@ -13,6 +13,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		66CD899A230ACC9500E3FE42 /* UIWebViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD8999230ACC9500E3FE42 /* UIWebViewExtension.swift */; };
 		B1FC4F450974B977518C0F48 /* Pods_ReadabilityKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1724B33ED9EA2C29FE44D48F /* Pods_ReadabilityKit_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		66CD8999230ACC9500E3FE42 /* UIWebViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewExtension.swift; sourceTree = "<group>"; };
 		ACC2EDE82A7E59DF7ADB44A4 /* Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadabilityKit_Example-ReadabilityKit_Tests/Pods-ReadabilityKit_Example-ReadabilityKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFD795EC3253A91F72C4FF19 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				66CD8999230ACC9500E3FE42 /* UIWebViewExtension.swift */,
 			);
 			name = "Example for ReadabilityKit";
 			path = ReadabilityKit;
@@ -239,6 +242,7 @@
 				607FACD81AFB9204008FA782 /* MainController.swift in Sources */,
 				5707F3A61D1A97D300FAD21C /* DetailsController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				66CD899A230ACC9500E3FE42 /* UIWebViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +364,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReadabilityKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -375,6 +380,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReadabilityKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
