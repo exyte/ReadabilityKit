@@ -1,4 +1,20 @@
-# ReadabilityKit
+<img src="https://github.com/exyte/ReadabilityKit/blob/new-demo/header.png">
+<img align="right" src="https://raw.githubusercontent.com/exyte/ReadabilityKit/new-demo/demo.gif" width="480" />
+
+<p><h1 align="left">ReadabilityKit</h1></p>
+
+<p><h4>Preview extractor for news, articles and full-texts in Swift</h4></p>
+
+___
+
+<p> We are a development agency building
+  <a href="https://clutch.co/profile/exyte#review-731233">phenomenal</a> apps.</p>
+
+</br>
+
+<a href="https://exyte.com/contacts"><img src="https://i.imgur.com/vGjsQPt.png" width="134" height="34"></a> <a href="https://twitter.com/exyteHQ"><img src="https://i.imgur.com/DngwSn1.png" width="165" height="34"></a>
+
+</br></br>
 
 [![CI Status](http://img.shields.io/travis/exyte/ReadabilityKit.svg?style=flat)](https://travis-ci.org/exyte/ReadabilityKit)
 [![Version](https://img.shields.io/cocoapods/v/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
@@ -6,17 +22,6 @@
 [![License](https://img.shields.io/cocoapods/l/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReadabilityKit.svg?style=flat)](http://cocoapods.org/pods/ReadabilityKit)
 
-**NOTE**: ReadabilityKit is in maintenance mode. We recommend using [SwiftLinkPreview](https://github.com/LeonardoCardoso/SwiftLinkPreview) in the new code. 
-We will continue to provide new releases with the latest versions of Xcode.
-
-ReadabilityKit helps you to extract a relevant preview (title, description, image and video) from the URL.
-
-The goal is to try and get the best extraction from the article for servicing applications that need to show a preview of a web URL along with an image.
-
-Inspired by [snacktory](https://github.com/karussell/snacktory) and [newspaper](https://github.com/codelucas/newspaper).
-
-## Demo
-<img src="https://github.com/exyte/ReadabilityKit/blob/master/demo.gif" width="320px" height="569px" />
 
 ## Features
 
@@ -30,18 +35,18 @@ Extracts:
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.10+ / tvOS 9.0+ / watchOS 2.0+
+- iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
 
 ## Usage
 
 ```swift
 let articleUrl = URL(string: "https://someurl.com/")!
 Readability.parse(url: articleUrl, completion: { data in
-  let title = data?.title
-  let description = data?.description
-  let keywords = data?.keywords
-  let imageUrl = data?.topImage
-  let videoUrl = data?.topVideo
+    let title = data?.title
+    let description = data?.description
+    let keywords = data?.keywords
+    let imageUrl = data?.topImage
+    let videoUrl = data?.topVideo
 })
 ```
 
@@ -49,77 +54,49 @@ To run the example project, clone the repo, and run `pod install` from the Examp
  
 ## Installation
 
-#### [CocoaPods](http://cocoapods.org)
+### [CocoaPods](http://cocoapods.org)
 To install `ReadabilityKit`, simply add the following line to your Podfile
 
-swift 5.x:
-```swift
-pod "ReadabilityKit"
+Swift 5.x:
+```ruby
+pod 'ReadabilityKit'
 ```
 
-swift 4.x:
+Swift 4.x:
 
-```swift
-pod 'ReadabilityKit' "0.7.1"
+```ruby
+pod 'ReadabilityKit' '0.7.1'
 ```
 
-swift 3.2:
+Swift 3.x:
 
-```swift
-pod "ReadabilityKit", "0.6.0"
-```
-
-Legacy swift 2.3:
-
-```swift
-pod "ReadabilityKit", "0.5.4"
-```
-
-Legacy swift 2.2:
-
-```
-pod "ReadabilityKit", "0.5.2"
+```ruby
+pod 'ReadabilityKit', '0.6.0'
 ```
 
 ### [Carthage](http://github.com/Carthage/Carthage)
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
 
-swift 5.x:
-```ogdl
+Swift 5.x:
+```ruby
 github "exyte/ReadabilityKit"
 ```
 
-swift 4.x:
-```ogdl
-github "exyte/ReadabilityKit" "0.7.1"
+Swift 4.x:
+```ruby
+github "exyte/ReadabilityKit" == 0.7.1
 ```
 
-swift 3.2:
-```ogdl
-github "exyte/ReadabilityKit" "0.6.0"
+Swift 3.x:
+```ruby
+github "exyte/ReadabilityKit" == 0.6.0
 ```
 
-Legacy swift 2.3:
-```ogdl
-github "exyte/ReadabilityKit" "0.5.4"
-```
-
-Legacy swift 2.2:
-
-```ogdl
-github "exyte/ReadabilityKit" "0.5.2"
-```
-
-#### Manually
+### Manually
 
 1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
 2. Download and drop all files from Sources folder in your project
-3. Congratulations!
-
-## Author
-
-This project is maintained by [exyte](https://exyte.com). We design and build mobile and VR/AR applications.
 
 ## License
 
