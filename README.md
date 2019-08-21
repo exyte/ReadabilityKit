@@ -3,7 +3,7 @@
 
 <p><h1 align="left">ReadabilityKit</h1></p>
 
-<p><h4>Extract a relevant preview (title, description, image and video) from URL</h4></p>
+<p><h4>Preview extractor for news, articles and full-texts in Swift</h4></p>
 
 ___
 
