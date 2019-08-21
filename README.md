@@ -1,5 +1,5 @@
-<img src="https://github.com/exyte/ReadabilityKit/blob/new-demo/header.png">
-<img align="right" src="https://raw.githubusercontent.com/exyte/ReadabilityKit/new-demo/demo.gif" width="480" />
+<img src="https://github.com/exyte/ReadabilityKit/blob/master/header.png">
+<img align="right" src="https://raw.githubusercontent.com/exyte/ReadabilityKit/master/demo.gif" width="480" />
 
 <p><h1 align="left">ReadabilityKit</h1></p>
 
