@@ -54,7 +54,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
  
 ## Installation
 
-#### [CocoaPods](http://cocoapods.org)
+### [CocoaPods](http://cocoapods.org)
 To install `ReadabilityKit`, simply add the following line to your Podfile
 
 Swift 5.x:
@@ -93,7 +93,7 @@ Swift 3.x:
 github "exyte/ReadabilityKit" == 0.6.0
 ```
 
-#### Manually
+### Manually
 
 1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
 2. Download and drop all files from Sources folder in your project
