@@ -59,7 +59,7 @@ To install `ReadabilityKit`, simply add the following line to your Podfile
 
 Swift 5.x:
 ```ruby
-pod "ReadabilityKit"
+pod 'ReadabilityKit'
 ```
 
 Swift 4.x:
