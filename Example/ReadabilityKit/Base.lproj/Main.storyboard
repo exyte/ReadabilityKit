@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSQ-oN-kxN">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZSQ-oN-kxN">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,13 +32,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-jT-ea3" userLabel="BarView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-vv-xqE">
-                                        <rect key="frame" x="10" y="10" width="355" height="30"/>
+                                        <rect key="frame" x="10" y="10" width="355" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-NG-rKH">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="34"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" textContentType="url"/>
@@ -49,7 +47,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjF-al-haV">
-                                                <rect key="frame" x="230" y="0.0" width="60" height="30"/>
+                                                <rect key="frame" x="230" y="0.0" width="60" height="34"/>
                                                 <color key="backgroundColor" red="0.24667104580232505" green="0.4990794943244144" blue="0.77488229342692871" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="NzH-SB-EZJ"/>
@@ -68,7 +66,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-QB-hy8">
-                                                <rect key="frame" x="295" y="0.0" width="60" height="30"/>
+                                                <rect key="frame" x="295" y="0.0" width="60" height="34"/>
                                                 <color key="backgroundColor" red="0.24667104579999999" green="0.49907949429999998" blue="0.77488229340000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <state key="normal" title="Parse">
@@ -97,7 +95,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbe-hi-64F">
-                                <rect key="frame" x="0.0" y="94" width="375" height="718"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="714"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                 <connections>
@@ -186,9 +184,17 @@
                                     <action selector="onDone" destination="1WW-cP-34y" eventType="touchUpInside" id="fRf-rv-PIN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Br-Pq-YMk">
+                                <rect key="frame" x="20" y="691" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Xw4-Ib-czm" firstAttribute="width" secondItem="5Br-Pq-YMk" secondAttribute="width" id="1XQ-3D-KCC"/>
+                            <constraint firstItem="5Br-Pq-YMk" firstAttribute="centerX" secondItem="ZPB-XN-Qho" secondAttribute="centerX" id="A2u-4Q-pfY"/>
                             <constraint firstItem="qKd-1E-CTi" firstAttribute="leading" secondItem="4CT-vP-eJH" secondAttribute="leading" constant="20" id="BeC-hL-yuW"/>
                             <constraint firstItem="4CT-vP-eJH" firstAttribute="trailing" secondItem="ggQ-TV-Afy" secondAttribute="trailing" constant="20" id="Ewc-CB-lI2"/>
                             <constraint firstItem="Xw4-Ib-czm" firstAttribute="leading" secondItem="4CT-vP-eJH" secondAttribute="leading" constant="20" id="Lpp-Pp-yXV"/>
@@ -199,8 +205,10 @@
                             <constraint firstItem="9MR-95-drn" firstAttribute="top" secondItem="4CT-vP-eJH" secondAttribute="top" id="cfW-fT-pmD"/>
                             <constraint firstItem="Xw4-Ib-czm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qKd-1E-CTi" secondAttribute="bottom" constant="15" id="fU2-Tk-tic"/>
                             <constraint firstItem="4CT-vP-eJH" firstAttribute="trailing" secondItem="9MR-95-drn" secondAttribute="trailing" constant="20" id="foM-aW-55f"/>
+                            <constraint firstItem="Xw4-Ib-czm" firstAttribute="top" secondItem="5Br-Pq-YMk" secondAttribute="bottom" constant="8" id="gsj-ec-kkl"/>
                             <constraint firstItem="qKd-1E-CTi" firstAttribute="top" secondItem="9MR-95-drn" secondAttribute="bottom" constant="15" id="itc-O9-gRJ"/>
                             <constraint firstItem="4CT-vP-eJH" firstAttribute="trailing" secondItem="Xw4-Ib-czm" secondAttribute="trailing" constant="20" id="lac-Bh-GZN"/>
+                            <constraint firstItem="Xw4-Ib-czm" firstAttribute="centerY" secondItem="5Br-Pq-YMk" secondAttribute="centerY" id="s9s-j8-Pfd"/>
                             <constraint firstItem="9MR-95-drn" firstAttribute="trailing" secondItem="ZPB-XN-Qho" secondAttribute="trailingMargin" id="sfs-Wu-MUJ"/>
                             <constraint firstItem="9MR-95-drn" firstAttribute="top" secondItem="4CT-vP-eJH" secondAttribute="top" constant="15" id="uJ6-7s-nxR"/>
                             <constraint firstItem="ggQ-TV-Afy" firstAttribute="leading" secondItem="4CT-vP-eJH" secondAttribute="leading" constant="20" id="vAr-Nr-M7e"/>
@@ -214,11 +222,13 @@
                                 <exclude reference="cfW-fT-pmD"/>
                                 <exclude reference="sfs-Wu-MUJ"/>
                                 <exclude reference="w42-Xr-ELT"/>
+                                <exclude reference="s9s-j8-Pfd"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="contentTextView" destination="qKd-1E-CTi" id="7fz-Zi-YBn"/>
+                        <outlet property="dateText" destination="5Br-Pq-YMk" id="cDU-Gv-FFr"/>
                         <outlet property="imageView" destination="9MR-95-drn" id="SvO-ju-RM0"/>
                         <outlet property="videoURLTextView" destination="ggQ-TV-Afy" id="eVA-pH-oFJ"/>
                     </connections>

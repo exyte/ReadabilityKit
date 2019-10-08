@@ -81,6 +81,7 @@ class MainController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         viewController.keywords = parsedData?.keywords
         viewController.image = image
         viewController.videoURL = parsedData?.topVideo
+        viewController.dateVlaue = parsedData?.datePublished
 		self.navigationController?.pushViewController(viewController, animated: true)
 	}
 

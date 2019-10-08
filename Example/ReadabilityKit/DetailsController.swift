@@ -30,12 +30,14 @@ class DetailsController: UIViewController {
     @IBOutlet weak var imageView: UIImageView?
     @IBOutlet weak var videoURLTextView: UITextView?
     @IBOutlet weak var contentTextView: UITextView?
+    @IBOutlet weak var dateText: UILabel!
     
-	var image: UIImage?
+    var image: UIImage?
 	var titleText: String?
 	var desc: String?
 	var keywords: [String]?
 	var videoURL: String?
+    var dateVlaue : String?
     
     @IBAction func onDone() {
         self.navigationController?.popViewController(animated: true)
@@ -45,6 +47,7 @@ class DetailsController: UIViewController {
 		super.viewDidLoad()
 
         imageView?.image = image
+        dateText.text = dateVlaue
         
         if let videoURL = self.videoURL {
             videoURLTextView?.text = videoURL
