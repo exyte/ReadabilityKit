@@ -539,7 +539,7 @@ open class Readability {
 			text: self.text(),
 			topVideo: self.topVideo(),
             keywords: self.keywords(),
-            datePublished: self.ConvertDateToFormat()
+            datePublished: self.convertDateToFormat()
 		)
 
 		return parsedData
@@ -678,7 +678,7 @@ open class Readability {
 				var keywords = [String]()
 				values.forEach { (value: String) in
 					var separatorsCharacterSet = CharacterSet.whitespacesAndNewlines
-					separatorsCharacterSet.formUnion(NSCharacterSet.punctuationCharacters)
+					separatorsCharacterSet.formUnion(CharacterSet.punctuationCharacters)
 					keywords.append(contentsOf: value.components(separatedBy: separatorsCharacterSet))
 				}
 
@@ -746,7 +746,7 @@ open class Readability {
         return nil
     }
    private func stringByRemovingControlCharacters(astring: String) -> String {
-        let controlChars = NSCharacterSet.controlCharacters
+        let controlChars = CharacterSet.controlCharacters
         var range = astring.rangeOfCharacter(from: controlChars)//rangeOfCharacterFromSet(controlChars)
         var mutable = astring
         while let removeRange = range {
@@ -756,7 +756,7 @@ open class Readability {
         
         return mutable
     }
-    private func CheckFormat(format:String ) -> String? {
+    private func checkFormat(format:String ) -> String? {
 
             guard let dateString = self.datePublished() else {
                 return .none;
@@ -772,7 +772,7 @@ open class Readability {
             return (dateFormatter.string(from: finalDate))
             
         }
-    private func ConvertDateToFormat() -> String? {
+    private func convertDateToFormat() -> String? {
         let formatArray = [
             "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
             "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
@@ -798,7 +798,7 @@ open class Readability {
         ]
         
         for format in formatArray {
-            if  let checkIfAvailable = CheckFormat(format: format){
+            if  let checkIfAvailable = checkFormat(format: format){
                 return checkIfAvailable
             }
         }
