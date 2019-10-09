@@ -37,7 +37,7 @@ class DetailsController: UIViewController {
 	var desc: String?
 	var keywords: [String]?
 	var videoURL: String?
-    var dateVlaue : String?
+    var dateValue : String?
     
     @IBAction func onDone() {
         self.navigationController?.popViewController(animated: true)
@@ -47,7 +47,7 @@ class DetailsController: UIViewController {
 		super.viewDidLoad()
 
         imageView?.image = image
-        dateText.text = dateVlaue
+        dateText.text = dateValue
         
         if let videoURL = self.videoURL {
             videoURLTextView?.text = videoURL
