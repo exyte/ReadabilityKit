@@ -62,7 +62,7 @@ public extension Readability {
 						topImage: url.absoluteString,
 						text: .none,
 						topVideo: .none,
-						keywords: .none)
+                        keywords: .none, datePublished: .none)
 
 					if isMainThread {
 						DispatchQueue.main.async(execute: {

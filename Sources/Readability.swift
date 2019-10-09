@@ -32,6 +32,7 @@ public struct ReadabilityData {
 	public let text: String?
 	public let topVideo: String?
 	public let keywords: [String]?
+    public let datePublished: String?
 }
 
 open class Readability {
@@ -63,7 +64,37 @@ open class Readability {
 	let videoQueries: [(String, String?)] = [
 		("//head/meta[@property='og:video:url']", "content")
 	]
-
+    
+    let dateQueries: [(String, String?)] = [
+        ("//meta[@itemprop='datePublished']", "content"),
+        ("//span[@itemprop='datePublished']", "content"),
+        ("//head/meta[@property='article:published_time']","content"),
+        ("//head/meta[@name='article:published_time']","content"),
+        ("//head/meta[@name='sailthru.date']","content"),
+        ("//div[@class='date date--v2']", "data-datetime"),
+        ("//div[@class='keyvals']", "data-content_published_date"),
+        ("//form/input[@name='submit_time']", "value"),
+        ("//span/abbr[@class='published']", "title"),
+        ("//time[@itemprop='datePublished']", "datetime"),
+        ("//time[@class='entry-date']", "datetime"),
+        ("//time[@itemprop='datePublished']", "datetime"),
+        ("//time[@class='timestamp_article']", "datetime"),
+        ("//time[@class='timeago']", "datetime"),
+        ("//time[@class='post__date']", "datetime"),
+        ("//head/meta[@name='Date']", "content"),
+        ("//head/meta[@name='publish-date']", "content"),
+        ("//head/meta[@property='article:published_time']", "content"),
+        ("//head/meta[@name='date']", "content"),
+        ("/meta[@name='sailthru.date']", "content"),
+        ("//head/meta[@name='analyticsAttributes.articleDate']", "content"),
+        ("/meta[@property='og:article:published_time']", "content"),
+        ("//div[@class='companion-galleries embedded_story hasendslate galleries']", "data-published-date"),
+        ("//head/meta[@property='time']", "content"),
+        ("//time[@class='published-date hidden']", "datetime"),
+        ("//head/meta[@name='published_date']", "content"),
+        
+    ]
+    
 	let keywordsQueries: [(String, String?)] = [
 		("//head/meta[@name='keywords']", "content"),
 	]
@@ -506,7 +537,8 @@ open class Readability {
 			topImage: self.topImage(),
 			text: self.text(),
 			topVideo: self.topVideo(),
-			keywords: self.keywords()
+            keywords: self.keywords(),
+            datePublished: self.convertDateToFormat()
 		)
 
 		return parsedData
@@ -568,7 +600,7 @@ open class Readability {
 			}
 		}
 
-		return nil
+        return .none
 	}
 
 	fileprivate func extractValuesUsing(_ document: Ji, queries: [(String, String?)]) -> [String]? {
@@ -578,7 +610,7 @@ open class Readability {
 			}
 		}
 
-		return nil
+        return .none
 	}
 
 	open func title() -> String?
@@ -645,7 +677,7 @@ open class Readability {
 				var keywords = [String]()
 				values.forEach { (value: String) in
 					var separatorsCharacterSet = CharacterSet.whitespacesAndNewlines
-					separatorsCharacterSet.formUnion(NSCharacterSet.punctuationCharacters)
+					separatorsCharacterSet.formUnion(CharacterSet.punctuationCharacters)
 					keywords.append(contentsOf: value.components(separatedBy: separatorsCharacterSet))
 				}
 
@@ -657,4 +689,118 @@ open class Readability {
 
 		return .none
 	}
+    
+    
+    
+    private func datePublished() -> String? {
+        
+        if let document = document {
+            
+            if  let documentString = String(data: (document.data!), encoding: String.Encoding.utf8) {
+                
+                let checkString = "type=\"application/ld+json\">"
+                if documentString.range(of:checkString) != .none {
+                    
+                    let scanner = Scanner(string:documentString)
+                    scanner .scanUpTo(checkString, into: .none)
+                    
+                    var scanned: NSString?
+                    scanner .scanString(checkString, into: .none)
+                    
+                    if scanner .scanUpTo("</script>", into: &scanned) {
+                        
+                        guard  let dict = convertToDictionary(text: scanned! as String) else {
+                            
+                            return .none
+                        }
+                        
+                        if let publishDate = dict["datePublished"] {
+                            return publishDate as? String
+                        } else if  let publishDate = dict["dateCreated"] {
+                            return publishDate as? String;
+                        }
+                        
+                    }
+
+                }
+                
+            }
+            if let dateData = extractValueUsing(document, queries: dateQueries){
+                return dateData
+            }
+            
+        }
+        return .none
+    }
+    func convertToDictionary(text: String) -> [String: Any]? {
+
+        let  textdata = stringByRemovingControlCharacters(astring: text)
+        if let data = textdata.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+   private func stringByRemovingControlCharacters(astring: String) -> String {
+        let controlChars = CharacterSet.controlCharacters
+        var range = astring.rangeOfCharacter(from: controlChars)//rangeOfCharacterFromSet(controlChars)
+        var mutable = astring
+        while let removeRange = range {
+            mutable.removeSubrange(removeRange)//removeRange(removeRange)
+            range = mutable.rangeOfCharacter(from: controlChars)//rangeOfCharacterFromSet(controlChars)
+        }
+        
+        return mutable
+    }
+    private func checkFormat(format:String ) -> String? {
+
+            guard let dateString = self.datePublished() else {
+                return .none;
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+            dateFormatter.dateFormat = format
+           
+        guard let finalDate = dateFormatter.date(from: dateString) else { return .none }
+        
+            dateFormatter.dateFormat = "dd MMM yyyy"
+            return (dateFormatter.string(from: finalDate))
+            
+        }
+    private func convertDateToFormat() -> String? {
+        let formatArray = [
+            "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+            "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+            "yyyy-MM-dd HH:mm:ss",
+            "YYYY-MM-DDTHH:mm:ss-TZD",
+            "YYYY-MM-DDTHH:mm-TZD",
+            "YYYY-MM-DDThh:mmZ",
+            "YYYY-MM-DD'T'hh:mmZ",
+            "YYYY-MM-DDThh:mmTZD",
+            "YYYY-MM-DD HH:mm:ssZZZZZ",
+            "yyyy-MM-dd",
+            "dd MMM yyyy",
+            "yyyy-MM-dd'T'HH:mm:ss'PST'",
+            "yyyy-MM-dd HH:mm:ss.SSS",
+            "ddd MMM dd yyyy HH:mm:ss'GMT'",
+            "EEE MMM dd yyyy HH:mm:ss 'GMT'Z",
+            "EEE MMM dd HH:mm:ss 'EST' yyyy",
+            "MMM dd, yyyy mm:ss a",
+            "YYYY-MM-DD'T'hh:mm:ss'CST'",
+            "YYYY/MM/DD hh:mm:ss a",
+            "EEE, dd MMM yyyy hh:mm:ss Z",
+            "YYYYMMdd'T'HH:mm:ss'Z'",
+        ]
+        
+        for format in formatArray {
+            if  let checkIfAvailable = checkFormat(format: format){
+                return checkIfAvailable
+            }
+        }
+        return .none
+    }
 }
