@@ -47,6 +47,7 @@ Readability.parse(url: articleUrl, completion: { data in
     let keywords = data?.keywords
     let imageUrl = data?.topImage
     let videoUrl = data?.topVideo
+    let datePublished = data?.datePublished
 })
 ```
 
