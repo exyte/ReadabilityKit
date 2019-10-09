@@ -92,7 +92,6 @@ open class Readability {
         ("//head/meta[@property='time']", "content"),
         ("//time[@class='published-date hidden']", "datetime"),
         ("//head/meta[@name='published_date']", "content"),
-        ("//head/meta[@property='og:title']", "content"),
         
     ]
     
