@@ -7,7 +7,7 @@ DEPENDENCIES:
   - ReadabilityKit (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Ji
 
 EXTERNAL SOURCES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Ji: d795fed288fe78658b404c88946d753b17d8d7f4
-  ReadabilityKit: 8c2885beb8e5550cf0d365689897568228de41c9
+  ReadabilityKit: 40f4e3d038e01de49ec9ff616cfbd9be3d4b63bd
 
 PODFILE CHECKSUM: 0861b118dbbcffe4457ca84762a175080c853fe3
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4

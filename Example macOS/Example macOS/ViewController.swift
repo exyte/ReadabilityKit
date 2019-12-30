@@ -45,9 +45,15 @@ class ViewController: NSViewController {
 
         Readability.parse(url: url) { [weak self] data in
             let title = data?.title ?? "Not found"
+            let date = data?.datePublished ?? "Not found"
             let desc = data?.description ?? "Not found"
             let imageUrl = data?.topImage ?? "Not found"
-            self?.resultView?.string = "TITLE: \(title)\nDESC:\(desc)\nIMAGE:\(imageUrl)"
+            self?.resultView?.string = """
+                Title: \(title)
+                Date: \(date)
+                Description: \(desc)
+                Image URL: \(imageUrl)
+                """
         }
 	}
 }
