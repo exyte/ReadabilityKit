@@ -30,7 +30,6 @@ class DetailsController: UIViewController {
     @IBOutlet weak var imageView: UIImageView?
     @IBOutlet weak var videoURLTextView: UITextView?
     @IBOutlet weak var contentTextView: UITextView?
-    @IBOutlet weak var dateText: UILabel!
     
     var image: UIImage?
 	var titleText: String?
@@ -47,7 +46,6 @@ class DetailsController: UIViewController {
 		super.viewDidLoad()
 
         imageView?.image = image
-        dateText.text = dateValue
         
         if let videoURL = self.videoURL {
             videoURLTextView?.text = videoURL
@@ -61,13 +59,22 @@ class DetailsController: UIViewController {
         
         let boldFont = UIFont.systemFont(ofSize: 17, weight: .bold)
         let regularFont = UIFont.systemFont(ofSize: 17)
+        let mediumFont = UIFont.systemFont(ofSize: 15, weight: .medium)
+        
         let stringFormat = "%@\n"
+        let dateStringFormat = "\n%@\n"
         
         let contentAttributedString = NSMutableAttributedString()
         contentAttributedString.append(
             NSAttributedString(
                 string: String(format: stringFormat, titleText ?? ""),
                 attributes: [NSAttributedString.Key.font: boldFont]
+            )
+        )
+        contentAttributedString.append(
+            NSAttributedString(
+                string: String(format: dateStringFormat, dateValue ?? ""),
+                attributes: [NSAttributedString.Key.font: mediumFont]
             )
         )
         contentAttributedString.append(
