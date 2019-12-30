@@ -34,10 +34,6 @@ Extracts:
 - [x] Keywords
 - [x] Date
 
-## Requirements
-
-- iOS 10.0+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
-
 ## Usage
 
 ```swift
@@ -57,27 +53,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Installation
 
 ### [CocoaPods](http://cocoapods.org)
-To install `ReadabilityKit`, simply add the following line to your Podfile
 
 ```ruby
 pod 'ReadabilityKit'
 ```
 
-Swift 4.x:
-
-```ruby
-pod 'ReadabilityKit' '0.7.1'
-```
-
-Swift 3.x:
-
-```ruby
-pod 'ReadabilityKit', '0.6.0'
-```
-
 ### [Carthage](http://github.com/Carthage/Carthage)
-
-To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
 
 ```ogdl
 github "exyte/ReadabilityKit"
@@ -85,8 +66,21 @@ github "exyte/ReadabilityKit"
 
 ### Manually
 
-1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually)
-2. Download and drop all files from Sources folder in your project
+1. Install [Ji XML parser](https://github.com/honghaoz/Ji#manually).
+2. Download and drop all files from Sources folder in your project.
+
+## Development Environment Setup
+
+1. Install [Carthage](https://github.com/Carthage/Carthage#installing-carthage).
+2. Check out and build the project's dependencies:
+
+```bash
+carthage bootstrap --platform <name>
+```
+
+## Requirements
+
+- iOS 10.0+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
 
 ## License
 
