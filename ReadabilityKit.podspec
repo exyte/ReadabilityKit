@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ReadabilityKit'
-  s.version          = '0.7.3'
+  s.version          = '0.7.4'
   s.summary          = 'Metadata extractor for news, articles and full-texts.'
   
   s.homepage         = 'https://github.com/exyte/ReadabilityKit.git'
