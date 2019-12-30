@@ -1,5 +1,5 @@
-<img src="https://github.com/exyte/ReadabilityKit/blob/master/header.png">
-<img align="right" src="https://raw.githubusercontent.com/exyte/ReadabilityKit/master/demo.gif" width="480" />
+<img src="https://github.com/exyte/ReadabilityKit/blob/master/Assets/header.png">
+<img align="right" src="https://raw.githubusercontent.com/exyte/ReadabilityKit/master/Assets/demo.gif" width="480" />
 
 <p><h1 align="left">ReadabilityKit</h1></p>
 
@@ -33,9 +33,10 @@ Extracts:
 - [x] Top video
 - [x] Keywords
 - [x] Date
+
 ## Requirements
 
-- iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
+- iOS 10.0+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
 
 ## Usage
 
@@ -58,7 +59,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ### [CocoaPods](http://cocoapods.org)
 To install `ReadabilityKit`, simply add the following line to your Podfile
 
-Swift 5.x:
 ```ruby
 pod 'ReadabilityKit'
 ```
@@ -79,19 +79,8 @@ pod 'ReadabilityKit', '0.6.0'
 
 To integrate `ReadabilityKit` into your Xcode project using Carthage, specify it in your `Cartfile`
 
-Swift 5.x:
-```ruby
+```ogdl
 github "exyte/ReadabilityKit"
-```
-
-Swift 4.x:
-```ruby
-github "exyte/ReadabilityKit" == 0.7.1
-```
-
-Swift 3.x:
-```ruby
-github "exyte/ReadabilityKit" == 0.6.0
 ```
 
 ### Manually
