@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Ji",
+        "repositoryURL": "https://github.com/honghaoz/Ji",
+        "state": {
+          "branch": null,
+          "revision": "a37a310cc6aaf999de4bee953a9680bf9b629200",
+          "version": "5.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
