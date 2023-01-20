@@ -24,6 +24,7 @@
 //
 
 import Ji
+@_exported import Foundation
 
 public struct ReadabilityData {
 	public let title: String
