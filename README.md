@@ -23,7 +23,7 @@ ___
 
 
 # !Project is now archived!
-No further maintanance will be performed
+No further maintenance will be performed
 
 ## Features
 
